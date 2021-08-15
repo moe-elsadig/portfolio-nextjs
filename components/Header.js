@@ -4,10 +4,16 @@ import React, { useState } from "react";
 function Header() {
   const [menu, setMenu] = useState(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[100px] items-center backdrop-blur-sm bg-gradient-to-b from-white via-white to-transparent">
+    <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[80px] items-center backdrop-blur-sm bg-gradient-to-b from-white via-white to-transparent">
       <div className="pl-5">
-        <h1 className=" text-2xl">Moe.</h1>
+        <h1 className=" text-2xl cursor-pointer" onClick={() => scrollToTop()}>
+          Moe.
+        </h1>
       </div>
       <div className="hidden md:inline-flex md:max-w-[100px]">
         <Image

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header";
 import ProfileCard from "../components/ProfileCard";
+import ProjectCard from "../components/ProjectCard";
 
 export default function Home({ projectData }) {
   console.log("projectData", projectData);
@@ -17,10 +18,7 @@ export default function Home({ projectData }) {
       <ProfileCard />
       <main className="">
         {projectData?.map((project) => (
-          <div>
-            <h1>{project.title}</h1>
-            <p>{project.description}</p>
-          </div>
+          <ProjectCard project={project} />
         ))}
       </main>
 
