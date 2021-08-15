@@ -1,19 +1,56 @@
-import React from "react";
+import Image from "next/image";
+import React, { useState } from "react";
 
 function Header() {
+  const [menu, setMenu] = useState(false);
+
   return (
-    <div className="sticky top-0 z-50 shadow-md grid grid-flow-col grid-cols-3 justify-items-center h-[100px] items-center">
-      <div className="border border-purple-300">
-        <h1>left</h1>
+    <div className="font-mono sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[100px] items-center">
+      <div className="pl-5">
+        <h1 className=" text-2xl">Moe.</h1>
       </div>
-      <div className="border border-purple-200">
-        <h1>center</h1>
+      <div className="hidden md:inline-flex md:max-w-[100px]">
+        <Image
+          src="/vercel.svg"
+          width="100"
+          height="100"
+          // layout="fill"
+          objectFit="contain"
+        />
       </div>
-      <div className="border border-purple-100">
-        <div className="flex space-x-4 justif">
-          <h1>right</h1>
-          <h1>right</h1>
-          <h1>right</h1>
+      <div className="pr-5">
+        <div className="hidden space-x-4 justif md:inline-flex">
+          <button className={`${buttonStyle}`}>Home</button>
+          <button className={`${buttonStyle}`}>Resume</button>
+          <button className={`${buttonStyle}`}>Projects</button>
+          <button className={`${buttonStyle}`}>About</button>
+          <button className={`${buttonStyle}`}>Contact</button>
+        </div>
+        <button className="md:hidden" onClick={() => setMenu(!menu)}>
+          Menu
+        </button>
+        <div
+          style={{
+            visibility: menu ? "visible" : "hidden",
+            scale: menu ? 1 : 0.5,
+          }}
+          className="absolute z-51 top-0 left-0 h-screen w-screen bg-gray-400 opacity-30"
+          onClick={() => setMenu(false)}
+        />
+        <div
+          style={{
+            visibility: menu ? "visible" : "hidden",
+          }}
+          className="flex flex-col space-y-4 justif z-52 absolute top-0 right-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 p-10 rounded-xl text-white text-lg transition transform ease-out duration-200 md:hidden"
+        >
+          <button className={`${buttonStyle}`} onClick={() => setMenu()}>
+            Close
+          </button>
+          <button className={`${buttonStyle}`}>Home</button>
+          <button className={`${buttonStyle}`}>Resume</button>
+          <button className={`${buttonStyle}`}>Projects</button>
+          <button className={`${buttonStyle}`}>About</button>
+          <button className={`${buttonStyle}`}>Contact</button>
         </div>
       </div>
     </div>
@@ -21,3 +58,6 @@ function Header() {
 }
 
 export default Header;
+
+// const buttonStyle = "rounded-lg p-4 ring-4 ring-pink-300 ring-inset";
+const buttonStyle = "rounded-lg p-4 ";

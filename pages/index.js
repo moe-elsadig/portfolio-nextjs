@@ -11,9 +11,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="border border-red-600 flex-1">Main</main>
+      {/* profile card */}
+      <div>
+        <Image
+          src="/blob.svg"
+          fill=""
+          objectFit="contain"
+          height={100}
+          width={100}
+        />
+      </div>
+      <main className=" flex-1">Main</main>
 
-      <footer className="border border-green-600">footer</footer>
+      <footer className="border-t mx-10">
+        <p className="text-sm text-gray-400">Designed & Developed by Moe.</p>
+      </footer>
     </div>
   );
 }
