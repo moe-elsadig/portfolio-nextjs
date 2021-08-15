@@ -1,10 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
-import Header from "./components/Header";
+import Header from "../components/Header";
+import ProfileCard from "../components/ProfileCard";
 
-export default function Home() {
+export default function Home({ projectData }) {
+  console.log("projectData", projectData);
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col font-mono ">
       <Head>
         <title>Portfolio - NextJS - TW</title>
         <meta name="description" content="Welcome to me, Moe" />
@@ -12,20 +14,41 @@ export default function Home() {
       </Head>
       <Header />
       {/* profile card */}
-      <div>
-        <Image
-          src="/blob.svg"
-          fill=""
-          objectFit="contain"
-          height={100}
-          width={100}
-        />
-      </div>
-      <main className=" flex-1">Main</main>
+      <ProfileCard />
+      <main className="">
+        {projectData?.map((project) => (
+          <div>
+            <h1>{project.title}</h1>
+            <p>{project.description}</p>
+          </div>
+        ))}
+      </main>
 
       <footer className="border-t mx-10">
         <p className="text-sm text-gray-400">Designed & Developed by Moe.</p>
       </footer>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  // const exploreData = await fetch("https://links.papareact.com/pyp").then(
+  //   (res) => res.json()
+  // );
+
+  // const cardsData = await fetch("https://links.papareact.com/zp1").then((res) =>
+  //   res.json()
+  // );
+
+  const projectData = [];
+  const placeholderText = "Lorem ispum. ";
+
+  for (let i = 0; i < 50; i++) {
+    projectData.push({
+      title: `project no. ${i}`,
+      description: placeholderText.repeat(i),
+    });
+  }
+
+  return { props: { projectData } };
 }

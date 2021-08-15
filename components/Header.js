@@ -5,7 +5,7 @@ function Header() {
   const [menu, setMenu] = useState(false);
 
   return (
-    <div className="font-mono sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[100px] items-center">
+    <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[100px] items-center backdrop-blur-sm bg-gradient-to-b from-white via-white to-transparent">
       <div className="pl-5">
         <h1 className=" text-2xl">Moe.</h1>
       </div>
