@@ -1,11 +1,23 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import ProfileCard from "../components/ProfileCard";
 import ProjectCard from "../components/ProjectCard";
 
 export default function Home({ projectData }) {
   console.log("projectData", projectData);
+
+  const [projectsData, setProjectsData] = useState({});
+
+  useEffect(() => {
+    fetch("/projectsData.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setProjectsData(data);
+      });
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col font-mono ">
       <Head>

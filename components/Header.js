@@ -1,3 +1,4 @@
+import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -40,17 +41,17 @@ function Header() {
             visibility: menu ? "visible" : "hidden",
             scale: menu ? 1 : 0.5,
           }}
-          className="absolute z-51 top-0 left-0 h-screen w-screen bg-gray-400 opacity-30"
+          className="absolute z-51 top-0 left-0 h-screen w-screen bg-gray-400 opacity-50"
           onClick={() => setMenu(false)}
         />
         <div
           style={{
             visibility: menu ? "visible" : "hidden",
           }}
-          className="flex flex-col space-y-4 justif z-52 absolute top-0 right-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 p-10 rounded-xl text-white text-lg transition transform ease-out duration-200 md:hidden"
+          className="md:hidden flex flex-col space-y-4 justify-start z-52 absolute top-0 right-0 bg-gradient-to-r from-transparent via-pink-800 to-red-900 p-10 text-white text-lg transition transform ease-in-out duration-200 min-h-screen items-end"
         >
           <button className={`${buttonStyle}`} onClick={() => setMenu()}>
-            Close
+            <XIcon className={`h-10 mx-auto animate-pulse`} />
           </button>
           <button className={`${buttonStyle}`}>Home</button>
           <button className={`${buttonStyle}`}>Resume</button>
@@ -66,4 +67,4 @@ function Header() {
 export default Header;
 
 // const buttonStyle = "rounded-lg p-4 ring-4 ring-pink-300 ring-inset";
-const buttonStyle = "rounded-lg p-4 ";
+const buttonStyle = "rounded-xl p-2";
