@@ -1,13 +1,12 @@
-import Head from "next/head";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import ProfileCard from "../components/ProfileCard";
 import ProjectCard from "../components/ProjectCard";
+import Header from "../components/Header";
+import Head from "next/head";
+import ProfileCard from "../components/ProfileCard";
+import AnimatedBG from "../components/AnimatedBG";
 
 export default function Home({ projectData }) {
-  console.log("projectData", projectData);
-
+  console.log("projectData", projectData.length);
   const [projectsData, setProjectsData] = useState({});
 
   useEffect(() => {
@@ -26,6 +25,7 @@ export default function Home({ projectData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      {/* <AnimatedBG /> */}
       {/* profile card */}
       <ProfileCard />
       <main className="">
@@ -53,12 +53,13 @@ export async function getStaticProps() {
   const projectData = [];
   const placeholderText = "Lorem ispum. ";
 
-  for (let i = 0; i < 50; i++) {
+  const limit = 100;
+  for (let i = 0; i < limit; i++) {
     projectData.push({
       title: `project no. ${i}`,
       description: placeholderText.repeat(i),
     });
-  }
 
-  return { props: { projectData } };
+    if (i + 1 === limit) return { props: { projectData } };
+  }
 }
