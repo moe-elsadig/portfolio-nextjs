@@ -18,24 +18,27 @@ export default function Home({ projectData }) {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font-mono ">
+    <div className="min-h-screen flex flex-col font-mono overflow-x-hidden">
       <Head>
         <title>Portfolio - NextJS - TW</title>
         <meta name="description" content="Welcome to me, Moe" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {/* <AnimatedBG /> */}
-      {/* profile card */}
       <ProfileCard />
       <main className="">
-        {projectData?.map((project) => (
-          <ProjectCard project={project} />
+        {projectData?.map((project, index) => (
+          <ProjectCard key={project.title} project={project} index={index} />
         ))}
       </main>
 
       <footer className="border-t mx-10">
-        <p className="text-sm text-gray-400">Designed & Developed by Moe.</p>
+        <p className="text-sm text-gray-400">
+          Designed & Developed by <span className="text-yellow-400">M</span>
+          <span className="text-red-400">o</span>
+          <span className="text-pink-400">e</span>
+          <span className="text-green-400">.</span>
+        </p>
       </footer>
     </div>
   );
@@ -53,7 +56,7 @@ export async function getStaticProps() {
   const projectData = [];
   const placeholderText = "Lorem ispum. ";
 
-  const limit = 100;
+  const limit = 20;
   for (let i = 0; i < limit; i++) {
     projectData.push({
       title: `project no. ${i}`,

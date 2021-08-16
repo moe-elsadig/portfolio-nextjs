@@ -26,18 +26,18 @@ function ProfileCard() {
           className="rounded-full m-5 p-5"
         />
       </div>
-      <div class="pt-6 text-center space-y-4">
+      <div className="pt-6 text-center space-y-4">
         <blockquote>
-          <p class="text-lg font-semiboldtext-gray-500">
+          <p className="text-lg font-semiboldtext-gray-500">
             "I love building well engineered solutions"
           </p>
         </blockquote>
-        <figcaption class="font-small pt-10">
-          <p class="text-gray-500">Mohammed Abdalla</p>
-          <p class="text-sm">
+        <figcaption className="font-small pt-10">
+          <p className="text-gray-500">Mohammed Abdalla</p>
+          <p className="text-sm">
             I'm a{" "}
             <span className="text-green-400 hover:animate-bounce">
-              Mecharonic
+              Mechatronics
             </span>{" "}
             Engineer and a{" "}
             <span className="text-yellow-500 hover:animate-bounce">
