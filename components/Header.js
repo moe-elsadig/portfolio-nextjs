@@ -1,9 +1,12 @@
 import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import React, { useState } from "react";
+import { HiColorSwatch } from "react-icons/hi";
 
-function Header() {
+function Header({ setAccentColor }) {
   const [menu, setMenu] = useState(false);
+  const colors = ["red", "pink", "blue", "yellow"];
+  const [color, setColor] = useState(0);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -11,7 +14,7 @@ function Header() {
 
   return (
     <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[80px] items-center backdrop-blur-sm bg-gradient-to-b from-white via-white to-transparent">
-      <div className="pl-5">
+      <div className="pl-5 flex flex-row">
         <h1 className=" text-2xl cursor-pointer" onClick={() => scrollToTop()}>
           Moe.
         </h1>
@@ -23,6 +26,14 @@ function Header() {
           height="100"
           // layout="fill"
           objectFit="contain"
+        />
+        <HiColorSwatch
+          className={`hidden text-2xl text-${colors[color]}-500 cursor-pointer`}
+          onClick={() => {
+            const nextColor = (color + 1) % colors.length;
+            setColor(nextColor);
+            setAccentColor(colors[nextColor]);
+          }}
         />
       </div>
       <div className="pr-5">

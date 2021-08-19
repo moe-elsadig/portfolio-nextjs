@@ -12,7 +12,7 @@ import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
 function ProfileCard() {
   return (
     <div className="my-10 p-10 flex flex-col md:flex-wrap md:flex-row items-center mx-auto">
-      <div className="w-64 h-64 md:w-128 md:h-128 rounded-full mx-auto relative  transition transform duration-200 ease-in-out hover:-skew-y-12 hover:scale-110 ">
+      <div className="w-64 h-64 md:w-128 md:h-128 rounded-full mx-auto relative  transition transform duration-200 ease-in-out hover:scale-110 hover:shadow-md">
         <Image
           src="/blob.svg"
           layout="fill"
