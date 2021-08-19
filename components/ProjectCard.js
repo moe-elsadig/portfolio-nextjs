@@ -15,7 +15,7 @@ export default function ProjectCard({
 }) {
   return (
     <div
-      className={`${br[0]} flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 border-b border-${accentColor}-100 transition duration-300 ease-out bg-white bg-gradient-to-r from-white via-white to-white hover:to-${accentColor}-300 hover:shadow-md hover:rounded-lg`}
+      className={`${br[0]} flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 border-b border-${accentColor}-100 transition duration-300 ease-out bg-white bg-gradient-to-r from-white via-white to-white hover:to-${accentColor}-100 hover:shadow-md hover:rounded-sm`}
     >
       <div className={`${br[1]} flex-grow overflow-y-scroll`}>
         <div className="flex flex-row justify-between">

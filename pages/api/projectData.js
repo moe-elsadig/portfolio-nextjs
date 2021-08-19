@@ -69,7 +69,10 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [],
+          images: [
+            "/projects/jawab-desktop.gif",
+            // "/projects/jawab-desktop.png",
+          ],
           videos: [],
         },
       },
@@ -77,7 +80,7 @@ export default function handler(req, res) {
     {
       title: `Signal-Like Clone`,
       description: "A Signal Messenger UI Clone with working functionalty...",
-      stack: ["", ""],
+      stack: ["React Native", "Expo", "Firebase", "react-navigation"],
       media: {
         mobile: {
           images: [],
@@ -88,36 +91,77 @@ export default function handler(req, res) {
           videos: [],
         },
       },
+      dependencies: [
+        "@react-native-community/masked-view",
+        "@react-navigation/native",
+        "@react-navigation/stack",
+        "expo",
+        "expo-status-bar",
+        "react",
+        "react-dom",
+        "react-native",
+        "react-native-elements",
+        "react-native-gesture-handler",
+        "react-native-reanimated",
+        "react-native-safe-area-context",
+        "react-native-screens",
+        "react-native-web",
+        "firebase",
+      ],
     },
     {
       title: `Airbnb-Like Clone`,
       description: "An Airbnb site UI Clone with working functionalty...",
-      stack: ["", ""],
+      stack: ["NextJS", "MapBox", "TailwindCSS"],
       media: {
         mobile: {
-          images: [],
+          images: ["/projects/earthbnb-mobile.gif"],
           videos: [],
         },
         desktop: {
-          images: [],
+          images: ["/projects/earthbnb-desktop.gif"],
           videos: [],
         },
       },
+      dependencies: [
+        "@badrap/bar-of-progress",
+        "@heroicons/react",
+        "date-fns",
+        "geolib",
+        "next",
+        "react",
+        "react-date-range",
+        "react-dom",
+        "react-map-gl",
+        "tailwind-scrollbar-hide",
+      ],
     },
     {
       title: `Google Docs-Like Clone`,
       description: "A Google Docs site UI Clone with working functionalty...",
-      stack: ["", ""],
+      stack: ["NextJS", "DraftJS", "TailwindCSS", "Firebase", "Next-Auth"],
       media: {
         mobile: {
           images: [],
           videos: [],
         },
         desktop: {
-          images: [],
+          images: ["/projects/kitabat-desktop.gif"],
           videos: [],
         },
       },
+      dependencies: [
+        "@material-tailwind/react",
+        "@next-auth/firebase-adapter",
+        "draft-js",
+        "firebase",
+        "next",
+        "next-auth",
+        "react",
+        "react-dom",
+        "react-draft-wysiwyg",
+        "react-firebase-hooks",
+      ],
     },
   ];
 
