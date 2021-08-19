@@ -33,7 +33,7 @@ function ProfileCard() {
           </p>
         </blockquote>
         <figcaption className="font-small pt-10">
-          <p className="text-gray-500">Mohammed Abdalla</p>
+          <p className="text-gray-500">Moe Abdalla</p>
           <p className="text-sm">
             I'm a{" "}
             <span className="text-green-400 hover:animate-bounce">
