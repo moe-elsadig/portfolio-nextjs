@@ -21,10 +21,10 @@ export default function ProjectCard({
           <AiOutlineGithub className="h-6 cursor-pointer hover:text-green-400 hover:scale-105" />
           <ExternalLinkIcon className="h-6 cursor-pointer hover:text-green-400 hover:scale-105" />
         </div>
-        <h1>{title}</h1>
+        <h1 className="text-lg text-green-400">{title}</h1>
         <p>{description}</p>
         <div>
-          <p className="text-gray-400">Stack:</p>
+          <p className="text-green-300">Stack:</p>
           <div className="flex flex-row flex-wrap justify- space-x-4 ">
             {stack?.map((tech, index) => (
               <p
@@ -32,7 +32,9 @@ export default function ProjectCard({
                 className="cursor-pointer hover:text-green-400 hover:scale-105"
               >
                 {tech}
-                {index + 1 < stack.length ? "/" : "."}
+                <span className="text-green-300">
+                  {index + 1 < stack.length ? "/" : "."}
+                </span>
               </p>
             ))}
           </div>

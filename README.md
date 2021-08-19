@@ -5,6 +5,7 @@ This is a personal porfolio site built with NextJs on React and styled with the 
 ## Features
 
 - Responsive layout
+- Dynamic text highlighting - `TBD` // highlighting description text if it's in the stack`
 - Dark mode - `TBD`
 - Timeline view - `TBD`
 - Github graphs - `TBD`
@@ -20,6 +21,7 @@ This is a personal porfolio site built with NextJs on React and styled with the 
 - ReactJS
 - Hero Icons
 - React Icons
+  z
 
 ## Getting Started
 
