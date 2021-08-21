@@ -10,6 +10,16 @@ import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
 // } from "react-icons/ai";
 
 function ProfileCard() {
+  const scrollToProjects = () => {
+    const el = document.getElementById("project0");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="my-10 p-10 flex flex-col md:flex-wrap md:flex-row items-center mx-auto">
       <div className="w-64 h-64 md:w-128 md:h-128 rounded-full mx-auto relative  transition transform duration-200 ease-in-out hover:scale-110 hover:shadow-md">
@@ -51,7 +61,10 @@ function ProfileCard() {
         <button className="flex flex-row gap-5 items-center">
           Resume <DownloadIcon className="h-5 w-5 text-blue-500" />
         </button>
-        <button className="flex flex-row gap-5 items-center">
+        <button
+          className="flex flex-row gap-5 items-center"
+          onClick={() => scrollToProjects()}
+        >
           Projects
           <ChevronDownIcon className="h-5 w-5 text-blue-500 animate-bounce" />
         </button>

@@ -20,15 +20,15 @@ function Header({ setAccentColor }) {
         </h1>
       </div>
       <div className="hidden md:inline-flex md:max-w-[100px]">
-        <Image
+        {/* <Image
           src="/vercel.svg"
           width="100"
           height="100"
           // layout="fill"
           objectFit="contain"
-        />
+        /> */}
         <HiColorSwatch
-          className={`hidden text-2xl text-${colors[color]}-500 cursor-pointer`}
+          className={` text-2xl text-${colors[color]}-500 cursor-pointer`}
           onClick={() => {
             const nextColor = (color + 1) % colors.length;
             setColor(nextColor);

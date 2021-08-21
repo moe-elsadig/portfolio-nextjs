@@ -33,7 +33,7 @@ export default function handler(req, res) {
       stack: ["React Native"],
       media: {
         mobile: {
-          images: [],
+          images: ["/projects/tlprt-mobile.gif"],
           videos: [],
         },
         desktop: {
