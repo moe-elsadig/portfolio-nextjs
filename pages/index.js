@@ -41,7 +41,15 @@ export default function Home({ projectData }) {
 }
 
 export async function getStaticProps() {
-  const projectData = await fetch("/api/projectData")
+  const NODE_ENV = process.env.NODE_ENV;
+  // production url
+  let projectDataURL = "https://portfolio-nextjs-psi.vercel.app";
+
+  if (NODE_ENV === "development") {
+    projectDataURL = "http://localhost:3000";
+  }
+
+  const projectData = await fetch(projectDataURL + "/api/projectData")
     .then((res) => res.json())
     .catch((err) => {
       console.log("unable to fetch project data");
