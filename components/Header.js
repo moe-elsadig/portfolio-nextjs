@@ -20,7 +20,7 @@ function Header({ setAccentColor }) {
         </h1>
       </div>
       <div className="hidden md:inline-flex md:max-w-[100px]">
-        {/* <Image
+        {/* <Image alt=''
           src="/vercel.svg"
           width="100"
           height="100"

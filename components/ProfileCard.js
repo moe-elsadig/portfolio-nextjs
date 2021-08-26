@@ -24,12 +24,14 @@ function ProfileCard() {
     <div className="my-10 p-10 flex flex-col md:flex-wrap md:flex-row items-center mx-auto">
       <div className="w-64 h-64 md:w-128 md:h-128 rounded-full mx-auto relative  transition transform duration-200 ease-in-out hover:scale-110 hover:shadow-md">
         <Image
+          alt=""
           src="/blob.svg"
           layout="fill"
           objectFit="cover"
           className="rounded-full m-5 p-5"
         />
         <Image
+          alt=""
           src="/profile_photo-removebg.png"
           layout="fill"
           objectFit="cover"
@@ -39,13 +41,13 @@ function ProfileCard() {
       <div className="pt-6 text-center space-y-4">
         <blockquote>
           <p className="text-lg font-semiboldtext-gray-500">
-            "I love building well engineered solutions"
+            &quotI love building well engineered solutions&quot
           </p>
         </blockquote>
         <figcaption className="font-small pt-10">
           <p className="text-gray-500">Moe Abdalla</p>
           <p className="text-sm">
-            I'm a{" "}
+            I&aposm a{" "}
             <span className="text-green-400 hover:animate-bounce">
               Mechatronics
             </span>{" "}

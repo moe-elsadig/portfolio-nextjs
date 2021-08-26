@@ -6,17 +6,7 @@ import ProfileCard from "../components/ProfileCard";
 import AnimatedBG from "../components/AnimatedBG";
 
 export default function Home({ projectData }) {
-  console.log("projectData", projectData.length);
-  const [projectsData, setProjectsData] = useState({});
   const [accentColor, setAccentColor] = useState("red");
-
-  useEffect(() => {
-    fetch("/projectsData.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProjectsData(data);
-      });
-  }, []);
 
   return (
     <div className="min-h-screen flex flex-col font-mono overflow-x-hidden relative">
@@ -51,9 +41,13 @@ export default function Home({ projectData }) {
 }
 
 export async function getStaticProps() {
-  const projectData = await fetch("http://localhost:3000/api/projectData").then(
-    (res) => res.json()
-  );
+  const projectData = await fetch("/api/projectData")
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log("unable to fetch project data");
+      return null;
+    });
 
+  console.log("returning:", projectData);
   return { props: { projectData } };
 }

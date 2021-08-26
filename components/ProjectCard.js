@@ -58,6 +58,7 @@ export default function ProjectCard({
         <div className={`${br[2]} relative h-[45vh] w-full flex-grow`}>
           {media?.mobile.images.map((image, index) => (
             <Image
+              alt=""
               key={image}
               src={image}
               layout="fill"
@@ -71,6 +72,7 @@ export default function ProjectCard({
         <div className={`${br[2]} relative h-[45vh] w-full flex-grow`}>
           {media?.desktop.images.map((image, index) => (
             <Image
+              alt=""
               key={image}
               src={image}
               layout="fill"
