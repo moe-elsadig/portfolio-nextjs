@@ -9,7 +9,7 @@ export default function Home({ projectData }) {
   const [accentColor, setAccentColor] = useState("red");
 
   return (
-    <div className="min-h-screen flex flex-col font-mono overflow-x-hidden relative">
+    <div className="min-h-screen flex flex-col font-mono relative">
       <Head>
         <title>Portfolio - NextJS - TW</title>
         <meta name="description" content="Welcome to me, Moe" />
@@ -17,7 +17,7 @@ export default function Home({ projectData }) {
       </Head>
       <Header setAccentColor={setAccentColor} />
       <ProfileCard />
-      <main className="">
+      <main className="relative bg-gray-100">
         {projectData?.map((project, index) => (
           <ProjectCard
             key={project.title}
@@ -56,6 +56,5 @@ export async function getStaticProps() {
       return null;
     });
 
-  console.log("returning:", projectData);
   return { props: { projectData } };
 }

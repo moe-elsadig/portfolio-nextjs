@@ -12,6 +12,26 @@ function Header({ setAccentColor }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const scrollToProjects = () => {
+    const el = document.getElementById("project0");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    setMenu(false);
+  };
+
+  const scrollToHome = () => {
+    const el = document.getElementById("profile-card");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    setMenu(false);
+  };
+
   return (
     <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[80px] items-center backdrop-blur-sm bg-gradient-to-b from-white via-white to-transparent">
       <div className="pl-5 flex flex-row">
@@ -37,10 +57,17 @@ function Header({ setAccentColor }) {
         />
       </div>
       <div className="pr-5">
-        <div className="hidden space-x-4 justif md:inline-flex">
-          <button className={`${buttonStyle}`}>Home</button>
+        <div className="hidden space-x-4 justify-center md:inline-flex">
+          <button className={`${buttonStyle}`} onClick={() => scrollToHome()}>
+            Home
+          </button>
           <button className={`${buttonStyle}`}>Resume</button>
-          <button className={`${buttonStyle}`}>Projects</button>
+          <button
+            className={`${buttonStyle}`}
+            onClick={() => scrollToProjects()}
+          >
+            Projects
+          </button>
           <button className={`${buttonStyle}`}>About</button>
           <button className={`${buttonStyle}`}>Contact</button>
         </div>
@@ -59,14 +86,21 @@ function Header({ setAccentColor }) {
           style={{
             visibility: menu ? "visible" : "hidden",
           }}
-          className="md:hidden flex flex-col space-y-4 justify-start z-52 absolute top-0 right-0 bg-gradient-to-r from-transparent via-pink-800 to-red-900 p-10 text-white text-lg transition transform ease-in-out duration-200 min-h-screen items-end"
+          className="md:hidden flex flex-col space-y-4 justify-start z-52 fixed top-0 right-0 bg-gradient-to-r from-transparent via-pink-400 to-indigo-400 p-10 text-white text-lg transition transform ease-in-out duration-200 min-h-screen items-end"
         >
           <button className={`${buttonStyle}`} onClick={() => setMenu()}>
             <XIcon className={`h-10 mx-auto animate-pulse`} />
           </button>
-          <button className={`${buttonStyle}`}>Home</button>
+          <button className={`${buttonStyle}`} onClick={() => scrollToHome()}>
+            Home
+          </button>
           <button className={`${buttonStyle}`}>Resume</button>
-          <button className={`${buttonStyle}`}>Projects</button>
+          <button
+            className={`${buttonStyle}`}
+            onClick={() => scrollToProjects()}
+          >
+            Projects
+          </button>
           <button className={`${buttonStyle}`}>About</button>
           <button className={`${buttonStyle}`}>Contact</button>
         </div>

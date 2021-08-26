@@ -5,7 +5,7 @@ export default function handler(req, res) {
     {
       title: `Portfolio Site - NextJs version`,
       description:
-        "This is a personal porfolio site built with NextJs on React and styled with the help of Tailwind.",
+        "This is a personal porfolio site built with NextJs on React and styled with the Tailwind CSS.",
       stack: ["NextJs", "ReactJS", "TailwindCSS", "Hero-Icons", "React-Icons"],
       dependencies: [
         "@heroicons/react",
@@ -27,7 +27,7 @@ export default function handler(req, res) {
       },
     },
     {
-      title: `Uber-Like Clone`,
+      title: `Uber Clone`,
       description:
         "An Uber UI Clone with working search and routing functionality powered by the Maps APIs from Google. Built using React Native for its cross-platform deployment and mobile first approach.",
       stack: ["React Native"],
@@ -43,7 +43,7 @@ export default function handler(req, res) {
       },
     },
     {
-      title: `Whatsapp-Like Clone`,
+      title: `Whatsapp Clone`,
       description:
         "A Whatsapp Messenger UI Clone with working functionalty as Sign up, Google authentication, Messaging.",
       stack: ["NextJS", "ReactJS", "Firebase", "Styled Components"],
@@ -78,7 +78,7 @@ export default function handler(req, res) {
       },
     },
     {
-      title: `Signal-Like Clone`,
+      title: `Signal Clone`,
       description: "A Signal Messenger UI Clone with working functionalty...",
       stack: ["React Native", "Expo", "Firebase", "react-navigation"],
       media: {
@@ -110,7 +110,7 @@ export default function handler(req, res) {
       ],
     },
     {
-      title: `Airbnb-Like Clone`,
+      title: `Airbnb Clone`,
       description: "An Airbnb site UI Clone with working functionalty...",
       stack: ["NextJS", "MapBox", "TailwindCSS"],
       media: {
@@ -137,7 +137,7 @@ export default function handler(req, res) {
       ],
     },
     {
-      title: `Google Docs-Like Clone`,
+      title: `Google Docs Clone`,
       description: "A Google Docs site UI Clone with working functionalty...",
       stack: ["NextJS", "DraftJS", "TailwindCSS", "Firebase", "Next-Auth"],
       media: {
