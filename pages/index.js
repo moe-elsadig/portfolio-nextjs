@@ -40,7 +40,7 @@ export default function Home({ projectData }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const NODE_ENV = process.env.NODE_ENV;
   // production url
   let projectDataURL = "https://portfolio-nextjs-psi.vercel.app";
