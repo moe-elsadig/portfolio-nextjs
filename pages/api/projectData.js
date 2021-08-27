@@ -1,7 +1,211 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default function handler(req, res) {
-  const projectData = [
+  // {
+  //   title: `Catalogue App`,
+  //   description: `FSND-P2 Catalogue App`,
+  //   stack: ["Python"],
+  //   media: {
+  //     mobile: {
+  //       images: [],
+  //       videos: [],
+  //     },
+  //     desktop: {
+  //       images: [],
+  //       videos: [],
+  //     },
+  //   },
+  //   dependencies: ["Python"],
+  //   repo: "https://github.com/moe-elsadig",
+  // },
+
+  // ===========================================================================
+  // ABND
+  // ===========================================================================
+  let abndProjects = [
+    {
+      title: `Single Screen App`,
+      description: `ABND-P1 Single Screen App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig",
+    },
+  ];
+
+  // ===========================================================================
+  // ROBOND
+  // ===========================================================================
+  let roboProjects = [
+    {
+      title: `3D Perception`,
+      description: `RoboND 3D Perception Project. A PR2 Robot has been outfitted with an RGB-D sensor, this sensor however is a bit noisy, much like real sensors.
+
+      Given the cluttered tabletop scenario, I have implement a perception pipeline to identify target objects from a so-called “Pick-List” in that particular order, pick up those objects and place them in corresponding dropboxes.`,
+      stack: ["ROS"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: ["ROS"],
+      repo: "https://github.com/moe-elsadig/RoboND-Perception-Project",
+    },
+    {
+      title: `Robotic arm - Pick & Place project`,
+      description: `Robotic arm - Pick & Place project`,
+      stack: ["ROS"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://github.com/moe-elsadig/RoboND-Kinematics-Project/blob/master/misc_images/misc1.png",
+            "https://github.com/moe-elsadig/RoboND-Kinematics-Project/blob/master/misc_images/misc2.png",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: ["ROS"],
+      repo: "https://github.com/moe-elsadig/RoboND-Kinematics-Project",
+    },
+  ];
+
+  // ===========================================================================
+  // FSND
+  // ===========================================================================
+  let fnsdProjects = [
+    {
+      title: `Catalogue App`,
+      description: `FSND-P2 Catalogue App`,
+      stack: ["Python"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: ["Python"],
+      repo: "https://github.com/moe-elsadig",
+    },
+    {
+      title: `News Website Statistics`,
+      description: `FSND-P1 The following tool is an internal reporting tool for a newspaper site. A database is setup using PostgreSQL to record data on the site's articles as well as the web server log for the site. Using that information the Python script newsdb.py takes advantage of the psycopg2 library to query the data and extract some useful information to answering the following questions:
+
+      Question 1: What are the most popular three articles?
+      
+      Question 2: Who are the most popular article authors?
+      
+      Question 3: On which days did more than 1% of requests lead to errors?
+      
+      `,
+      stack: ["Python", "PostgreSQL"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [
+        "Terminal Application",
+        "VirtualBox",
+        "vagrant",
+        "Vagrant configuration file as provided by Udacity",
+        "Python",
+        "PostgreSQL",
+        "pyscopg2 library",
+      ],
+      repo: "https://github.com/moe-elsadig/FSND-P1",
+    },
+    {
+      title: `Restaurants and Menus Project`,
+      description: `FSND Restaurants and Menus Project`,
+      stack: ["Python"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: ["Python"],
+      repo: "https://github.com/moe-elsadig/FSND-Restaurant-App",
+    },
+  ];
+
+  // ===========================================================================
+  // SDCND
+  // ===========================================================================
+  let sdcndProjects = [
+    {
+      title: `CarND-P8 Kidnapped-Vehicle-Project`,
+      description: `CarND-P8 Kidnapped-Vehicle-Project`,
+      stack: ["C++"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: ["C++"],
+      repo: "https://github.com/moe-elsadig",
+    },
+    {
+      title: `CarND-P12-1 Semantic Segmentation for Road and Obstacles`,
+      description: `CarND-P12-1 Semantic Segmentation for Road and Obstacles`,
+      stack: ["Python"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: ["Python"],
+      repo: "https://github.com/moe-elsadig/CarND-P12-1",
+    },
+  ];
+
+  // ===========================================================================
+  // WEB
+  // ===========================================================================
+  let otherWebProjects = [
     {
       title: `Portfolio Site - NextJs`,
       description:
@@ -235,124 +439,6 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig",
     },
     {
-      title: `CarND-P8 Kidnapped-Vehicle-Project`,
-      description: `CarND-P8 Kidnapped-Vehicle-Project`,
-      stack: ["C++"],
-      media: {
-        mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
-          images: [],
-          videos: [],
-        },
-      },
-      dependencies: ["C++"],
-      repo: "https://github.com/moe-elsadig",
-    },
-    {
-      title: `CarND-P12-1 Semantic Segmentation for Road and Obstacles`,
-      description: `CarND-P12-1 Semantic Segmentation for Road and Obstacles`,
-      stack: ["Python"],
-      media: {
-        mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
-          images: [],
-          videos: [],
-        },
-      },
-      dependencies: ["Python"],
-      repo: "https://github.com/moe-elsadig/CarND-P12-1",
-    },
-    {
-      title: `Single Screen App`,
-      description: `ABND-P1 Single Screen App`,
-      stack: [],
-      media: {
-        mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
-          images: [],
-          videos: [],
-        },
-      },
-      dependencies: [],
-      repo: "https://github.com/moe-elsadig",
-    },
-    {
-      title: `Catalogue App`,
-      description: `FSND-P2 Catalogue App`,
-      stack: ["Python"],
-      media: {
-        mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
-          images: [],
-          videos: [],
-        },
-      },
-      dependencies: ["Python"],
-      repo: "https://github.com/moe-elsadig",
-    },
-    {
-      title: `News Website Statistics`,
-      description: `FSND-P1 The following tool is an internal reporting tool for a newspaper site. A database is setup using PostgreSQL to record data on the site's articles as well as the web server log for the site. Using that information the Python script newsdb.py takes advantage of the psycopg2 library to query the data and extract some useful information to answering the following questions:
-
-      Question 1: What are the most popular three articles?
-      
-      Question 2: Who are the most popular article authors?
-      
-      Question 3: On which days did more than 1% of requests lead to errors?
-      
-      `,
-      stack: ["Python", "PostgreSQL"],
-      media: {
-        mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
-          images: [],
-          videos: [],
-        },
-      },
-      dependencies: [
-        "Terminal Application",
-        "VirtualBox",
-        "vagrant",
-        "Vagrant configuration file as provided by Udacity",
-        "Python",
-        "PostgreSQL",
-        "pyscopg2 library",
-      ],
-      repo: "https://github.com/moe-elsadig/FSND-P1",
-    },
-    {
-      title: `Restaurants and Menus Project`,
-      description: `FSND Restaurants and Menus Project`,
-      stack: ["Python"],
-      media: {
-        mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
-          images: [],
-          videos: [],
-        },
-      },
-      dependencies: ["Python"],
-      repo: "https://github.com/moe-elsadig/FSND-Restaurant-App",
-    },
-    {
       title: `Cat Clicker App`,
       description: ``,
       stack: ["HTML", "CSS", "Javascript"],
@@ -369,48 +455,47 @@ export default function handler(req, res) {
       dependencies: ["HTML", "CSS", "Javascript"],
       repo: "https://github.com/moe-elsadig",
     },
-    {
-      title: `3D Perception`,
-      description: `RoboND 3D Perception Project. A PR2 Robot has been outfitted with an RGB-D sensor, this sensor however is a bit noisy, much like real sensors.
+  ];
 
-      Given the cluttered tabletop scenario, I have implement a perception pipeline to identify target objects from a so-called “Pick-List” in that particular order, pick up those objects and place them in corresponding dropboxes.`,
-      stack: ["ROS"],
+  // ===========================================================================
+  // ANDROID
+  // ===========================================================================
+  let otherAndroidProjects = [
+    {
+      title: `Friendly Chat App`,
+      description: `Android Messaging App built on Firebase. Supports instant messaging, images, and multiple sign-in options using email/password or a Google Acct.`,
+      stack: [],
       media: {
         mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
           images: [
-            "https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png",
+            "https://github.com/moe-elsadig/FriendlyChatProject/blob/master/Screenshot%202018-12-24%20at%2013.20.36.png",
           ],
           videos: [],
         },
+        desktop: {
+          images: [],
+          videos: [],
+        },
       },
-      dependencies: ["ROS"],
-      repo: "https://github.com/moe-elsadig/RoboND-Perception-Project",
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/FriendlyChatProject",
     },
   ];
 
-  // const limit = 20;
-  // for (let i = 0; i < limit; i++) {
-  //   projectData.push({
-  //     title: `Portfolio Site - NextJs version-${i}`,
-  //     description:
-  //       "This is a personal porfolio site built with NextJs on React and styled with the help of Tailwind.",
-  //     stack: ["NextJs", "TailwindCSS", "ReactJS", "Hero-Icons", "React-Icons"],
-  //     media: {
-  //       mobile: {
-  //         images: i % 3 ? ["/mobile-placeholder.png"] : [],
-  //         videos: [],
-  //       },
-  //       desktop: {
-  //         images: i % 2 ? ["/desktop-placeholder.png"] : [],
-  //         videos: [],
-  //       },
-  //     },
-  //   });
-  // }
+  // ===========================================================================
+  // OTHER
+  // ===========================================================================
+  let otherProjects = [];
+
+  let projectData = [
+    ...abndProjects,
+    ...roboProjects,
+    ...fnsdProjects,
+    ...sdcndProjects,
+    ...otherWebProjects,
+    ...otherAndroidProjects,
+    ...otherProjects,
+  ];
 
   res.status(200).json(projectData);
 }

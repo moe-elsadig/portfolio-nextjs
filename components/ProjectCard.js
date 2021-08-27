@@ -7,6 +7,7 @@ import { ExternalLinkIcon } from "@heroicons/react/outline";
 import { AiOutlineGithub } from "react-icons/ai";
 import { GrTechnology } from "react-icons/gr";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { VscJson } from "react-icons/vsc";
 
 export default function ProjectCard({
   project: { title, description, stack, media, dependencies },
@@ -17,6 +18,7 @@ export default function ProjectCard({
   const [accent, setAccent] = useState("red");
   const [theme, setTheme] = useState("light");
   const [showDependencies, setShowDependencies] = useState(false);
+  const [showJson, setShowJson] = useState(false);
 
   useEffect(() => {
     let color = "red";
@@ -58,11 +60,21 @@ export default function ProjectCard({
           className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
         />
         <AiOutlineGithub
+          disabled={!!project.repo}
+          onClick={() => {
+            window.open(`${project.repo}`);
+          }}
           className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
         />
         <ExternalLinkIcon
           className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
         />
+        {process.env.NODE_ENV !== "production" && (
+          <VscJson
+            onClick={() => setShowJson(!showJson)}
+            className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+          />
+        )}
       </div>
       <div className={`${br[1]} flex-grow`}>
         <h1 className={`text-lg text-${accent}-400`}>{title}</h1>
@@ -137,6 +149,11 @@ export default function ProjectCard({
               className={`${br[3]}`}
             />
           ))}
+        </div>
+      )}
+      {showJson && (
+        <div className="overflow-x-scroll overflow-y-scroll">
+          <pre>{JSON.stringify(project, null, 2)}</pre>
         </div>
       )}
     </div>
