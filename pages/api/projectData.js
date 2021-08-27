@@ -6,7 +6,7 @@ export default function handler(req, res) {
   // ===========================================================================
   let abndProjects = [
     {
-      title: `Single Screen App`,
+      title: `ABND-P1 Single Screen App`,
       description: `ABND-P1 Single Screen App`,
       stack: [],
       media: {
@@ -21,6 +21,159 @@ export default function handler(req, res) {
       },
       dependencies: [],
       repo: "https://github.com/moe-elsadig/Project1-Udacity-ABND",
+    },
+    {
+      title: `ABND-P2 Court Game Score Counter`,
+      description: `ABND-P2 Court Game Score Counter`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project2-Udacity-ABND",
+    },
+    {
+      title: `ABND-P3 Quiz App`,
+      description: `ABND-P3 Quiz App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project3-Udacity-ABND",
+    },
+    {
+      title: `ABND-P4 Music Player UI App`,
+      description: `ABND-P4 Music Player UI App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project4-Udacity-ABND",
+    },
+    {
+      title: `ABND-P5 Tour Guide App`,
+      description: `ABND-P5 Tour Guide App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project5-Udacity-ABND",
+    },
+    {
+      title: `ABND-P6 Tour Guide App`,
+      description: `ABND-P6 Tour Guide App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project6-Udacity-ABND",
+    },
+    {
+      title: `ABND-P7 Book Listing App`,
+      description: `ABND-P7 Book Listing App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project7-Udacity-ABND",
+    },
+    {
+      title: `ABND-P8 News App`,
+      description: `ABND-P8 News App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project8-Udacity-ABND",
+    },
+    {
+      title: `ABND-P9 Habit Tracker App`,
+      description: `ABND-P9 Habit Tracker App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project9-Udacity-ABND",
+    },
+    {
+      title: `ABND-P10 Items Inventory App`,
+      description: `ABND-P10 Items Inventory App`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/Project10-Udacity-ABND",
     },
   ];
 
@@ -130,7 +283,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [""],
+          images: [],
           videos: [],
         },
       },
@@ -276,6 +429,77 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P2",
     },
     {
+      title: `CarND-P3 Behavioral Cloning`,
+      description: `Use a visual AI model to clone the way you drive around any track in a car`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: ["https://youtu.be/rFSvEyR4iOU"],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P3",
+    },
+    {
+      title: `CarND-P4 Advanced Lane Line Finding`,
+      description: `Use computer vision methods to detect lane lines, highlight the current lane, estimate the curvature of the road, and estimate your position within the lane.`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [
+            "https://youtu.be/9qt3eyzOiHA",
+            "https://youtu.be/7a-cL1uQD3M",
+          ],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P4",
+    },
+    {
+      title: `CarND-P6 Extended Kalman Filter`,
+      description: ``,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P6",
+    },
+    {
+      title: `CarND-P7 Unscented Kalman Filter`,
+      description: `Use an unscented Kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P7",
+    },
+    {
       title: `CarND-P8 Kidnapped-Vehicle-Project`,
       description: `CarND-P8 Kidnapped-Vehicle-Project`,
       stack: ["C++"],
@@ -291,6 +515,40 @@ export default function handler(req, res) {
       },
       dependencies: ["C++"],
       repo: "https://github.com/moe-elsadig/CarND-P8",
+    },
+    {
+      title: `CarND-P9 PID Vehicle Controller`,
+      description: `CarND-P9 PID Vehicle Controller`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: ["https://youtu.be/izlENH4_QFw"],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P9",
+    },
+    {
+      title: `CarND-P10 Model Predictive Controller`,
+      description: `CarND-P10 Model Predictive Controller`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: ["https://youtu.be/oJA1XanzMYs"],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P10",
     },
     {
       title: `CarND-P11 Path-Planning Project`,
@@ -631,12 +889,49 @@ export default function handler(req, res) {
       dependencies: [],
       repo: "https://github.com/moe-elsadig/FriendlyChatProject",
     },
+    {
+      title: `ADND-P1 Popular Movies App`,
+      description: `Popular Movies App powered by the popular movies API`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/PopularMoviesApp",
+    },
   ];
 
   // ===========================================================================
   // OTHER
   // ===========================================================================
-  let otherProjects = [];
+  let otherProjects = [
+    {
+      title: `Didi Challenge Helper Scripts`,
+      description: `Didi Challenge Helper Scripts`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://github.com/moe-elsadig/DidiChallengeHelperScripts/raw/master/2d_plot.png",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/DidiChallengeHelperScripts",
+    },
+  ];
 
   let projectData = [
     ...abndProjects,

@@ -68,7 +68,12 @@ export default function ProjectCard({
           } hover:text-${accent}-400 hover:scale-105`}
         />
         <ExternalLinkIcon
-          className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+          onClick={() => {
+            if (project.demo) window.open(`${project.demo}`);
+          }}
+          className={`h-6 cursor-pointer text-2xl ${
+            !project.demo ? "text-gray-100" : ""
+          } hover:text-${accent}-400 hover:scale-105`}
         />
         {process.env.NODE_ENV !== "production" && (
           <VscJson
@@ -101,7 +106,7 @@ export default function ProjectCard({
                 className="flex text-gray-400 pt-4"
                 onClick={() => setShowDependencies(!showDependencies)}
               >
-                All Dependencies
+                All Dependencies ({dependencies.length})
                 <IoIosArrowDropdown
                   className={`h-6 cursor-pointer text-lg hover:text-${accent}-400 hover:scale-105`}
                 />
@@ -109,12 +114,10 @@ export default function ProjectCard({
               <div
                 className={`${showDependencies ? "visible" : "hidden"} pl-5`}
               >
-                {dependencies.map((dependency, index) => (
+                {dependencies?.map((dependency, index) => (
                   <p
                     key={dependency}
-                    className={`cursor-pointer text-sm hover:text-${accent}-${themeShade(
-                      400
-                    )} hover:scale-105`}
+                    className={`cursor-pointer text-sm text-${accent}-400 hover:pl-4 over:pl-4`}
                   >
                     {dependency}
                   </p>

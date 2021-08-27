@@ -56,5 +56,7 @@ export async function getStaticProps() {
       return null;
     });
 
+  console.log(projectData.length);
+
   return { props: { projectData } };
 }
