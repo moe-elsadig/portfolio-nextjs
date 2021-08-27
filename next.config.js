@@ -6,4 +6,5 @@ module.exports = {
   env: {
     mapbox_key: "pk.eyJ1IjoibW9lNyIsI",
   },
+  crossOrigin: "anonymous",
 };

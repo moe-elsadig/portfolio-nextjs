@@ -60,11 +60,12 @@ export default function ProjectCard({
           className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
         />
         <AiOutlineGithub
-          disabled={!!project.repo}
           onClick={() => {
-            window.open(`${project.repo}`);
+            if (project.repo) window.open(`${project.repo}`);
           }}
-          className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+          className={`h-6 cursor-pointer text-2xl ${
+            !project.repo ? "text-gray-100" : ""
+          } hover:text-${accent}-400 hover:scale-105`}
         />
         <ExternalLinkIcon
           className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}

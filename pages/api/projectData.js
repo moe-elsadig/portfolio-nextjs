@@ -1,24 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default function handler(req, res) {
-  // {
-  //   title: `Catalogue App`,
-  //   description: `FSND-P2 Catalogue App`,
-  //   stack: ["Python"],
-  //   media: {
-  //     mobile: {
-  //       images: [],
-  //       videos: [],
-  //     },
-  //     desktop: {
-  //       images: [],
-  //       videos: [],
-  //     },
-  //   },
-  //   dependencies: ["Python"],
-  //   repo: "https://github.com/moe-elsadig",
-  // },
-
   // ===========================================================================
   // ABND
   // ===========================================================================
@@ -38,7 +20,7 @@ export default function handler(req, res) {
         },
       },
       dependencies: [],
-      repo: "https://github.com/moe-elsadig",
+      repo: "https://github.com/moe-elsadig/Project1-Udacity-ABND",
     },
   ];
 
@@ -46,6 +28,44 @@ export default function handler(req, res) {
   // ROBOND
   // ===========================================================================
   let roboProjects = [
+    {
+      title: `RoboND P1 Search and Sample Return Project`,
+      description: `Search and Sample Return Project`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://github.com/moe-elsadig/RoboND-P1/raw/master/misc/rover_image.jpg",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/RoboND-P1",
+    },
+    {
+      title: `Deep Learning Project`,
+      description: `In this project, you will train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://github.com/moe-elsadig/RoboND-DeepLearning-Project/raw/master/docs/misc/sim_screenshot.png",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/RoboND-DeepLearning-Project",
+    },
     {
       title: `3D Perception`,
       description: `RoboND 3D Perception Project. A PR2 Robot has been outfitted with an RGB-D sensor, this sensor however is a bit noisy, much like real sensors.
@@ -87,6 +107,49 @@ export default function handler(req, res) {
       dependencies: ["ROS"],
       repo: "https://github.com/moe-elsadig/RoboND-Kinematics-Project",
     },
+    {
+      title: `Robotic arm - Pick & Place project`,
+      description: `In this project, I train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.`,
+      stack: [
+        "Python 3.x",
+        "Tensorflow 1.2.1",
+        "NumPy 1.11",
+        "SciPy 0.17.0",
+        "eventlet",
+        "Flask",
+        "h5py",
+        "PIL",
+        "python-socketio",
+        "scikit-image",
+        "transforms3d",
+        "PyQt4/Pyqt5",
+      ],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [""],
+          videos: [],
+        },
+      },
+      dependencies: [
+        "Python 3.x",
+        "Tensorflow 1.2.1",
+        "NumPy 1.11",
+        "SciPy 0.17.0",
+        "eventlet",
+        "Flask",
+        "h5py",
+        "PIL",
+        "python-socketio",
+        "scikit-image",
+        "transforms3d",
+        "PyQt4/Pyqt5",
+      ],
+      repo: "",
+    },
   ];
 
   // ===========================================================================
@@ -94,8 +157,8 @@ export default function handler(req, res) {
   // ===========================================================================
   let fnsdProjects = [
     {
-      title: `Catalogue App`,
-      description: `FSND-P2 Catalogue App`,
+      title: `Item Catalogue App`,
+      description: `FSND-P2 Item Catalogue App. The following tool is a web application that catalogues items under different categories. Each item added is secured with authentication and authorisation measures.`,
       stack: ["Python"],
       media: {
         mobile: {
@@ -107,8 +170,16 @@ export default function handler(req, res) {
           videos: [],
         },
       },
-      dependencies: ["Python"],
-      repo: "https://github.com/moe-elsadig",
+      dependencies: [
+        "Terminal Application",
+        "VirtualBox",
+        "vagrant",
+        "Vagrant configuration file as provided by Udacity",
+        "Python",
+        "PostgreSQL",
+        "pyscopg2 library",
+      ],
+      repo: "https://github.com/moe-elsadig/FSND-P2",
     },
     {
       title: `News Website Statistics`,
@@ -167,6 +238,44 @@ export default function handler(req, res) {
   // ===========================================================================
   let sdcndProjects = [
     {
+      title: `CarND-P1 Lane Lines Detection`,
+      description: `CarND-P1 Lane Lines Detection`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://github.com/moe-elsadig/CarND-P1/raw/master/laneLines_thirdPass.jpg",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P1",
+    },
+    {
+      title: `CarND-P2 Traffic Sign Recognition Program`,
+      description: `Traffic Sign Recognition Program uses what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the German Traffic Sign Dataset.`,
+      stack: [],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://github.com/moe-elsadig/CarND-P2/blob/master/visualize_cnn.png?raw=true",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P2",
+    },
+    {
       title: `CarND-P8 Kidnapped-Vehicle-Project`,
       description: `CarND-P8 Kidnapped-Vehicle-Project`,
       stack: ["C++"],
@@ -181,7 +290,24 @@ export default function handler(req, res) {
         },
       },
       dependencies: ["C++"],
-      repo: "https://github.com/moe-elsadig",
+      repo: "https://github.com/moe-elsadig/CarND-P8",
+    },
+    {
+      title: `CarND-P11 Path-Planning Project`,
+      description: `CarND-P11 Path-Planning Project`,
+      stack: ["C++"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: [],
+        },
+      },
+      dependencies: ["C++"],
+      repo: "https://github.com/moe-elsadig/CarND-P11",
     },
     {
       title: `CarND-P12-1 Semantic Segmentation for Road and Obstacles`,
@@ -199,6 +325,25 @@ export default function handler(req, res) {
       },
       dependencies: ["Python"],
       repo: "https://github.com/moe-elsadig/CarND-P12-1",
+    },
+    {
+      title: `Capstone Project | Team OSCAR`,
+      description: `This project is the culmination of five team members who share a bold vision, to create safe autonomous vehicles the world over. Using the Robot Operating System (ROS), each team member has developed and maintained a core component of the infrastructure that is demanded by a truly autonomous vehicle.`,
+      stack: ["ROS"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [
+            "https://github.com/bdschrisk/CarND-Capstone-Project/raw/master/imgs/udacity-carla.jpg",
+          ],
+          videos: [],
+        },
+      },
+      dependencies: ["ROS"],
+      repo: "https://github.com/moe-elsadig/CarND-Capstone-Project",
     },
   ];
 
@@ -229,6 +374,7 @@ export default function handler(req, res) {
           videos: [],
         },
       },
+      repo: "https://github.com/moe-elsadig/portfolio-nextjs",
     },
     {
       title: `Uber Clone`,
@@ -245,6 +391,7 @@ export default function handler(req, res) {
           videos: [],
         },
       },
+      repo: "https://github.com/moe-elsadig/tlprt",
     },
     {
       title: `Whatsapp Clone`,
@@ -265,8 +412,6 @@ export default function handler(req, res) {
         "styled-components",
         "timeago-react",
       ],
-      repo: "",
-      demo: "",
       media: {
         mobile: {
           images: [],
@@ -280,6 +425,8 @@ export default function handler(req, res) {
           videos: [],
         },
       },
+      repo: "https://github.com/moe-elsadig/jawab",
+      demo: "",
     },
     {
       title: `Signal Clone`,
@@ -312,6 +459,7 @@ export default function handler(req, res) {
         "react-native-web",
         "firebase",
       ],
+      repo: "https://github.com/moe-elsadig/jawab-2",
     },
     {
       title: `Airbnb Clone`,
@@ -339,6 +487,7 @@ export default function handler(req, res) {
         "react-map-gl",
         "tailwind-scrollbar-hide",
       ],
+      repo: "https://github.com/moe-elsadig/earthbnb",
     },
     {
       title: `Google Docs Clone`,
@@ -366,6 +515,7 @@ export default function handler(req, res) {
         "react-draft-wysiwyg",
         "react-firebase-hooks",
       ],
+      repo: "https://github.com/moe-elsadig/kitabat",
     },
     {
       title: `alSa3i.com eCommerce`,
@@ -383,7 +533,8 @@ export default function handler(req, res) {
         },
       },
       dependencies: [],
-      repo: "https://github.com/moe-elsadig",
+      repo: "",
+      demo: "https://alsa3i.com/?r=portfolio",
     },
     {
       title: `Altulumba Station Status App`,
@@ -401,7 +552,7 @@ export default function handler(req, res) {
         },
       },
       dependencies: [],
-      repo: "https://github.com/moe-elsadig",
+      repo: "https://github.com/moe-elsadig/altulumba-web-app",
     },
     {
       title: `Personal Portfolio - HTML,CSS,Javascript`,
@@ -419,7 +570,7 @@ export default function handler(req, res) {
         },
       },
       dependencies: ["HTML", "CSS", "Javascript"],
-      repo: "https://github.com/moe-elsadig",
+      repo: "https://github.com/moe-elsadig/my_site",
     },
     {
       title: `Python Flask eCommerce Site`,
@@ -436,7 +587,7 @@ export default function handler(req, res) {
         },
       },
       dependencies: ["Flask", "Postgres"],
-      repo: "https://github.com/moe-elsadig",
+      repo: "https://github.com/moe-elsadig/esudani-shopping-app",
     },
     {
       title: `Cat Clicker App`,
@@ -453,7 +604,7 @@ export default function handler(req, res) {
         },
       },
       dependencies: ["HTML", "CSS", "Javascript"],
-      repo: "https://github.com/moe-elsadig",
+      repo: "https://github.com/moe-elsadig/cat-clicker-app",
     },
   ];
 

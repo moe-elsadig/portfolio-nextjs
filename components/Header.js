@@ -16,7 +16,7 @@ function Header({ setAccentColor }) {
     const el = document.getElementById("project0");
     el.scrollIntoView({
       behavior: "smooth",
-      block: "start",
+      block: "end",
       inline: "nearest",
     });
     setMenu(false);
@@ -26,7 +26,7 @@ function Header({ setAccentColor }) {
     const el = document.getElementById("profile-card");
     el.scrollIntoView({
       behavior: "smooth",
-      block: "start",
+      block: "end",
       inline: "nearest",
     });
     setMenu(false);
