@@ -696,8 +696,8 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [],
-          videos: [],
+          images: ["/projects/jawab2-desktop.gif"],
+          videos: ["https://youtu.be/eLOjPGPgTK0"],
         },
       },
       dependencies: [
@@ -934,13 +934,13 @@ export default function handler(req, res) {
   ];
 
   let projectData = [
-    ...abndProjects,
-    ...roboProjects,
-    ...fnsdProjects,
-    ...sdcndProjects,
+    // ...abndProjects,
+    // ...roboProjects,
+    // ...fnsdProjects,
+    // ...sdcndProjects,
     ...otherWebProjects,
-    ...otherAndroidProjects,
-    ...otherProjects,
+    // ...otherAndroidProjects,
+    // ...otherProjects,
   ];
 
   res.status(200).json(projectData);
