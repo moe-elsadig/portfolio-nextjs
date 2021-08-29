@@ -942,6 +942,15 @@ export default function handler(req, res) {
     // ...otherAndroidProjects,
     // ...otherProjects,
   ];
+  let featuredProjectData = [
+    // ...abndProjects,
+    // ...roboProjects,
+    // ...fnsdProjects,
+    // ...sdcndProjects,
+    // ...otherWebProjects,
+    // ...otherAndroidProjects,
+    // ...otherProjects,
+  ];
 
-  res.status(200).json(projectData);
+  res.status(200).json([projectData, featuredProjectData]);
 }

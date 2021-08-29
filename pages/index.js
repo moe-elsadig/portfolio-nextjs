@@ -4,8 +4,10 @@ import Header from "../components/Header";
 import Head from "next/head";
 import ProfileCard from "../components/ProfileCard";
 import AnimatedBG from "../components/AnimatedBG";
+import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
+import { HiOutlineDownload } from "react-icons/hi";
 
-export default function Home({ projectData }) {
+export default function Home({ projectData, featuredProjectData }) {
   const [accentColor, setAccentColor] = useState("red");
 
   return (
@@ -18,6 +20,18 @@ export default function Home({ projectData }) {
       <Header setAccentColor={setAccentColor} />
       <ProfileCard />
       <main className="relative bg-gray-100">
+        {/* {featuredProjectData?.map((project, index) => (
+          <ProjectCard
+            key={project.title}
+            project={project}
+            index={index}
+            accentColor={accentColor}
+          />
+        ))}
+        <button className="flex flex-row gap-5 items-center mx-auto py-10 bg-white px-5 rounded-md">
+          Show All Projects{" "}
+          <HiOutlineDownload className="h-5 w-5 text-blue-500" />
+        </button> */}
         {projectData?.map((project, index) => (
           <ProjectCard
             key={project.title}
@@ -49,14 +63,16 @@ export async function getServerSideProps() {
     projectDataURL = "http://localhost:3000";
   }
 
-  const projectData = await fetch(projectDataURL + "/api/projectData")
+  const [projectData, featuredProjectData] = await fetch(
+    projectDataURL + "/api/projectData"
+  )
     .then((res) => res.json())
     .catch((err) => {
       console.log("unable to fetch project data");
       return null;
     });
 
-  console.log(projectData.length);
+  console.log(projectData.length, featuredProjectData.length);
 
-  return { props: { projectData } };
+  return { props: { projectData, featuredProjectData } };
 }

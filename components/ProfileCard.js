@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
+// import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
+import { HiOutlineDownload, HiChevronDown } from "react-icons/hi";
 
 // import {
 //   AiFillGithub,
@@ -64,14 +65,14 @@ function ProfileCard() {
       </div>
       <div className="pt-20 pb-28 items-center flex flex-col mx-auto space-y-5 min-w-full text-lg">
         <button className="flex flex-row gap-5 items-center">
-          Resume <DownloadIcon className="h-5 w-5 text-blue-500" />
+          Resume <HiOutlineDownload className="h-5 w-5 text-blue-500" />
         </button>
         <button
           className="flex flex-row gap-5 items-center"
           onClick={() => scrollToProjects()}
         >
           Projects
-          <ChevronDownIcon className="h-5 w-5 text-blue-500 animate-bounce" />
+          <HiChevronDown className="h-5 w-5 text-blue-500 animate-bounce" />
         </button>
       </div>
     </div>
