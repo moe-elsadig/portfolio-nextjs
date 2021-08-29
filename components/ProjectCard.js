@@ -153,6 +153,14 @@ export default function ProjectCard({
               className={`${br[3]}`}
             />
           ))}
+          <Image
+            alt=""
+            key={media?.desktop.images[0] + "frame"}
+            src={"/projects/desktop-vector.svg"}
+            layout="fill"
+            objectFit="contain"
+            className={`${br[3]}`}
+          />
         </div>
       )}
       {showJson && (
