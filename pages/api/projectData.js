@@ -779,10 +779,10 @@ export default function handler(req, res) {
       title: `alSa3i.com eCommerce`,
       description:
         "A local eCommerce platform developed and deployed in Sudan for Sai eServices.",
-      stack: ["React"],
+      stack: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
       media: {
         mobile: {
-          images: [],
+          images: ["/projects/alsa3i-mobile.png"],
           videos: [],
         },
         desktop: {
@@ -790,7 +790,7 @@ export default function handler(req, res) {
           videos: [],
         },
       },
-      dependencies: [],
+      dependencies: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
       repo: "",
       demo: "https://alsa3i.com/?r=portfolio",
     },
@@ -798,10 +798,15 @@ export default function handler(req, res) {
       title: `Altulumba Station Status App`,
       description:
         "A crowd sourced gas station finding app. During a time of extreme fuel shortages, this app was deployed to source and spread the word on information regarding the location and availability of fuel across the country. This app was deployed as a PWA for speed of deployment and cross platform support",
-      stack: ["React"],
+      stack: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
       media: {
         mobile: {
-          images: [],
+          images: [
+            "/projects/altulumba-mobile-1.png",
+            // "/projects/altulumba-mobile-2.png",
+            // "/projects/altulumba-mobile-3.png",
+            // "/projects/altulumba-mobile-4.png",
+          ],
           videos: [],
         },
         desktop: {
@@ -809,7 +814,7 @@ export default function handler(req, res) {
           videos: [],
         },
       },
-      dependencies: [],
+      dependencies: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
       repo: "https://github.com/moe-elsadig/altulumba-web-app",
     },
     {
@@ -823,7 +828,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [],
+          images: ["/projects/personal-site-desktop.svg"],
           videos: [],
         },
       },
@@ -934,13 +939,13 @@ export default function handler(req, res) {
   ];
 
   let projectData = [
-    // ...abndProjects,
-    // ...roboProjects,
-    // ...fnsdProjects,
-    // ...sdcndProjects,
     ...otherWebProjects,
-    // ...otherAndroidProjects,
-    // ...otherProjects,
+    ...otherProjects,
+    ...otherAndroidProjects,
+    ...abndProjects,
+    ...roboProjects,
+    ...fnsdProjects,
+    ...sdcndProjects,
   ];
   let featuredProjectData = [
     // ...abndProjects,
