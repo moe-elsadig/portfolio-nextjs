@@ -40,21 +40,24 @@ function Header({ setAccentColor }) {
         </h1>
       </div>
       <div className="hidden md:inline-flex md:max-w-[100px]">
-        {/* <Image alt=''
-          src="/vercel.svg"
-          width="100"
-          height="100"
+        <Image
+          alt=""
+          src="/logo_small_black.svg"
+          width="60"
+          height="60"
           // layout="fill"
           objectFit="contain"
-        /> */}
-        <HiColorSwatch
+          className=" text-2xl cursor-pointer"
+          onClick={() => scrollToTop()}
+        />
+        {/* <HiColorSwatch
           className={` text-2xl text-${colors[color]}-500 cursor-pointer`}
           onClick={() => {
             const nextColor = (color + 1) % colors.length;
             setColor(nextColor);
             setAccentColor(colors[nextColor]);
           }}
-        />
+        /> */}
       </div>
       <div className="pr-5">
         <div className="hidden space-x-4 justify-center md:inline-flex">

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="101.002" height="164.85" viewBox="0 0 101.002 164.85">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#020202"/>
+      <stop offset="1" stop-color="#020202"/>
+    </linearGradient>
+    <filter id="Union_1" x="0.174" y="0" width="100.828" height="127.116" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_2" x="0" y="112.439" width="100.834" height="52.411" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="LOGO-09" transform="translate(9 6)">
+    <g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Union_1)">
+      <path id="Union_1-2" data-name="Union 1" d="M82.66,109.115H0V0H68.337L82.828,14.576H82.66v94.539h0ZM50.308,69.6H63.232V24.726H45.248L35.173,53.807h-.632L24.219,24.726H6.554V69.6H19.467V42.715h.638L29.727,69.6H40.048l9.627-26.953h.632Z" transform="translate(9.17 6)" fill="url(#linear-gradient)"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Path_2)">
+      <path id="Path_2-2" data-name="Path 2" d="M406.894,329.51v34.41H338.557l-14.5-14.576h.174V329.51Z" transform="translate(-315.06 -211.07)" fill="#020202"/>
+    </g>
+  </g>
+</svg>
