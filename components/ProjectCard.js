@@ -53,7 +53,7 @@ export default function ProjectCard({
   return (
     <div
       id={"project" + index}
-      className={`${br[0]} flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5  border-${accent}-100 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto`}
+      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon
@@ -82,7 +82,7 @@ export default function ProjectCard({
           />
         )}
       </div>
-      <div className={`${br[1]} flex-grow`}>
+      <div className={`flex-grow`}>
         <h1 className={`text-lg text-${accent}-400`}>{title}</h1>
         <p className="pt-2 pl-2">{description}</p>
         <div>
@@ -128,7 +128,7 @@ export default function ProjectCard({
         </div>
       </div>
       {media?.mobile.images.length > 0 && (
-        <div className={`${br[2]} relative h-[45vh] w-full flex-grow`}>
+        <div className={`relative h-[45vh] w-full flex-grow`}>
           {media?.mobile.images.map((image, index) => (
             <Image
               alt=""
@@ -136,13 +136,13 @@ export default function ProjectCard({
               src={image}
               layout="fill"
               objectFit="contain"
-              className={`${br[3]}`}
+              className={``}
             />
           ))}
         </div>
       )}
       {media?.desktop.images.length > 0 && (
-        <div className={`${br[2]} relative h-[45vh] w-full flex-grow`}>
+        <div className={`relative h-[45vh] w-full flex-grow`}>
           {media?.desktop.images.map((image, index) => (
             <Image
               alt=""
@@ -150,7 +150,7 @@ export default function ProjectCard({
               src={image}
               layout="fill"
               objectFit="contain"
-              className={`${br[3]}`}
+              className={``}
             />
           ))}
         </div>
@@ -163,10 +163,3 @@ export default function ProjectCard({
     </div>
   );
 }
-
-const br = [
-  // "border border-yellow-300",
-  // "border border-green-300",
-  // "border border-blue-300",
-  // "border border-red-300",
-];

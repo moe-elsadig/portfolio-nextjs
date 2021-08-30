@@ -30,12 +30,20 @@ function Home2({ projectData, featuredProjectData }) {
     }, 3000);
   }
 
-  let [mobileImages, desktopImages] = projectData?.map(({ media }, index) => {
-    console.log("media:", media.mobile.images);
-    return media.mobile, media.desktop;
+  let mobileImages = [];
+  let desktopImages = [];
+
+  projectData?.forEach(({ media }, index) => {
+    console.log("m res:", mobileImages);
+    mobileImages = mobileImages.concat(
+      media?.mobile.images.length > 0 ? media?.mobile.images : [""]
+    );
+    console.log("d res:", desktopImages);
+    desktopImages = desktopImages.concat(
+      media?.desktop.images.length > 0 ? media?.desktop.images : [""]
+    );
   });
-  console.log("m res:", mobileImages);
-  console.log("d res:", desktopImages);
+
   // const handleScroll = () => {
   //   console.log("scrolling");
   // };
@@ -58,6 +66,7 @@ function Home2({ projectData, featuredProjectData }) {
         <div className="bg-white w-full md:w-1/2 min-h-screen">
           {projectData?.map((project, index) => (
             <div
+              key={project.title}
               className={`smin-h-[50vh] md:min-h-screen flex flex-row justify-items-stretch items-center`}
             >
               <ProjectCard
@@ -99,6 +108,14 @@ function Home2({ projectData, featuredProjectData }) {
               <Image
                 alt=""
                 key={"phone2"}
+                src={mobileImg}
+                layout="fill"
+                objectFit="contain"
+                className={``}
+              />
+              <Image
+                alt=""
+                key={"phone3"}
                 src={mobileImg}
                 layout="fill"
                 objectFit="contain"
