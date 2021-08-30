@@ -192,7 +192,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [
-            "https://github.com/moe-elsadig/RoboND-P1/raw/master/misc/rover_image.jpg",
+            "https://raw.githubusercontent.com/moe-elsadig/RoboND-Kinematics-Project/master/misc_images/misc2.png",
           ],
           videos: [],
         },

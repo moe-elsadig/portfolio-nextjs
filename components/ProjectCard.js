@@ -53,7 +53,7 @@ export default function ProjectCard({
   return (
     <div
       id={"project" + index}
-      className={`${br[0]} flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 border-b first:border-t border-${accent}-100 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto`}
+      className={`${br[0]} flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5  border-${accent}-100 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon
@@ -153,14 +153,6 @@ export default function ProjectCard({
               className={`${br[3]}`}
             />
           ))}
-          <Image
-            alt=""
-            key={media?.desktop.images[0] + "frame"}
-            src={"/projects/desktop-vector.svg"}
-            layout="fill"
-            objectFit="contain"
-            className={`${br[3]}`}
-          />
         </div>
       )}
       {showJson && (
