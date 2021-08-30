@@ -940,12 +940,12 @@ export default function handler(req, res) {
 
   let projectData = [
     ...otherWebProjects,
-    ...otherProjects,
-    ...otherAndroidProjects,
-    ...abndProjects,
-    ...roboProjects,
-    ...fnsdProjects,
-    ...sdcndProjects,
+    // ...otherProjects,
+    // ...otherAndroidProjects,
+    // ...abndProjects,
+    // ...roboProjects,
+    // ...fnsdProjects,
+    // ...sdcndProjects,
   ];
   let featuredProjectData = [
     // ...abndProjects,

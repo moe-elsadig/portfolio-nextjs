@@ -3,7 +3,6 @@ import ProjectCard from "../components/ProjectCard";
 import Header from "../components/Header";
 import Head from "next/head";
 import ProfileCard from "../components/ProfileCard";
-import AnimatedBG from "../components/AnimatedBG";
 import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { HiOutlineDownload } from "react-icons/hi";
 
