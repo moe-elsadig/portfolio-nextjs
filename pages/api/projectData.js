@@ -624,11 +624,14 @@ export default function handler(req, res) {
       ],
       media: {
         mobile: {
-          images: ["/mobile-placeholder.png"],
+          images: ["/projects/portfolio-mobile.svg"],
           videos: [],
         },
         desktop: {
-          images: [],
+          images: [
+            "/projects/portfolio-desktop.svg",
+            // "/projects/portfolio-desktop-1.svg",
+          ],
           videos: [],
         },
       },
@@ -641,7 +644,10 @@ export default function handler(req, res) {
       stack: ["React Native"],
       media: {
         mobile: {
-          images: ["/projects/tlprt-mobile.gif"],
+          images: [
+            "/projects/tlprt-mobile.svg",
+            // "/projects/tlprt-mobile.gif"
+          ],
           videos: [],
         },
         desktop: {
@@ -677,7 +683,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [
-            "/projects/jawab-desktop.gif",
+            "/projects/jawab-desktop.svg",
             // "/projects/jawab-desktop.png",
           ],
           videos: [],
@@ -854,7 +860,7 @@ export default function handler(req, res) {
     },
     {
       title: `Cat Clicker App`,
-      description: ``,
+      description: `Click a cat picture till you get bored.`,
       stack: ["HTML", "CSS", "Javascript"],
       media: {
         mobile: {

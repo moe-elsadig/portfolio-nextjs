@@ -1,5 +1,6 @@
 import Image from "next/image";
-import React, { useEffect, Suspense, useState } from "react";
+import React, { useEffect, Suspense, useState, useRef } from "react";
+import { throttle } from "lodash";
 
 // icons
 import { FolderOpenIcon } from "@heroicons/react/outline";
@@ -15,7 +16,9 @@ export default function ProjectCard({
   accentColor,
   index,
   noImages,
+  setVisibleProject,
 }) {
+  const cardRef = useRef(null);
   const [accent, setAccent] = useState("red");
   const [theme, setTheme] = useState("light");
   const [showDependencies, setShowDependencies] = useState(false);
@@ -51,10 +54,40 @@ export default function ProjectCard({
     else return lightToDark[number];
   };
 
+  const handleScroll = () => {
+    // console.log("scrolling", cardRef.current.id);
+    // a functions to check if the banner is in view with an offset and banner height to correct for animation bugs
+    function isVisible(el, offset) {
+      if (el) {
+        return el.getBoundingClientRect().top + offset > 0 &&
+          el.getBoundingClientRect().top + offset < window.innerHeight
+          ? true
+          : false;
+      } else {
+        return false;
+      }
+    }
+
+    if (isVisible(cardRef.current, window.innerHeight / 3)) {
+      console.log(
+        cardRef.current.id,
+        isVisible(cardRef.current, window.innerHeight / 3)
+      );
+      setVisibleProject(index);
+    }
+  };
+
+  useEffect(() => {
+    const handleScrollThrottled = throttle(handleScroll, 100);
+    window.addEventListener("scroll", handleScrollThrottled);
+    return () => window.removeEventListener("scroll", handleScrollThrottled);
+  }, []);
+
   return (
     <div
+      ref={cardRef}
       id={"project" + index}
-      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto`}
+      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-8`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon
@@ -129,7 +162,9 @@ export default function ProjectCard({
         </div>
       </div>
       {!noImages && media?.mobile.images.length > 0 && (
-        <div className={`relative h-[45vh] w-full flex-grow`}>
+        <div
+          className={`relative h-[45vh] w-full flex-grow transform transition-all ease-in-out duration-300 hover:-translate-y-1 hover:scale-110`}
+        >
           {media?.mobile.images.map((image, index) => (
             <Image
               alt=""

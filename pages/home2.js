@@ -8,53 +8,50 @@ import { FiYoutube } from "react-icons/fi";
 import { IoImagesOutline } from "react-icons/io5";
 
 function Home2({ projectData, featuredProjectData }) {
-  let image1 = "/projects/test.svg";
-  let image2 = "/projects/alsa3i-mobile-bordered.png";
-  let image3 = "/projects/altulumba-mobile-3.png";
-  let image4 = "/projects/placeholder-mobile.png";
-  let image5 = "/projects/placeholder-mobile-wc.png";
-  let image6 = "/projects/placeholder-desktop.svg";
-  let mobileVsector = "/projects/mobile-vector.svg";
-  let another = "/projects/another.svg";
+  let placeholderMobile = "/projects/placeholder-mobile.png";
+  let placeholderMobileWC = "/projects/placeholder-mobile-wc.png";
+  let placeholderDesktop = "/projects/placeholder-desktop.svg";
 
-  const [mobileImg, setMobileImg] = useState(image4);
+  const [mobileImgs, setMobileImgs] = useState([]);
+  const [desktopImgs, setDesktopImgs] = useState([]);
+  const [mobileImg, setMobileImg] = useState(placeholderMobile);
+  const [desktopImg, setDesktopImg] = useState(placeholderDesktop);
+  const [visibleProject, setVisibleProject] = useState(0);
   const [showTop, setShowTop] = useState("mobile");
 
-  let changed = false;
+  useEffect(() => {
+    let mobileImages = [];
+    let desktopImages = [];
+    projectData?.forEach(({ media }, index) => {
+      mobileImages = mobileImages.concat(
+        media?.mobile.images.length > 0 ? media?.mobile.images : [""]
+      );
+      desktopImages = desktopImages.concat(
+        media?.desktop.images.length > 0 ? media?.desktop.images : [""]
+      );
+      // console.log(
+      //   "m/d/t:",
+      //   mobileImages.length,
+      //   "/",
+      //   desktopImages.length,
+      //   "/",
+      //   projectData.length
+      // );
+      if (index + 1 === projectData.length) {
+        setMobileImgs(mobileImages);
+        setDesktopImgs(desktopImages);
+      }
+    });
+    return;
+  }, [projectData]);
 
   useEffect(() => {
-    return;
-  }, [mobileImg]);
-
-  if (!changed) {
-    setTimeout(() => {
-      setMobileImg(image5);
-      changed = true;
-    }, 3000);
-  }
-
-  let mobileImages = [];
-  let desktopImages = [];
-
-  // projectData?.forEach(({ media }, index) => {
-  //   console.log("m res:", mobileImages);
-  //   mobileImages = mobileImages.concat(
-  //     media?.mobile.images.length > 0 ? media?.mobile.images : [""]
-  //   );
-  //   console.log("d res:", desktopImages);
-  //   desktopImages = desktopImages.concat(
-  //     media?.desktop.images.length > 0 ? media?.desktop.images : [""]
-  //   );
-  // });
-
-  // const handleScroll = () => {
-  //   console.log("scrolling");
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // });
+    console.log(mobileImgs[visibleProject]);
+    console.log(desktopImgs[visibleProject]);
+    console.log("visible project: ", visibleProject);
+    setMobileImg(mobileImgs[visibleProject]);
+    setDesktopImg(desktopImgs[visibleProject]);
+  }, [visibleProject]);
 
   return (
     <div className="min-h-screen flex flex-col font-mono relative">
@@ -78,11 +75,13 @@ function Home2({ projectData, featuredProjectData }) {
                 index={index}
                 accentColor={"red"}
                 noImages={true}
+                setVisibleProject={setVisibleProject}
+                visibleProject={visibleProject}
               />
             </div>
           ))}
         </div>
-        <div className="bg-gradient-to-b from-white via-white md:to-white to-transparent backdrop-blur-md sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
+        <div className="bg-gradient-to-b from-white via-white md:to-white to-transparent backdrop-blur-sm sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
           <div className="py-2 flex flex-row justify-end">
             <button
               onClick={() => setShowTop("mobile")}
@@ -119,17 +118,22 @@ function Home2({ projectData, featuredProjectData }) {
             {/* images container */}
             <div className=" h-full flex flex-col justify-between items-stretch">
               {/* mobile container */}
-              <div className="m-auto h-full w-full  relative">
-                <div>
-                  <Image src={image5} layout="fill" objectFit="contain" />
+
+              {mobileImg && (
+                <div className="m-auto h-full w-full  relative">
+                  <div>
+                    <Image src={mobileImg} layout="fill" objectFit="contain" />
+                  </div>
                 </div>
-              </div>
+              )}
               {/* desktop container */}
-              <div className="m-auto h-full w-full  relative self-end">
-                <div>
-                  <Image src={image6} layout="fill" objectFit="contain" />
+              {desktopImg && (
+                <div className="m-auto h-full w-full  relative self-end">
+                  <div>
+                    <Image src={desktopImg} layout="fill" objectFit="contain" />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
