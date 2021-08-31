@@ -71,16 +71,18 @@ export default function ProjectCard({
     }
 
     if (isVisible(cardRef.current, window.innerHeight / 3)) {
-      console.log(
-        cardRef.current.id,
-        isVisible(cardRef.current, window.innerHeight / 3)
-      );
-      if (visibleProject !== index) setVisibleProject(index);
+      if (visibleProject !== index) {
+        setVisibleProject(index);
+        console.log(
+          cardRef.current.id,
+          isVisible(cardRef.current, window.innerHeight / 3)
+        );
+      }
     }
   };
 
   useEffect(() => {
-    const handleScrollThrottled = throttle(handleScroll, 100);
+    const handleScrollThrottled = throttle(handleScroll, -300);
     window.addEventListener("scroll", handleScrollThrottled);
     return () => window.removeEventListener("scroll", handleScrollThrottled);
   }, []);
@@ -89,7 +91,7 @@ export default function ProjectCard({
     <div
       ref={cardRef}
       id={"project" + index}
-      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
+      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 h-screen min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon

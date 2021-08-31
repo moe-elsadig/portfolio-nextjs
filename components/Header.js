@@ -7,6 +7,7 @@ function Header({ setAccentColor }) {
   const [menu, setMenu] = useState(false);
   const colors = ["red", "pink", "blue", "yellow"];
   const [color, setColor] = useState(0);
+  const [prevScrollpos, setPrevScrollpos] = useState(0);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -31,6 +32,25 @@ function Header({ setAccentColor }) {
     });
     setMenu(false);
   };
+
+  const handleScroll = () => {
+    prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
+  };
+
+  useEffect(() => {
+    const handleScrollThrottled = throttle(handleScroll, 100);
+    window.addEventListener("scroll", handleScrollThrottled);
+    return () => window.removeEventListener("scroll", handleScrollThrottled);
+  }, []);
 
   return (
     <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[80px] items-center backdrop-blur-sm bg-gradient-to-b from-white via-white to-transparent">
