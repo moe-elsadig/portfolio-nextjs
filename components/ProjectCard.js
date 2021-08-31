@@ -18,6 +18,7 @@ export default function ProjectCard({
   index,
   noImages,
   setVisibleProject,
+  visibleProject,
 }) {
   const cardRef = useRef(null);
   const [accent, setAccent] = useState("red");
@@ -74,7 +75,7 @@ export default function ProjectCard({
         cardRef.current.id,
         isVisible(cardRef.current, window.innerHeight / 3)
       );
-      setVisibleProject(index);
+      if (visibleProject !== index) setVisibleProject(index);
     }
   };
 
