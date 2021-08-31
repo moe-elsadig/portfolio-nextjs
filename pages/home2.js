@@ -4,13 +4,16 @@ import Head from "next/head";
 import ProfileCard from "../components/ProfileCard";
 import Image from "next/image";
 import ProjectCard from "../components/ProjectCard";
+import { FiYoutube } from "react-icons/fi";
+import { IoImagesOutline } from "react-icons/io5";
 
 function Home2({ projectData, featuredProjectData }) {
   let image1 = "/projects/test.svg";
   let image2 = "/projects/alsa3i-mobile-bordered.png";
   let image3 = "/projects/altulumba-mobile-3.png";
-  let image4 = "/projects/f1.png";
-  let image5 = "/projects/f2.png";
+  let image4 = "/projects/placeholder-mobile.png";
+  let image5 = "/projects/placeholder-mobile-wc.png";
+  let image6 = "/projects/placeholder-desktop.svg";
   let mobileVsector = "/projects/mobile-vector.svg";
   let another = "/projects/another.svg";
 
@@ -33,16 +36,16 @@ function Home2({ projectData, featuredProjectData }) {
   let mobileImages = [];
   let desktopImages = [];
 
-  projectData?.forEach(({ media }, index) => {
-    console.log("m res:", mobileImages);
-    mobileImages = mobileImages.concat(
-      media?.mobile.images.length > 0 ? media?.mobile.images : [""]
-    );
-    console.log("d res:", desktopImages);
-    desktopImages = desktopImages.concat(
-      media?.desktop.images.length > 0 ? media?.desktop.images : [""]
-    );
-  });
+  // projectData?.forEach(({ media }, index) => {
+  //   console.log("m res:", mobileImages);
+  //   mobileImages = mobileImages.concat(
+  //     media?.mobile.images.length > 0 ? media?.mobile.images : [""]
+  //   );
+  //   console.log("d res:", desktopImages);
+  //   desktopImages = desktopImages.concat(
+  //     media?.desktop.images.length > 0 ? media?.desktop.images : [""]
+  //   );
+  // });
 
   // const handleScroll = () => {
   //   console.log("scrolling");
@@ -74,63 +77,59 @@ function Home2({ projectData, featuredProjectData }) {
                 project={project}
                 index={index}
                 accentColor={"red"}
+                noImages={true}
               />
             </div>
           ))}
         </div>
-        <div className="bg-white sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen">
-          <div className="flex flex-col-2 justify-around">
+        <div className="bg-gradient-to-b from-white via-white md:to-white to-transparent backdrop-blur-md sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
+          <div className="py-2 flex flex-row justify-end">
             <button
               onClick={() => setShowTop("mobile")}
-              className="px-2 rounded-full bg-red-200"
+              className="px-2 rounded-full "
+              disabled
             >
-              mobile
+              <FiYoutube
+                className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
+              />
             </button>
             <button
               onClick={() => setShowTop("desktop")}
-              className="px-2 rounded-full bg-red-200"
+              className="px-2 rounded-full "
+              disabled
             >
-              desktop
+              <IoImagesOutline
+                className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
+              />
             </button>
           </div>
-          <div className="h-full md:h-screen relative">
-            <div className="max-w-full max-h-full">
-              {showTop !== "desktop" && (
-                <Image
-                  alt=""
-                  key={"phone"}
-                  src={"/projects/desktop-vector.svg"}
-                  layout="fill"
-                  objectFit="contain"
-                  className={`sticky top-0`}
-                />
-              )}
-              <Image
-                alt=""
-                key={"phone2"}
-                src={mobileImg}
-                layout="fill"
-                objectFit="contain"
-                className={``}
-              />
-              <Image
-                alt=""
-                key={"phone3"}
-                src={mobileImg}
-                layout="fill"
-                objectFit="contain"
-                className={``}
-              />
-              {showTop === "desktop" && (
-                <Image
-                  alt=""
-                  key={"phone"}
-                  src={"/projects/desktop-vector.svg"}
-                  layout="fill"
-                  objectFit="contain"
-                  className={`sticky top-0`}
-                />
-              )}
+          {/* media container */}
+          <div className="flex-grow">
+            {/* background container */}
+            <div className="absolute top-1/2 left-1/2">
+              {/* <video
+                // src="/projects/orange-blob.mp4"
+                autoPlay
+                loop
+              >
+                <source src="/projects/orange-blob.mp4" />
+              </video> */}
+            </div>
+
+            {/* images container */}
+            <div className=" h-full flex flex-col justify-between items-stretch">
+              {/* mobile container */}
+              <div className="m-auto h-full w-full  relative">
+                <div>
+                  <Image src={image5} layout="fill" objectFit="contain" />
+                </div>
+              </div>
+              {/* desktop container */}
+              <div className="m-auto h-full w-full  relative self-end">
+                <div>
+                  <Image src={image6} layout="fill" objectFit="contain" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -14,6 +14,7 @@ export default function ProjectCard({
   project,
   accentColor,
   index,
+  noImages,
 }) {
   const [accent, setAccent] = useState("red");
   const [theme, setTheme] = useState("light");
@@ -127,7 +128,7 @@ export default function ProjectCard({
           )}
         </div>
       </div>
-      {media?.mobile.images.length > 0 && (
+      {!noImages && media?.mobile.images.length > 0 && (
         <div className={`relative h-[45vh] w-full flex-grow`}>
           {media?.mobile.images.map((image, index) => (
             <Image
@@ -141,7 +142,7 @@ export default function ProjectCard({
           ))}
         </div>
       )}
-      {media?.desktop.images.length > 0 && (
+      {!noImages && media?.desktop.images.length > 0 && (
         <div className={`relative h-[45vh] w-full flex-grow`}>
           {media?.desktop.images.map((image, index) => (
             <Image
