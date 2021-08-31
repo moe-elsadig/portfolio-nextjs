@@ -4,8 +4,6 @@ import Head from "next/head";
 import ProfileCard from "../components/ProfileCard";
 import Image from "next/image";
 import ProjectCard from "../components/ProjectCard";
-import { FiYoutube } from "react-icons/fi";
-import { IoImagesOutline } from "react-icons/io5";
 
 function Home2({ projectData, featuredProjectData }) {
   let placeholderMobile = "/projects/placeholder-mobile.png";
@@ -16,7 +14,7 @@ function Home2({ projectData, featuredProjectData }) {
   const [desktopImgs, setDesktopImgs] = useState([]);
   const [mobileImg, setMobileImg] = useState(placeholderMobile);
   const [desktopImg, setDesktopImg] = useState(placeholderDesktop);
-  const [visibleProject, setVisibleProject] = useState(0);
+  const [visibleProject, setVisibleProject] = useState(null);
   const [showTop, setShowTop] = useState("mobile");
 
   useEffect(() => {
@@ -40,18 +38,20 @@ function Home2({ projectData, featuredProjectData }) {
       if (index + 1 === projectData.length) {
         setMobileImgs(mobileImages);
         setDesktopImgs(desktopImages);
+        setMobileImg(mobileImages[0]);
+        setDesktopImg(desktopImages[0]);
       }
     });
     return;
   }, [projectData]);
 
   useEffect(() => {
-    console.log(mobileImgs[visibleProject]);
-    console.log(desktopImgs[visibleProject]);
+    console.log(mobileImg);
+    console.log(desktopImg);
     console.log("visible project: ", visibleProject);
     setMobileImg(mobileImgs[visibleProject]);
     setDesktopImg(desktopImgs[visibleProject]);
-  }, [visibleProject]);
+  }, [setMobileImg, setDesktopImg, visibleProject]);
 
   return (
     <div className="min-h-screen flex flex-col font-mono relative">
@@ -82,26 +82,8 @@ function Home2({ projectData, featuredProjectData }) {
           ))}
         </div>
         <div className="bg-gradient-to-b from-white via-white md:to-white to-transparent backdrop-blur-sm sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
-          <div className="py-2 flex flex-row justify-end">
-            <button
-              onClick={() => setShowTop("mobile")}
-              className="px-2 rounded-full "
-              disabled
-            >
-              <FiYoutube
-                className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
-              />
-            </button>
-            <button
-              onClick={() => setShowTop("desktop")}
-              className="px-2 rounded-full "
-              disabled
-            >
-              <IoImagesOutline
-                className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
-              />
-            </button>
-          </div>
+          {/* <div className="py-2 flex flex-row justify-end">
+          </div> */}
           {/* media container */}
           <div className="flex-grow">
             {/* background container */}
@@ -120,17 +102,28 @@ function Home2({ projectData, featuredProjectData }) {
               {/* mobile container */}
 
               {mobileImg && (
-                <div className="m-auto h-full w-full  relative">
+                <div className="m-auto h-full w-full relative transform transition-all ease-linear duration-500">
                   <div>
-                    <Image src={mobileImg} layout="fill" objectFit="contain" />
+                    <Image
+                      src={mobileImg}
+                      layout="fill"
+                      objectFit="contain"
+                      alt="mobile screenshot"
+                      className="transform transition-all ease-linear duration-500"
+                    />
                   </div>
                 </div>
               )}
               {/* desktop container */}
               {desktopImg && (
-                <div className="m-auto h-full w-full  relative self-end">
+                <div className="m-auto h-full w-full relative self-end">
                   <div>
-                    <Image src={desktopImg} layout="fill" objectFit="contain" />
+                    <Image
+                      src={desktopImg}
+                      layout="fill"
+                      objectFit="contain"
+                      alt="desktop screenshot"
+                    />
                   </div>
                 </div>
               )}

@@ -6,9 +6,10 @@ import { throttle } from "lodash";
 import { FolderOpenIcon } from "@heroicons/react/outline";
 import { ExternalLinkIcon } from "@heroicons/react/outline";
 import { AiOutlineGithub } from "react-icons/ai";
-import { GrTechnology } from "react-icons/gr";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { VscJson } from "react-icons/vsc";
+import { FiYoutube } from "react-icons/fi";
+import { IoImagesOutline } from "react-icons/io5";
 
 export default function ProjectCard({
   project: { title, description, stack, media, dependencies },
@@ -87,7 +88,7 @@ export default function ProjectCard({
     <div
       ref={cardRef}
       id={"project" + index}
-      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-8`}
+      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 md:max-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon
@@ -115,6 +116,25 @@ export default function ProjectCard({
             className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
           />
         )}
+        {media.mobile.videos.length > 0 && (
+          <FiYoutube
+            onClick={() => {
+              window.open(`${media.mobile.videos[0]}`);
+            }}
+            className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+          />
+        )}
+        {media.desktop.videos.length > 0 && (
+          <FiYoutube
+            onClick={() => {
+              window.open(`${media.desktop.videos[0]}`);
+            }}
+            className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+          />
+        )}
+        {/* <IoImagesOutline
+          className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+        /> */}
       </div>
       <div className={`flex-grow`}>
         <h1 className={`text-lg text-${accent}-400`}>{title}</h1>
@@ -162,12 +182,10 @@ export default function ProjectCard({
         </div>
       </div>
       {!noImages && media?.mobile.images.length > 0 && (
-        <div
-          className={`relative h-[45vh] w-full flex-grow transform transition-all ease-in-out duration-300 hover:-translate-y-1 hover:scale-110`}
-        >
+        <div className={`relative h-[45vh] w-full flex-grow `}>
           {media?.mobile.images.map((image, index) => (
             <Image
-              alt=""
+              alt="mobile screenshot"
               key={image}
               src={image}
               layout="fill"
@@ -181,7 +199,7 @@ export default function ProjectCard({
         <div className={`relative h-[45vh] w-full flex-grow`}>
           {media?.desktop.images.map((image, index) => (
             <Image
-              alt=""
+              alt="desktop screenshot"
               key={image}
               src={image}
               layout="fill"

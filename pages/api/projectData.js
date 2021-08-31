@@ -644,10 +644,7 @@ export default function handler(req, res) {
       stack: ["React Native"],
       media: {
         mobile: {
-          images: [
-            "/projects/tlprt-mobile.svg",
-            // "/projects/tlprt-mobile.gif"
-          ],
+          images: ["/projects/tlprt-mobile.svg"],
           videos: [],
         },
         desktop: {
@@ -702,7 +699,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: ["/projects/jawab2-desktop.gif"],
+          images: [],
           videos: ["https://youtu.be/eLOjPGPgTK0"],
         },
       },
@@ -731,11 +728,11 @@ export default function handler(req, res) {
       stack: ["NextJS", "MapBox", "TailwindCSS"],
       media: {
         mobile: {
-          images: ["/projects/earthbnb-mobile.gif"],
+          images: [],
           videos: [],
         },
         desktop: {
-          images: ["/projects/earthbnb-desktop.gif"],
+          images: [],
           videos: [],
         },
       },
@@ -763,7 +760,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: ["/projects/kitabat-desktop.gif"],
+          images: [],
           videos: [],
         },
       },
