@@ -71,7 +71,7 @@ export default function ProjectCard({
     }
 
     if (isVisible(cardRef.current, window.innerHeight / 3)) {
-      if (visibleProject !== index) {
+      if (setVisibleProject && visibleProject !== index) {
         setVisibleProject(index);
         console.log(
           cardRef.current.id,
