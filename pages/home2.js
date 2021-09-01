@@ -77,6 +77,7 @@ function Home2({ projectData, featuredProjectData }) {
                 noImages={true}
                 setVisibleProject={setVisibleProject}
                 visibleProject={visibleProject}
+                fullScreen={true}
               />
             </div>
           ))}

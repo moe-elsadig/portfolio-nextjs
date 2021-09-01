@@ -632,7 +632,7 @@ export default function handler(req, res) {
             "/projects/portfolio-desktop.svg",
             // "/projects/portfolio-desktop-1.svg",
           ],
-          videos: [],
+          videos: ["https://youtu.be/F5kTB3HaEDo"],
         },
       },
       repo: "https://github.com/moe-elsadig/portfolio-nextjs",
@@ -804,12 +804,7 @@ export default function handler(req, res) {
       stack: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
       media: {
         mobile: {
-          images: [
-            "/projects/altulumba-mobile-1.png",
-            // "/projects/altulumba-mobile-2.png",
-            // "/projects/altulumba-mobile-3.png",
-            // "/projects/altulumba-mobile-4.png",
-          ],
+          images: ["/projects/altulumba-mobile-1.png"],
           videos: [],
         },
         desktop: {
@@ -831,7 +826,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: ["/projects/personal-site-desktop.svg"],
+          images: [],
           videos: [],
         },
       },

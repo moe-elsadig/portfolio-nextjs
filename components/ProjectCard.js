@@ -19,6 +19,7 @@ export default function ProjectCard({
   noImages,
   setVisibleProject,
   visibleProject,
+  fullScreen,
 }) {
   const cardRef = useRef(null);
   const [accent, setAccent] = useState("red");
@@ -91,11 +92,13 @@ export default function ProjectCard({
     <div
       ref={cardRef}
       id={"project" + index}
-      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 h-screen min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
+      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 ${
+        fullScreen && "pb-[30vh]"
+      } min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon
-          className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+          className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
         />
         <AiOutlineGithub
           onClick={() => {
@@ -103,7 +106,7 @@ export default function ProjectCard({
           }}
           className={`h-6 cursor-pointer text-2xl ${
             !project.repo ? "text-gray-100" : ""
-          } hover:text-${accent}-400 hover:scale-105`}
+          } hover:text-red-400 hover:scale-105`}
         />
         <ExternalLinkIcon
           onClick={() => {
@@ -111,12 +114,12 @@ export default function ProjectCard({
           }}
           className={`h-6 cursor-pointer text-2xl ${
             !project.demo ? "text-gray-100" : ""
-          } hover:text-${accent}-400 hover:scale-105`}
+          } hover:text-red-400 hover:scale-105`}
         />
         {process.env.NODE_ENV !== "production" && (
           <VscJson
             onClick={() => setShowJson(!showJson)}
-            className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+            className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
           />
         )}
         {media.mobile.videos.length > 0 && (
@@ -124,7 +127,7 @@ export default function ProjectCard({
             onClick={() => {
               window.open(`${media.mobile.videos[0]}`);
             }}
-            className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+            className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
           />
         )}
         {media.desktop.videos.length > 0 && (
@@ -132,15 +135,15 @@ export default function ProjectCard({
             onClick={() => {
               window.open(`${media.desktop.videos[0]}`);
             }}
-            className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+            className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
           />
         )}
         {/* <IoImagesOutline
-          className={`h-6 cursor-pointer hover:text-${accent}-400 hover:scale-105`}
+          className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
         /> */}
       </div>
       <div className={`flex-grow`}>
-        <h1 className={`text-lg text-${accent}-400`}>{title}</h1>
+        <h1 className={`text-lg text-red-400`}>{title}</h1>
         <p className="pt-2 pl-2">{description}</p>
         <div>
           <p className={`text-gray-400 pt-4`}>Stack:</p>
@@ -148,11 +151,9 @@ export default function ProjectCard({
             {stack?.map((tech, index) => (
               <p
                 key={tech}
-                className={`cursor-pointer hover:text-${accent}-${themeShade(
-                  400
-                )} hover:scale-105`}
+                className={`cursor-pointer hover:text-red-400 hover:scale-105`}
               >
-                <span className={`text-${accent}-400`}>{tech}</span>
+                <span className={`text-red-400`}>{tech}</span>
                 {index + 1 < stack.length ? "/" : ""}
               </p>
             ))}
@@ -165,7 +166,7 @@ export default function ProjectCard({
               >
                 All Dependencies ({dependencies.length})
                 <IoIosArrowDropdown
-                  className={`h-6 cursor-pointer text-lg hover:text-${accent}-400 hover:scale-105`}
+                  className={`h-6 cursor-pointer text-lg hover:text-red-400 hover:scale-105`}
                 />
               </button>
               <div
@@ -174,7 +175,7 @@ export default function ProjectCard({
                 {dependencies?.map((dependency, index) => (
                   <p
                     key={dependency}
-                    className={`cursor-pointer text-sm text-${accent}-400 hover:pl-4 over:pl-4`}
+                    className={`cursor-pointer text-sm text-red-400 hover:pl-4 over:pl-4`}
                   >
                     {dependency}
                   </p>
