@@ -60,7 +60,7 @@ function Home2({ projectData, featuredProjectData }) {
         <meta name="description" content="Welcome to me, Moe" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Header /> */}
+      <Header />
       <ProfileCard />
       <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 min-h-screen">
         <div className="bg-white w-full md:w-1/2 min-h-screen">
@@ -81,7 +81,7 @@ function Home2({ projectData, featuredProjectData }) {
             </div>
           ))}
         </div>
-        <div className="bg-gradient-to-b from-white via-white md:to-white to-transparent backdrop-blur-sm sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
+        <div className="bg-gradient-to-b from-white via-white md:to-white to-transparent backdrop-blur-lg sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
           {/* <div className="py-2 flex flex-row justify-end">
           </div> */}
           {/* media container */}
