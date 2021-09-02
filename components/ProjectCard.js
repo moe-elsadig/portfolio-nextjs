@@ -83,7 +83,7 @@ export default function ProjectCard({
   };
 
   useEffect(() => {
-    const handleScrollThrottled = throttle(handleScroll, -300);
+    const handleScrollThrottled = throttle(handleScroll, 600);
     window.addEventListener("scroll", handleScrollThrottled);
     return () => window.removeEventListener("scroll", handleScrollThrottled);
   }, []);

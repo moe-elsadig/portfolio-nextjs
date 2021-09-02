@@ -27,14 +27,14 @@ function Home2({ projectData, featuredProjectData }) {
       desktopImages = desktopImages.concat(
         media?.desktop.images.length > 0 ? media?.desktop.images : [""]
       );
-      // console.log(
-      //   "m/d/t:",
-      //   mobileImages.length,
-      //   "/",
-      //   desktopImages.length,
-      //   "/",
-      //   projectData.length
-      // );
+      console.log(
+        "m/d/t:",
+        mobileImages.length,
+        "/",
+        desktopImages.length,
+        "/",
+        projectData.length
+      );
       if (index + 1 === projectData.length) {
         setMobileImgs(mobileImages);
         setDesktopImgs(desktopImages);
@@ -82,28 +82,31 @@ function Home2({ projectData, featuredProjectData }) {
             </div>
           ))}
         </div>
-        <div className="bg-gradient-to-b from-white via-white md:to-white to-transparent backdrop-blur-lg sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
+        <div className="bg-white shadow-md to-transparent backdrop-blur-lg sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
           {/* <div className="py-2 flex flex-row justify-end">
           </div> */}
-          {/* media container */}
-          <div className="flex-grow">
-            {/* background container */}
-            <div className="absolute top-1/2 left-1/2">
-              {/* <video
-                // src="/projects/orange-blob.mp4"
-                autoPlay
-                loop
-              >
-                <source src="/projects/orange-blob.mp4" />
-              </video> */}
-            </div>
 
+          <video
+            src="/projects/orange-blob.mp4"
+            allow="autoPlay"
+            autoPlay
+            loop
+            muted
+            playsInline
+            type="video/mp4"
+            className={`h-full w-full p-10 m-auto absolute top-0 ${
+              visibleProject !== null
+                ? "scale-100 opacity-100"
+                : "scale-50 opacity-0"
+            } transform ease-in-out transition-all duration-100`}
+          />
+          {/* media container */}
+          <div className="flex-grow z-10">
             {/* images container */}
             <div className=" h-full flex flex-col justify-between items-stretch">
               {/* mobile container */}
-
               <div
-                className={`transform ease-in-out transition-all duration-600 ${
+                className={`transform ease-in-out transition-all duration-100 ${
                   mobileImg
                     ? " opacity-100 h-full w-full"
                     : " opacity-0 h-0 w-0"
@@ -111,14 +114,21 @@ function Home2({ projectData, featuredProjectData }) {
               >
                 <div>
                   <Image
-                    src={
-                      mobileImg ? mobileImg : "/projects/placeholder-mobile.svg"
-                    }
+                    src={"/projects/placeholder-mobile.svg"}
                     layout="fill"
                     objectFit="contain"
-                    alt="mobile screenshot"
+                    alt="mobile placeholder"
                     className=""
                   />
+                  {mobileImg && (
+                    <Image
+                      src={mobileImg}
+                      layout="fill"
+                      objectFit="contain"
+                      alt="mobile screenshot"
+                      className=""
+                    />
+                  )}
                 </div>
               </div>
               {/* no images message */}
@@ -129,7 +139,7 @@ function Home2({ projectData, featuredProjectData }) {
               )}
               {/* desktop container */}
               <div
-                className={`transform ease-in-out transition-all duration-600 m-auto ${
+                className={`transform ease-in-out transition-all duration-100 m-auto ${
                   desktopImg
                     ? " opacity-100 h-full w-full"
                     : " opacity-0 h-0 w-0"
@@ -137,15 +147,21 @@ function Home2({ projectData, featuredProjectData }) {
               >
                 <div>
                   <Image
-                    src={
-                      desktopImg
-                        ? desktopImg
-                        : "/projects/placeholder-desktop.svg"
-                    }
+                    src={"/projects/placeholder-desktop.svg"}
                     layout="fill"
                     objectFit="contain"
-                    alt="desktop screenshot"
+                    alt="desktop placeholder"
+                    className=""
                   />
+                  {desktopImg && (
+                    <Image
+                      src={desktopImg}
+                      layout="fill"
+                      objectFit="contain"
+                      alt="desktop screenshot"
+                      className=""
+                    />
+                  )}
                 </div>
               </div>
             </div>
