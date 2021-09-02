@@ -60,7 +60,7 @@ function Header({ setAccentColor }) {
 
   return (
     <Headroom>
-      <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[80px] items-center backdrop-blur-sm bg-gradient-to-b from-white via-white to-transparent">
+      <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[80px] items-center backdrop-blur-sm bg-white">
         <div className="pl-5 flex flex-row">
           <h1
             className=" text-2xl cursor-pointer"

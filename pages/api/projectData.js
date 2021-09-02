@@ -807,7 +807,7 @@ export default function handler(req, res) {
       stack: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
       media: {
         mobile: {
-          images: ["/projects/alsa3i-mobile.png"],
+          images: ["/projects/alsa3i-mobile.svg"],
           videos: ["https://youtu.be/zRS3nDmJxf4"],
         },
         desktop: {
@@ -826,7 +826,7 @@ export default function handler(req, res) {
       stack: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
       media: {
         mobile: {
-          images: ["/projects/altulumba-mobile-1.png"],
+          images: ["/projects/altulumba-mobile.svg"],
           videos: [],
         },
         desktop: {

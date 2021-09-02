@@ -102,32 +102,52 @@ function Home2({ projectData, featuredProjectData }) {
             <div className=" h-full flex flex-col justify-between items-stretch">
               {/* mobile container */}
 
-              {mobileImg && (
-                <div className="m-auto h-full w-full relative transform transition-all ease-linear duration-500">
-                  <div>
-                    <Image
-                      src={mobileImg}
-                      layout="fill"
-                      objectFit="contain"
-                      alt="mobile screenshot"
-                      className="transform transition-all ease-linear duration-500"
-                    />
-                  </div>
+              <div
+                className={`transform transition-all duration-400 ${
+                  mobileImg
+                    ? "scale-100 opacity-100 h-full w-full"
+                    : "scale-50 opacity-0 h-0 w-0"
+                } m-auto  relative`}
+              >
+                <div>
+                  <Image
+                    src={
+                      mobileImg ? mobileImg : "/projects/placeholder-mobile.svg"
+                    }
+                    layout="fill"
+                    objectFit="contain"
+                    alt="mobile screenshot"
+                    className="transform transition-all ease-linear duration-500"
+                  />
                 </div>
+              </div>
+              {/* no images message */}
+              {!mobileImg && !desktopImg && (
+                <h2 className={`text-gray-200 m-auto`}>
+                  No previews at the moment.
+                </h2>
               )}
               {/* desktop container */}
-              {desktopImg && (
-                <div className="m-auto h-full w-full relative self-end">
-                  <div>
-                    <Image
-                      src={desktopImg}
-                      layout="fill"
-                      objectFit="contain"
-                      alt="desktop screenshot"
-                    />
-                  </div>
+              <div
+                className={`transform transition-all duration-400 m-auto ${
+                  desktopImg
+                    ? "scale-100 opacity-100 h-full w-full"
+                    : "scale-50 opacity-0 h-0 w-0"
+                } relative self-end`}
+              >
+                <div>
+                  <Image
+                    src={
+                      desktopImg
+                        ? desktopImg
+                        : "/projects/placeholder-desktop.svg"
+                    }
+                    layout="fill"
+                    objectFit="contain"
+                    alt="desktop screenshot"
+                  />
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
