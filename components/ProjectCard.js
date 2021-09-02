@@ -74,10 +74,10 @@ export default function ProjectCard({
     if (isVisible(cardRef.current, window.innerHeight / 3)) {
       if (setVisibleProject && visibleProject !== index) {
         setVisibleProject(index);
-        console.log(
-          cardRef.current.id,
-          isVisible(cardRef.current, window.innerHeight / 3)
-        );
+        // console.log(
+        //   cardRef.current.id,
+        //   isVisible(cardRef.current, window.innerHeight / 3)
+        // );
       }
     }
   };

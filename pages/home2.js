@@ -27,14 +27,14 @@ function Home2({ projectData, featuredProjectData }) {
       desktopImages = desktopImages.concat(
         media?.desktop.images.length > 0 ? media?.desktop.images : [""]
       );
-      console.log(
-        "m/d/t:",
-        mobileImages.length,
-        "/",
-        desktopImages.length,
-        "/",
-        projectData.length
-      );
+      // console.log(
+      //   "m/d/t:",
+      //   mobileImages.length,
+      //   "/",
+      //   desktopImages.length,
+      //   "/",
+      //   projectData.length
+      // );
       if (index + 1 === projectData.length) {
         setMobileImgs(mobileImages);
         setDesktopImgs(desktopImages);
@@ -46,9 +46,9 @@ function Home2({ projectData, featuredProjectData }) {
   }, [projectData]);
 
   useEffect(() => {
-    console.log(mobileImg);
-    console.log(desktopImg);
-    console.log("visible project: ", visibleProject);
+    // console.log(mobileImg);
+    // console.log(desktopImg);
+    // console.log("visible project: ", visibleProject);
     setMobileImg(mobileImgs[visibleProject]);
     setDesktopImg(desktopImgs[visibleProject]);
   }, [setMobileImg, setDesktopImg, visibleProject]);
