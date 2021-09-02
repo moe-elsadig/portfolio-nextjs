@@ -103,7 +103,7 @@ function Home2({ projectData, featuredProjectData }) {
               {/* mobile container */}
 
               <div
-                className={`transform transition-all duration-400 ${
+                className={`transform ease-in-out transition-all duration-600 ${
                   mobileImg
                     ? "scale-100 opacity-100 h-full w-full"
                     : "scale-50 opacity-0 h-0 w-0"
@@ -117,7 +117,7 @@ function Home2({ projectData, featuredProjectData }) {
                     layout="fill"
                     objectFit="contain"
                     alt="mobile screenshot"
-                    className="transform transition-all ease-linear duration-500"
+                    className=""
                   />
                 </div>
               </div>
@@ -129,7 +129,7 @@ function Home2({ projectData, featuredProjectData }) {
               )}
               {/* desktop container */}
               <div
-                className={`transform transition-all duration-400 m-auto ${
+                className={`transform ease-in-out transition-all duration-600 m-auto ${
                   desktopImg
                     ? "scale-100 opacity-100 h-full w-full"
                     : "scale-50 opacity-0 h-0 w-0"
