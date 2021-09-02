@@ -641,7 +641,7 @@ export default function handler(req, res) {
       title: `Uber Clone`,
       description:
         "An Uber UI Clone with working search and routing functionality powered by the Maps APIs from Google. Built using React Native for its cross-platform deployment and mobile first approach.",
-      stack: ["React Native"],
+      stack: ["React Native", "Expo", "Redux"],
       media: {
         mobile: {
           images: ["/projects/tlprt-mobile.svg"],
@@ -649,9 +649,33 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: [],
+          videos: ["https://youtu.be/0POCh7EJgh0"],
         },
       },
+      dependencies: [
+        "@react-navigation/native",
+        "@react-navigation/native-stack",
+        "@reduxjs/toolkit",
+        "expo",
+        "expo-status-bar",
+        "intl",
+        "react",
+        "react-dom",
+        "react-native",
+        "react-native-dotenv",
+        "react-native-elements",
+        "react-native-gesture-handler",
+        "react-native-google-places-autocomplete",
+        "react-native-maps",
+        "react-native-maps-directions",
+        "react-native-reanimated",
+        "react-native-safe-area-context",
+        "react-native-screens",
+        "react-native-vector-icons",
+        "react-native-web",
+        "react-redux",
+        "tailwind-react-native-classnames",
+      ],
       repo: "https://github.com/moe-elsadig/tlprt",
     },
     {
@@ -679,11 +703,8 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [
-            "/projects/jawab-desktop.svg",
-            // "/projects/jawab-desktop.png",
-          ],
-          videos: [],
+          images: ["/projects/jawab-desktop.svg"],
+          videos: ["https://youtu.be/wGFK8GQTsrQ"],
         },
       },
       repo: "https://github.com/moe-elsadig/jawab",
@@ -691,15 +712,16 @@ export default function handler(req, res) {
     },
     {
       title: `Signal Clone`,
-      description: "A Signal Messenger UI Clone with working functionalty...",
+      description:
+        "A Signal Messenger UI Clone working across web and mobile. Available functionality includes email authentication, real-time messages and updates, group chat rooms.",
       stack: ["React Native", "Expo", "Firebase", "react-navigation"],
       media: {
         mobile: {
-          images: [],
+          images: ["/projects/jawab2-mobile.svg"],
           videos: [],
         },
         desktop: {
-          images: [],
+          images: ["/projects/jawab2-desktop.svg"],
           videos: ["https://youtu.be/eLOjPGPgTK0"],
         },
       },
@@ -728,12 +750,12 @@ export default function handler(req, res) {
       stack: ["NextJS", "MapBox", "TailwindCSS"],
       media: {
         mobile: {
-          images: [],
+          images: ["/projects/earthbnb-mobile.svg"],
           videos: [],
         },
         desktop: {
-          images: [],
-          videos: [],
+          images: ["/projects/earthbnb-desktop.svg"],
+          videos: ["https://youtu.be/rsE8X5kw0WI"],
         },
       },
       dependencies: [
@@ -756,12 +778,12 @@ export default function handler(req, res) {
       stack: ["NextJS", "DraftJS", "TailwindCSS", "Firebase", "Next-Auth"],
       media: {
         mobile: {
-          images: [],
+          images: ["/projects/kitabat-mobile.svg"],
           videos: [],
         },
         desktop: {
-          images: [],
-          videos: [],
+          images: ["/projects/kitabat-desktop.svg"],
+          videos: ["https://youtu.be/4J9DLUdq4gA"],
         },
       },
       dependencies: [
@@ -786,7 +808,7 @@ export default function handler(req, res) {
       media: {
         mobile: {
           images: ["/projects/alsa3i-mobile.png"],
-          videos: [],
+          videos: ["https://youtu.be/zRS3nDmJxf4"],
         },
         desktop: {
           images: [],
@@ -827,7 +849,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: [],
+          videos: ["https://youtu.be/dwGVXde5WaY"],
         },
       },
       dependencies: ["HTML", "CSS", "Javascript"],
