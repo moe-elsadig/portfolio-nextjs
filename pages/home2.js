@@ -105,8 +105,8 @@ function Home2({ projectData, featuredProjectData }) {
               <div
                 className={`transform ease-in-out transition-all duration-600 ${
                   mobileImg
-                    ? "scale-100 opacity-100 h-full w-full"
-                    : "scale-50 opacity-0 h-0 w-0"
+                    ? " opacity-100 h-full w-full"
+                    : " opacity-0 h-0 w-0"
                 } m-auto  relative`}
               >
                 <div>
@@ -131,8 +131,8 @@ function Home2({ projectData, featuredProjectData }) {
               <div
                 className={`transform ease-in-out transition-all duration-600 m-auto ${
                   desktopImg
-                    ? "scale-100 opacity-100 h-full w-full"
-                    : "scale-50 opacity-0 h-0 w-0"
+                    ? " opacity-100 h-full w-full"
+                    : " opacity-0 h-0 w-0"
                 } relative self-end`}
               >
                 <div>
