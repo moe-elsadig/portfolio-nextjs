@@ -184,20 +184,18 @@ export default function handler(req, res) {
     {
       title: `RoboND P1 Search and Sample Return Project`,
       description: `Search and Sample Return Project`,
-      stack: [],
+      stack: ["ROS"],
       media: {
         mobile: {
           images: [],
           videos: [],
         },
         desktop: {
-          images: [
-            "https://raw.githubusercontent.com/moe-elsadig/RoboND-Kinematics-Project/master/misc_images/misc2.png",
-          ],
+          images: ["/projects/robo1-desktop.svg"],
           videos: [],
         },
       },
-      dependencies: [],
+      dependencies: ["ROS"],
       repo: "https://github.com/moe-elsadig/RoboND-P1",
     },
     {
@@ -312,14 +310,14 @@ export default function handler(req, res) {
     {
       title: `Item Catalogue App`,
       description: `FSND-P2 Item Catalogue App. The following tool is a web application that catalogues items under different categories. Each item added is secured with authentication and authorisation measures.`,
-      stack: ["Python"],
+      stack: ["Python", "PostgreSQL"],
       media: {
         mobile: {
           images: [],
           videos: [],
         },
         desktop: {
-          images: [],
+          images: ["/projects/catalogue-desktop.svg"],
           videos: [],
         },
       },
@@ -352,7 +350,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [],
+          images: ["/projects/newsLogs-desktop.svg"],
           videos: [],
         },
       },
@@ -844,12 +842,12 @@ export default function handler(req, res) {
       stack: ["HTML", "CSS", "Javascript"],
       media: {
         mobile: {
-          images: [],
+          images: ["/projects/mysite-mobile.svg"],
           videos: [],
         },
         desktop: {
-          images: [],
-          videos: ["https://youtu.be/dwGVXde5WaY"],
+          images: ["/projects/mysite-desktop.svg"],
+          videos: ["https://youtu.be/eeucdAwVq9o"],
         },
       },
       dependencies: ["HTML", "CSS", "Javascript"],
@@ -858,23 +856,39 @@ export default function handler(req, res) {
     {
       title: `Python Flask eCommerce Site`,
       description: "An eCommerce site build on the Flask technology stack.",
-      stack: ["Flask", "Postgres"],
+      stack: [
+        "Python",
+        "Flask",
+        "Postgres",
+        "SQLAlchemy",
+        "HTML",
+        "Javascript",
+        "CSS",
+      ],
       media: {
         mobile: {
           images: [],
           videos: [],
         },
         desktop: {
-          images: [],
-          videos: [],
+          images: ["/projects/esudani-desktop.svg"],
+          videos: ["https://youtu.be/cBnhvd7iJzk"],
         },
       },
-      dependencies: ["Flask", "Postgres"],
+      dependencies: [
+        "Python",
+        "Flask",
+        "Postgres",
+        "SQLAlchemy",
+        "HTML",
+        "Javascript",
+        "CSS",
+      ],
       repo: "https://github.com/moe-elsadig/esudani-shopping-app",
     },
     {
-      title: `Cat Clicker App`,
-      description: `Click a cat picture till you get bored.`,
+      title: `Cat Clicker App (octopus mental model)`,
+      description: `Click a cat picture till you get bored. A demonstration of the octopus mental model for accessing variables and updating their values and refreshing the rendered views.`,
       stack: ["HTML", "CSS", "Javascript"],
       media: {
         mobile: {
@@ -882,8 +896,8 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [],
-          videos: [],
+          images: ["/projects/catclicker-desktop.svg"],
+          videos: ["https://youtu.be/royt3ySaE84"],
         },
       },
       dependencies: ["HTML", "CSS", "Javascript"],
@@ -901,9 +915,7 @@ export default function handler(req, res) {
       stack: [],
       media: {
         mobile: {
-          images: [
-            "https://github.com/moe-elsadig/FriendlyChatProject/blob/master/Screenshot%202018-12-24%20at%2013.20.36.png",
-          ],
+          images: ["/projects/friendlychat-mobile.svg"],
           videos: [],
         },
         desktop: {
@@ -959,11 +971,11 @@ export default function handler(req, res) {
   let projectData = [
     ...otherWebProjects,
     ...otherProjects,
-    ...otherAndroidProjects,
-    ...abndProjects,
-    ...roboProjects,
+    // ...otherAndroidProjects,
+    // ...abndProjects,
+    // ...roboProjects,
     ...fnsdProjects,
-    ...sdcndProjects,
+    // ...sdcndProjects,
   ];
   let featuredProjectData = [
     // ...abndProjects,

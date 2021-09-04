@@ -60,7 +60,7 @@ function Header({ setAccentColor }) {
 
   return (
     <Headroom>
-      <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[80px] items-center backdrop-blur-sm bg-white">
+      <div className="sticky top-0 z-40 shadow-md flex flex-row justify-between justify-items-center h-[40px] items-center backdrop-blur-lg ">
         <div className="pl-5 flex flex-row">
           <h1
             className=" text-2xl cursor-pointer"
@@ -73,8 +73,8 @@ function Header({ setAccentColor }) {
           <Image
             alt=""
             src="/logo_small_black.svg"
-            width="60"
-            height="60"
+            width="40"
+            height="40"
             // layout="fill"
             objectFit="contain"
             className=" text-2xl cursor-pointer"
