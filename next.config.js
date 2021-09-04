@@ -5,6 +5,7 @@ module.exports = {
       "user-images.githubusercontent.com",
       "github.com",
       "raw.githubusercontent.com",
+      "images.pexels.com",
     ],
   },
   env: {

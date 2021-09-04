@@ -18,7 +18,7 @@ export default function Home({ projectData, featuredProjectData }) {
       </Head>
       <Header setAccentColor={setAccentColor} />
       <ProfileCard />
-      <main className="relative bg-gray-100">
+      <main className="relative bg-gray-100 antialiased">
         {/* {featuredProjectData?.map((project, index) => (
           <ProjectCard
             key={project.title}
