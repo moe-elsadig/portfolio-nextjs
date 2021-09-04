@@ -51,7 +51,7 @@ function Home2({ projectData, featuredProjectData }) {
     // console.log("visible project: ", visibleProject);
     setMobileImg(mobileImgs[visibleProject]);
     setDesktopImg(desktopImgs[visibleProject]);
-  }, [setMobileImg, setDesktopImg, visibleProject]);
+  }, [setMobileImg, setDesktopImg, visibleProject, mobileImgs, desktopImgs]);
 
   return (
     <div className="min-h-screen flex flex-col font-mono relative">

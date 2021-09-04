@@ -38,7 +38,7 @@ export default function ProjectCard({
     setAccent(color);
     setTheme(theme);
     return;
-  }, [accentColor]);
+  }, [accentColor, index]);
 
   const themeShade = (number = 200) => {
     const lightToDark = {

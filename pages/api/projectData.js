@@ -939,33 +939,31 @@ export default function handler(req, res) {
   let otherProjects = [
     {
       title: `Didi Challenge Helper Scripts`,
-      description: `Didi Challenge Helper Scripts`,
-      stack: [],
+      description: `CLI and IPYNB Scripts for the Didi Challenge (Team: Transformers!!) to extract obstacle features from a Lidar sensor for use in Autonomous driving. I wrote scripts to manipulate and extract information from the given datasets in the rosbag format. Scripts for extracting images in grayscale/RGB, video in grayscale/RGB, Lidar pointclouds to frames, pointclouds to visual hiRes plots, NPY plots to images, rosbag to CSV, rosbag topic extractor, Deep learning classification training images extractor and finally the obstacle feature detection pipeline from input.`,
+      stack: ["Python", "Jupyter Notebook"],
       media: {
         mobile: {
           images: [],
           videos: [],
         },
         desktop: {
-          images: [
-            "https://github.com/moe-elsadig/DidiChallengeHelperScripts/raw/master/2d_plot.png",
-          ],
+          images: ["/projects/didi-desktop.svg"],
           videos: [],
         },
       },
-      dependencies: [],
+      dependencies: ["Python", "Jupyter Notebook", "Matlab"],
       repo: "https://github.com/moe-elsadig/DidiChallengeHelperScripts",
     },
   ];
 
   let projectData = [
     ...otherWebProjects,
-    // ...otherProjects,
-    // ...otherAndroidProjects,
-    // ...abndProjects,
-    // ...roboProjects,
-    // ...fnsdProjects,
-    // ...sdcndProjects,
+    ...otherProjects,
+    ...otherAndroidProjects,
+    ...abndProjects,
+    ...roboProjects,
+    ...fnsdProjects,
+    ...sdcndProjects,
   ];
   let featuredProjectData = [
     // ...abndProjects,
