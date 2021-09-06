@@ -80,12 +80,15 @@ function Timeline() {
     position,
     description,
   }) => (
-    <div className="relative z-10">
+    <div className="relative z-10" key={position}>
       <div className="timeline-img">
         <Image
           src={companyLogo}
-          alt=""
-          layout="fill"
+          alt={company + " logo"}
+          // layout="fill"
+          layout="responsive"
+          height={24}
+          width={24}
           objectFit="cover"
           className="rounded-full"
         />
@@ -120,12 +123,15 @@ function Timeline() {
     position,
     description,
   }) => (
-    <div className="relative z-10">
+    <div className="relative z-10" key={position}>
       <div className="timeline-img">
         <Image
           src={companyLogo}
-          alt=""
-          layout="fill"
+          alt={company + " logo"}
+          // layout="fill"
+          layout="responsive"
+          height={24}
+          width={24}
           objectFit="cover"
           className="rounded-full"
         />
