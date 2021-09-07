@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
+import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 const data = [
   {
@@ -70,17 +71,31 @@ const data = [
   },
 ];
 
-function Timeline() {
-  let rightMarkup = ({
-    company,
-    companyLogo,
-    location,
-    dateStart,
-    dateEnd,
-    position,
-    description,
-  }) => (
-    <div className="relative z-10" key={position}>
+function WorkTimeline() {
+  const [showMore, setShowMore] = useState(false);
+
+  const scrollToWork = () => {
+    const el = document.getElementById("work-0");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
+
+  let rightMarkup = (
+    {
+      company,
+      companyLogo,
+      location,
+      dateStart,
+      dateEnd,
+      position,
+      description,
+    },
+    index
+  ) => (
+    <div id={"work-" + index} className="relative z-10" key={position}>
       <div className="timeline-img">
         <Image
           src={companyLogo}
@@ -114,16 +129,19 @@ function Timeline() {
     </div>
   );
 
-  let leftMarkup = ({
-    company,
-    companyLogo,
-    location,
-    dateStart,
-    dateEnd,
-    position,
-    description,
-  }) => (
-    <div className="relative z-10" key={position}>
+  let leftMarkup = (
+    {
+      company,
+      companyLogo,
+      location,
+      dateStart,
+      dateEnd,
+      position,
+      description,
+    },
+    index
+  ) => (
+    <div id={"work-" + index} className="relative z-10" key={position}>
       <div className="timeline-img">
         <Image
           src={companyLogo}
@@ -161,18 +179,41 @@ function Timeline() {
   );
   return (
     <div className="container mx-auto p-6 my-6 relative flex flex-col space-y-8 bg-white">
-      <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-blue-400 to-purple-400 rounded-xl"></div>
+      <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-yellow-400 to-purple-400 rounded-xl"></div>
       {/* container */}
 
-      {data.map((employment, index) => {
+      {data.slice(0, 1).map((employment, index) => {
         if ((index + 1) % 2) {
-          return rightMarkup(employment);
+          return rightMarkup(employment, index);
         } else {
-          return leftMarkup(employment);
+          return leftMarkup(employment, index);
         }
       })}
+
+      {showMore &&
+        data.slice(1).map((employment, index) => {
+          if ((index + 2) % 2) {
+            return rightMarkup(employment, index);
+          } else {
+            return leftMarkup(employment, index);
+          }
+        })}
+      <button
+        onClick={() => {
+          setShowMore(!showMore);
+          scrollToWork();
+        }}
+        className="flex items-center self-start md:self-center py-2 z-10  shadow-md px-4 rounded-md backdrop-blur-lg"
+      >
+        Show {showMore ? "less" : "more"}{" "}
+        {showMore ? (
+          <MdExpandLess className=" text-red-400" />
+        ) : (
+          <MdExpandMore className=" text-red-400" />
+        )}
+      </button>
     </div>
   );
 }
 
-export default Timeline;
+export default WorkTimeline;

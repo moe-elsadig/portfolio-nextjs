@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Head from "next/head";
 import ProfileCard from "../components/ProfileCard";
-import Timeline from "../components/Timeline";
+import WorkTimeline from "../components/WorkTimeline";
 import Image from "next/image";
 import ProjectCard from "../components/ProjectCard";
 
@@ -63,7 +63,7 @@ function Home2({ projectData, featuredProjectData }) {
       </Head>
       <Header />
       <ProfileCard />
-      <Timeline />
+      <WorkTimeline />
       <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 min-h-screen">
         <div className="bg-white w-full md:w-1/2 min-h-screen">
           {projectData?.map((project, index) => (
