@@ -1,12 +1,28 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { VscDebugBreakpointLog } from "react-icons/vsc";
+import { useInView } from "react-intersection-observer";
 
 function TimelineEducationCard({ cardInfo, index }) {
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    // console.log("education visible", inView);
+  }, [inView]);
+
+  const fadeOut = "translate-y-10 opacity-0";
+  const fadeIn = "translate-y-0 opacity-100";
+
   let rightMarkup = cardInfo ? (
     <div
       id={"education-" + index}
-      className="relative z-10"
+      ref={ref}
+      className={`relative z-10 transition-all transform duration-300 ${
+        inView ? fadeIn : fadeOut
+      }`}
       key={cardInfo?.course}
     >
       <div className="timeline-img">
@@ -44,7 +60,10 @@ function TimelineEducationCard({ cardInfo, index }) {
   let leftMarkup = cardInfo ? (
     <div
       id={"education-" + index}
-      className="relative z-10"
+      ref={ref}
+      className={`relative z-10 transition-all transform duration-300 ${
+        inView ? fadeIn : fadeOut
+      }`}
       key={cardInfo?.course}
     >
       <div className="timeline-img">

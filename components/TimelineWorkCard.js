@@ -1,12 +1,25 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
+import { useInView } from "react-intersection-observer";
 
 function TimelineWorkCard({ cardInfo, index, cardType }) {
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const fadeOut = "translate-y-10 opacity-0";
+  const fadeIn = "translate-y-0 opacity-100";
+
   let rightMarkup = cardInfo ? (
     <div
       id={"work-" + index}
-      className="relative z-10"
+      ref={ref}
+      className={`relative z-10 transition-all transform duration-300 ${
+        inView ? fadeIn : fadeOut
+      }`}
       key={cardInfo?.position}
     >
       <div className="timeline-img">
@@ -31,12 +44,13 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
           <h2 className="text-lg font-semibold text-gray-300">
             {cardInfo?.company} - {cardInfo?.location}
           </h2>
-          {cardInfo?.description.map((item, index) => (
-            <p key={item} className="pt-1 flex flex-row items-center space-x-2">
-              <VscDebugBreakpointLog className="h-2" />
-              {item}
-            </p>
-          ))}
+          <ul>
+            {cardInfo?.description?.map((item, index) => (
+              <li key={item} className="pt-1 text-justify list-disc">
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -47,7 +61,10 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
   let leftMarkup = cardInfo ? (
     <div
       id={"work-" + index}
-      className="relative z-10"
+      ref={ref}
+      className={`relative z-10 transition-all transform duration-300 ${
+        inView ? fadeIn : fadeOut
+      }`}
       key={cardInfo?.position}
     >
       <div className="timeline-img">
@@ -75,12 +92,13 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
           <h2 className="text-lg font-semibold text-gray-300">
             {cardInfo?.company} - {cardInfo?.location}
           </h2>
-          {cardInfo?.description?.map((item, index) => (
-            <p key={item} className="pt-1 flex flex-row items-center space-x-2">
-              <VscDebugBreakpointLog className="h-2" />
-              {item}
-            </p>
-          ))}
+          <ul>
+            {cardInfo?.description?.map((item, index) => (
+              <li key={item} className="pt-1 text-justify list-disc">
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

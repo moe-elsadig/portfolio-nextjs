@@ -4,8 +4,6 @@ import Header from "../components/Header";
 import Head from "next/head";
 import ProfileCard from "../components/ProfileCard";
 import Timeline from "../components/Timeline";
-import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
-import { HiOutlineDownload } from "react-icons/hi";
 
 export default function Home({ projectData, featuredProjectData }) {
   const [accentColor, setAccentColor] = useState("red");

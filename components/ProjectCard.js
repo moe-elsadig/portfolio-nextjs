@@ -10,6 +10,7 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { VscJson } from "react-icons/vsc";
 import { FiYoutube } from "react-icons/fi";
 import { IoImagesOutline } from "react-icons/io5";
+import { useInView } from "react-intersection-observer";
 
 export default function ProjectCard({
   project: { title, description, stack, media, dependencies },
@@ -26,6 +27,19 @@ export default function ProjectCard({
   const [theme, setTheme] = useState("light");
   const [showDependencies, setShowDependencies] = useState(false);
   const [showJson, setShowJson] = useState(false);
+
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    // console.log("education visible", inView);
+  }, [inView]);
+
+  const fadeOut = "translate-y-10 opacity-0";
+  const fadeIn = "translate-y-0 opacity-100";
 
   useEffect(() => {
     let color = "red";
@@ -142,7 +156,12 @@ export default function ProjectCard({
           className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
         /> */}
       </div>
-      <div className={`flex-grow`}>
+      <div
+        ref={ref}
+        className={`flex-grow transition-all transform duration-300 ${
+          inView ? fadeIn : fadeOut
+        }`}
+      >
         <h1 className={`text-lg text-red-400`}>{title}</h1>
         <p className="pt-2 pl-2">{description}</p>
         <div>
