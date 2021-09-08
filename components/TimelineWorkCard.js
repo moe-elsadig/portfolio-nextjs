@@ -17,12 +17,12 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
     <div
       id={"work-" + index}
       ref={ref}
-      className={`relative z-10 transition-all transform duration-300 ${
+      className={`text-black dark:text-white relative z-10 transition-all transform duration-300 ${
         inView ? fadeIn : fadeOut
       }`}
       key={cardInfo?.position}
     >
-      <div className="timeline-img">
+      <div className="timeline-img ">
         <Image
           src={cardInfo ? cardInfo.companyLogo : "/"}
           alt={cardInfo?.company + " logo"}
@@ -34,14 +34,14 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
           className="rounded-full"
         />
       </div>
-      <div className="timeline-container">
+      <div className="timeline-container ">
         <div className="timeline-pointer" aria-hidden="true"></div>
-        <div className="bg-white p-6 rounded-md shadow-md">
-          <span className="font-bold text-indigo-400 text-sm tracking-wide">
+        <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-md shadow-md">
+          <span className="font-bold text-indigo-400 dark:text-indigo-500 text-sm tracking-wide">
             {cardInfo?.dateStart} - {cardInfo?.dateEnd}
           </span>
           <h1 className="text-xl font-bold pt-1">{cardInfo?.position}</h1>
-          <h2 className="text-lg font-semibold text-gray-300">
+          <h2 className="text-lg font-semibold text-gray-300 dark:text-gray-600">
             {cardInfo?.company} - {cardInfo?.location}
           </h2>
           <ul>
@@ -62,7 +62,7 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
     <div
       id={"work-" + index}
       ref={ref}
-      className={`relative z-10 transition-all transform duration-300 ${
+      className={`text-black dark:text-white relative z-10 transition-all transform duration-300 ${
         inView ? fadeIn : fadeOut
       }`}
       key={cardInfo?.position}
@@ -84,12 +84,12 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
           className="timeline-pointer timeline-pointer-left"
           aria-hidden="true"
         ></div>
-        <div className="bg-white p-6 rounded-md shadow-md">
-          <span className="font-bold text-indigo-400 text-sm tracking-wide">
+        <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-md shadow-md">
+          <span className="font-bold text-indigo-400 dark:text-indigo-500 text-sm tracking-wide">
             {cardInfo?.dateStart} - {cardInfo?.dateEnd}
           </span>
           <h1 className="text-xl font-bold pt-1">{cardInfo?.position}</h1>
-          <h2 className="text-lg font-semibold text-gray-300">
+          <h2 className="text-lg font-semibold text-gray-300 dark:text-gray-600">
             {cardInfo?.company} - {cardInfo?.location}
           </h2>
           <ul>
@@ -107,9 +107,9 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
   );
 
   if ((index + 1) % 2) {
-    return rightMarkup;
+    return <div className="px-10">{rightMarkup}</div>;
   } else {
-    return leftMarkup;
+    return <div className="px-10">{leftMarkup}</div>;
   }
 
   // return <div>boom</div>;

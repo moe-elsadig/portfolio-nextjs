@@ -20,7 +20,7 @@ function TimelineEducationCard({ cardInfo, index }) {
     <div
       id={"education-" + index}
       ref={ref}
-      className={`relative z-10 transition-all transform duration-300 ${
+      className={`text-black dark:text-white relative z-10 transition-all transform duration-300 ${
         inView ? fadeIn : fadeOut
       }`}
       key={cardInfo?.course}
@@ -39,16 +39,16 @@ function TimelineEducationCard({ cardInfo, index }) {
       </div>
       <div className="timeline-container">
         <div className="timeline-pointer" aria-hidden="true"></div>
-        <div className="bg-white p-6 rounded-md shadow-md">
-          <span className="font-bold text-indigo-400 text-sm tracking-wide">
+        <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-md shadow-md">
+          <span className="font-bold text-indigo-400 dark:text-indigo-600 text-sm tracking-wide">
             {cardInfo?.dateStart} - {cardInfo?.dateEnd}
           </span>
           <h1 className="text-xl font-bold pt-1">{cardInfo?.course}</h1>
-          <h2 className="text-lg font-semibold pt-1 text-gray-400">
+          <h2 className="text-lg font-semibold pt-1 text-gray-400 dark:text-gray-500">
             {cardInfo?.institution}
           </h2>
-          <h3 className="text-md font-medium text-gray-300">
-            {cardInfo?.company} - {cardInfo?.location}
+          <h3 className="text-md font-medium text-gray-300 dark:text-gray-600">
+            {cardInfo?.location}
           </h3>
         </div>
       </div>
@@ -61,7 +61,7 @@ function TimelineEducationCard({ cardInfo, index }) {
     <div
       id={"education-" + index}
       ref={ref}
-      className={`relative z-10 transition-all transform duration-300 ${
+      className={`text-black dark:text-white relative z-10 transition-all transform duration-300 ${
         inView ? fadeIn : fadeOut
       }`}
       key={cardInfo?.course}
@@ -83,16 +83,16 @@ function TimelineEducationCard({ cardInfo, index }) {
           className="timeline-pointer timeline-pointer-left"
           aria-hidden="true"
         ></div>
-        <div className="bg-white p-6 rounded-md shadow-md">
-          <span className="font-bold text-indigo-400 text-sm tracking-wide">
+        <div className="bg-gray-50 dark:bg-gray-900  p-6 rounded-md shadow-md">
+          <span className="font-bold text-indigo-400 dark:text-indigo-600  text-sm tracking-wide">
             {cardInfo?.dateStart} - {cardInfo?.dateEnd}
           </span>
           <h1 className="text-xl font-bold pt-1">{cardInfo?.course}</h1>
-          <h2 className="text-lg font-semibold pt-1 text-gray-400">
+          <h2 className="text-lg font-semibold pt-1 text-gray-400 dark:text-gray-500">
             {cardInfo?.institution}
           </h2>
-          <h3 className="text-md font-medium text-gray-300">
-            {cardInfo?.company} - {cardInfo?.location}
+          <h3 className="text-md font-medium text-gray-300 dark:text-gray-600">
+            {cardInfo?.location}
           </h3>
         </div>
       </div>
@@ -102,9 +102,9 @@ function TimelineEducationCard({ cardInfo, index }) {
   );
 
   if ((index + 1) % 2) {
-    return rightMarkup;
+    return <div className="px-10">{rightMarkup}</div>;
   } else {
-    return leftMarkup;
+    return <div className="px-10">{leftMarkup}</div>;
   }
 
   // return <div>boom</div>;

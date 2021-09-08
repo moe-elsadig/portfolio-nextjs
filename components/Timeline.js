@@ -156,39 +156,43 @@ function Timeline({ timelineType = "work" }) {
   let itemData = timelineType === "work" ? workData : educationData;
 
   return (
-    <div className="container mx-auto p-6 my-6 relative flex flex-col space-y-8 bg-white">
-      <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-yellow-400 to-purple-400 rounded-xl"></div>
-      {/* container */}
+    <div className="w-full h-full bg-gray-100 dark:bg-gray-800">
+      <div className="w-full max-w-screen-2xl mx-auto py-10 relative flex flex-col space-y-8 bg-white dark:bg-black">
+        <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-yellow-400 to-purple-400 rounded-xl my-5"></div>
+        {/* container */}
 
-      {itemData.slice(0, 1).map((item, index) => {
-        if (timelineType === "work") {
-          return <TimelineWorkCard cardInfo={item} index={index} />;
-        } else return <TimelineEducationCard cardInfo={item} index={index} />;
-      })}
-
-      {showMore &&
-        itemData.slice(1).map((item, index) => {
+        {itemData.slice(0, 1).map((item, index) => {
           if (timelineType === "work") {
-            return <TimelineWorkCard cardInfo={item} index={index + 1} />;
-          } else
-            return <TimelineEducationCard cardInfo={item} index={index + 1} />;
+            return <TimelineWorkCard cardInfo={item} index={index} />;
+          } else return <TimelineEducationCard cardInfo={item} index={index} />;
         })}
-      {itemData.length > 1 && (
-        <button
-          onClick={() => {
-            setShowMore(!showMore);
-            scrollToFirst();
-          }}
-          className="flex items-center self-start md:self-center py-2 z-10  shadow-md px-4 rounded-md backdrop-blur-lg"
-        >
-          Show {showMore ? "less" : "more"}{" "}
-          {showMore ? (
-            <MdExpandLess className=" text-red-400" />
-          ) : (
-            <MdExpandMore className=" text-red-400" />
-          )}
-        </button>
-      )}
+
+        {showMore &&
+          itemData.slice(1).map((item, index) => {
+            if (timelineType === "work") {
+              return <TimelineWorkCard cardInfo={item} index={index + 1} />;
+            } else
+              return (
+                <TimelineEducationCard cardInfo={item} index={index + 1} />
+              );
+          })}
+        {itemData.length > 1 && (
+          <button
+            onClick={() => {
+              setShowMore(!showMore);
+              scrollToFirst();
+            }}
+            className="flex items-center self-start md:self-center py-2 z-10  shadow-md px-4 rounded-md backdrop-blur-lg text-black dark:text-white"
+          >
+            Show {showMore ? "less" : "more"}{" "}
+            {showMore ? (
+              <MdExpandLess className=" text-red-400" />
+            ) : (
+              <MdExpandMore className=" text-red-400" />
+            )}
+          </button>
+        )}
+      </div>
     </div>
   );
 }

@@ -63,7 +63,7 @@ export default function Home({ projectData, featuredProjectData }) {
               />
             ))}
 
-        <div className="pb-10 bg-white dark:bg-black flex flex-col">
+        <div className="max-w-screen-2xl mx-auto pb-10 bg-white dark:bg-black flex flex-col">
           {/* <SectionHeader title="Projects" /> */}
           {projectData.length > 1 && (
             <button
@@ -71,7 +71,7 @@ export default function Home({ projectData, featuredProjectData }) {
                 setShowMore(!showMore);
                 scrollToFirst();
               }}
-              className="flex flex-grow items-center self-start md:self-center py-2 z-10 shadow-md px-4 rounded-md backdrop-blur-lg"
+              className="flex flex-grow items-center self-start md:self-center py-2 z-10 shadow-md px-4 rounded-md backdrop-blur-lg text-black dark:text-white"
             >
               Show {showMore ? "less" : "more"}{" "}
               {showMore ? (
@@ -88,8 +88,8 @@ export default function Home({ projectData, featuredProjectData }) {
       <SectionHeader title="education" />
       <Timeline timelineType="education" />
 
-      <footer className="border-t mx-10">
-        <p className="text-sm text-gray-400 dark:text-gray-500">
+      <footer className="border-t bg-gray-100 dark:bg-gray-800">
+        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto bg-white dark:bg-black">
           Designed & Developed by{" "}
           <span className="text-red-400 dark:text-red-500">M</span>
           <span className="text-red-400 dark:text-red-500">o</span>
