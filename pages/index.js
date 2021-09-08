@@ -19,7 +19,8 @@ export default function Home({ projectData, featuredProjectData }) {
       </Head>
       <Header setAccentColor={setAccentColor} />
       <ProfileCard />
-      <Timeline />
+      <Timeline timelineType="education" />
+      <Timeline timelineType="work" />
       <main className="relative bg-gray-100 antialiased">
         {/* {featuredProjectData?.map((project, index) => (
           <ProjectCard

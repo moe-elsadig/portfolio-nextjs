@@ -3,7 +3,8 @@ import Image from "next/image";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
-import TimelineWork from "../components/TimelineWork";
+import TimelineWorkCard from "./TimelineWorkCard";
+import TimelineEducationCard from "./TimelineEducationCard";
 
 const workData = [
   {
@@ -73,11 +74,78 @@ const workData = [
   },
 ];
 
-function Timeline() {
+const educationData = [
+  {
+    dateStart: "Jan 2019",
+    dateEnd: "May 2019",
+    course: "Full Stack Web Developer Nanodegree",
+    institution: "Udacity",
+    location: "Remote, US",
+    institutionLogo: "/work/udacity-logo.png",
+    relatedProjects: [],
+  },
+  {
+    dateStart: "Nov 2016",
+    dateEnd: "Oct 2017",
+    course: "Self Driving Car Engineer Nanodegree",
+    institution: "Udacity",
+    location: "Remote, US",
+    institutionLogo: "/work/udacity-logo.png",
+    relatedProjects: [],
+  },
+  {
+    dateStart: "TBA",
+    dateEnd: "TBA",
+    course: "MSc Renewable Energy",
+    institution: "University of Jordan",
+    location: "Amman, JO",
+    institutionLogo: "/education/ju-logo.png",
+    relatedProjects: [],
+  },
+  {
+    dateStart: "Jun 2016",
+    dateEnd: "Jul 2016",
+    course: "Android Basics Nanodegree",
+    institution: "Udacity",
+    location: "Remote, US",
+    institutionLogo: "/work/udacity-logo.png",
+    relatedProjects: [],
+  },
+  {
+    dateStart: "Jan 2010",
+    dateEnd: "Dec 2015",
+    course: "BEng (Hons) Mechatronics Engineering",
+    institution: "UCSI University",
+    location: "Kuala Lumpur, MY",
+    institutionLogo: "/education/ucsi-logo.png",
+    relatedProjects: [],
+  },
+  {
+    dateStart: "Jan 2010",
+    dateEnd: "Dec 2010",
+    course: "Science Foundation",
+    institution: "UCSI University",
+    location: "Kuala Lumpur, MY",
+    institutionLogo: "/education/ucsi-logo.png",
+    relatedProjects: [],
+  },
+  {
+    dateStart: "Sep 2007",
+    dateEnd: "May 2008",
+    course: "IGCSE/O-Levels",
+    institution: "Unity Highschool",
+    location: "Khartoum, SD",
+    institutionLogo: "/education/uhs-logo.jpg",
+    relatedProjects: [],
+  },
+];
+
+function Timeline({ timelineType = "work" }) {
   const [showMore, setShowMore] = useState(false);
 
-  const scrollToWork = () => {
-    const el = document.getElementById("work-0");
+  const scrollToFirst = () => {
+    let elId = timelineType + "-0";
+    const el = document.getElementById(elId);
     el.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -85,133 +153,42 @@ function Timeline() {
     });
   };
 
-  let rightMarkup = (
-    {
-      company,
-      companyLogo,
-      location,
-      dateStart,
-      dateEnd,
-      position,
-      description,
-    },
-    index
-  ) => (
-    <div id={"work-" + index} className="relative z-10" key={position}>
-      <div className="timeline-img">
-        <Image
-          src={companyLogo}
-          alt={company + " logo"}
-          // layout="fill"
-          layout="responsive"
-          height={24}
-          width={24}
-          objectFit="cover"
-          className="rounded-full"
-        />
-      </div>
-      <div className="timeline-container">
-        <div className="timeline-pointer" aria-hidden="true"></div>
-        <div className="bg-white p-6 rounded-md shadow-md">
-          <span className="font-bold text-indigo-400 text-sm tracking-wide">
-            {dateStart} - {dateEnd}
-          </span>
-          <h1 className="text-xl font-bold pt-1">{position}</h1>
-          <h2 className="text-lg font-semibold text-gray-300">
-            {company} - {location}
-          </h2>
-          {description.map((item, index) => (
-            <p key={item} className="pt-1 flex flex-row items-center space-x-2">
-              <VscDebugBreakpointLog className="h-2" />
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  let itemData = timelineType === "work" ? workData : educationData;
 
-  let leftMarkup = (
-    {
-      company,
-      companyLogo,
-      location,
-      dateStart,
-      dateEnd,
-      position,
-      description,
-    },
-    index
-  ) => (
-    <div id={"work-" + index} className="relative z-10" key={position}>
-      <div className="timeline-img">
-        <Image
-          src={companyLogo}
-          alt={company + " logo"}
-          // layout="fill"
-          layout="responsive"
-          height={24}
-          width={24}
-          objectFit="cover"
-          className="rounded-full"
-        />
-      </div>
-      <div className="timeline-container timeline-container-left">
-        <div
-          className="timeline-pointer timeline-pointer-left"
-          aria-hidden="true"
-        ></div>
-        <div className="bg-white p-6 rounded-md shadow-md">
-          <span className="font-bold text-indigo-400 text-sm tracking-wide">
-            {dateStart} - {dateEnd}
-          </span>
-          <h1 className="text-xl font-bold pt-1">{position}</h1>
-          <h2 className="text-lg font-semibold text-gray-300">
-            {company} - {location}
-          </h2>
-          {description.map((item, index) => (
-            <p key={item} className="pt-1 flex flex-row items-center space-x-2">
-              <VscDebugBreakpointLog className="h-2" />
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
   return (
     <div className="container mx-auto p-6 my-6 relative flex flex-col space-y-8 bg-white">
       <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-yellow-400 to-purple-400 rounded-xl"></div>
       {/* container */}
 
-      {workData.slice(0, 1).map((employment, index) => (
-        <TimelineWork cardType="work" cardInfo={employment} index={index} />
-      ))}
+      {itemData.slice(0, 1).map((item, index) => {
+        if (timelineType === "work") {
+          return <TimelineWorkCard cardInfo={item} index={index} />;
+        } else return <TimelineEducationCard cardInfo={item} index={index} />;
+      })}
 
       {showMore &&
-        workData
-          .slice(1)
-          .map((employment, index) => (
-            <TimelineWork
-              cardType="work"
-              cardInfo={employment}
-              index={index + 1}
-            />
-          ))}
-      <button
-        onClick={() => {
-          setShowMore(!showMore);
-          scrollToWork();
-        }}
-        className="flex items-center self-start md:self-center py-2 z-10  shadow-md px-4 rounded-md backdrop-blur-lg"
-      >
-        Show {showMore ? "less" : "more"}{" "}
-        {showMore ? (
-          <MdExpandLess className=" text-red-400" />
-        ) : (
-          <MdExpandMore className=" text-red-400" />
-        )}
-      </button>
+        itemData.slice(1).map((item, index) => {
+          if (timelineType === "work") {
+            return <TimelineWorkCard cardInfo={item} index={index + 1} />;
+          } else
+            return <TimelineEducationCard cardInfo={item} index={index + 1} />;
+        })}
+      {itemData.length > 1 && (
+        <button
+          onClick={() => {
+            setShowMore(!showMore);
+            scrollToFirst();
+          }}
+          className="flex items-center self-start md:self-center py-2 z-10  shadow-md px-4 rounded-md backdrop-blur-lg"
+        >
+          Show {showMore ? "less" : "more"}{" "}
+          {showMore ? (
+            <MdExpandLess className=" text-red-400" />
+          ) : (
+            <MdExpandMore className=" text-red-400" />
+          )}
+        </button>
+      )}
     </div>
   );
 }

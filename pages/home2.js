@@ -63,7 +63,8 @@ function Home2({ projectData, featuredProjectData }) {
       </Head>
       <Header />
       <ProfileCard />
-      <Timeline />
+      <Timeline timelineType="education" />
+      <Timeline timelineType="work" />
       <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 min-h-screen">
         <div className="bg-white w-full md:w-1/2 min-h-screen">
           {projectData?.map((project, index) => (
