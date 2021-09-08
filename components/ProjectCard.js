@@ -106,7 +106,7 @@ export default function ProjectCard({
     <div
       ref={cardRef}
       id={"project" + index}
-      className={`flex flex-col md:flex-row items-center justify-evenly m-4 mt-5 space-x-4 ${
+      className={`flex flex-col md:flex-row items-center justify-evenly space-x-4 ${
         fullScreen && "pb-[30vh]"
       } min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
     >

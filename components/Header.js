@@ -13,8 +13,8 @@ function Header({ setAccentColor }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const scrollToProjects = () => {
-    const el = document.getElementById("project0");
+  const scrollToHome = () => {
+    const el = document.getElementById("profile-card");
     el.scrollIntoView({
       behavior: "smooth",
       block: "end",
@@ -23,11 +23,31 @@ function Header({ setAccentColor }) {
     setMenu(false);
   };
 
-  const scrollToHome = () => {
-    const el = document.getElementById("profile-card");
+  const scrollToWork = () => {
+    const el = document.getElementById("work-0");
     el.scrollIntoView({
       behavior: "smooth",
-      block: "end",
+      block: "start",
+      inline: "nearest",
+    });
+    setMenu(false);
+  };
+
+  const scrollToProjects = () => {
+    const el = document.getElementById("project0");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    setMenu(false);
+  };
+
+  const scrollToEducation = () => {
+    const el = document.getElementById("education-0");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
       inline: "nearest",
     });
     setMenu(false);
@@ -58,6 +78,24 @@ function Header({ setAccentColor }) {
     return () => window.removeEventListener("scroll", handleScrollThrottled);
   }, []);
 
+  let buttonsMarkup = (
+    <>
+      <button className={`${buttonStyle}`} onClick={() => scrollToHome()}>
+        Home
+      </button>
+      <button className={`${buttonStyle}`} onClick={() => scrollToWork()}>
+        Work
+      </button>
+      <button className={`${buttonStyle}`}>Resume</button>
+      <button className={`${buttonStyle}`} onClick={() => scrollToProjects()}>
+        Projects
+      </button>
+      <button className={`${buttonStyle}`} onClick={() => scrollToEducation()}>
+        Education
+      </button>
+      <button className={`${buttonStyle}`}>Contact</button>
+    </>
+  );
   return (
     <Headroom className="z-50">
       <div className="sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[40px] items-center backdrop-blur-lg ">
@@ -83,18 +121,7 @@ function Header({ setAccentColor }) {
         </div>
         <div className="pr-5">
           <div className="hidden space-x-4 justify-center md:inline-flex">
-            <button className={`${buttonStyle}`} onClick={() => scrollToHome()}>
-              Home
-            </button>
-            <button className={`${buttonStyle}`}>Resume</button>
-            <button
-              className={`${buttonStyle}`}
-              onClick={() => scrollToProjects()}
-            >
-              Projects
-            </button>
-            <button className={`${buttonStyle}`}>About</button>
-            <button className={`${buttonStyle}`}>Contact</button>
+            {buttonsMarkup}
           </div>
           <button className="md:hidden" onClick={() => setMenu(!menu)}>
             Menu
@@ -116,18 +143,7 @@ function Header({ setAccentColor }) {
             <button className={`${buttonStyle}`} onClick={() => setMenu()}>
               <XIcon className={`h-10 mx-auto animate-pulse`} />
             </button>
-            <button className={`${buttonStyle}`} onClick={() => scrollToHome()}>
-              Home
-            </button>
-            <button className={`${buttonStyle}`}>Resume</button>
-            <button
-              className={`${buttonStyle}`}
-              onClick={() => scrollToProjects()}
-            >
-              Projects
-            </button>
-            <button className={`${buttonStyle}`}>About</button>
-            <button className={`${buttonStyle}`}>Contact</button>
+            {buttonsMarkup}
           </div>
         </div>
       </div>
