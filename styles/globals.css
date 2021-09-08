@@ -4,7 +4,7 @@
 
 @layer components {
   .timeline-img {
-    @apply rounded-full shadow-md border border-yellow-400  object-cover h-24 w-24 xs:absolute md:mx-auto md:left-0 md:right-0 z-20 backdrop-blur-lg;
+    @apply rounded-full shadow-md border border-yellow-400 dark:border-yellow-500 object-cover h-24 w-24 xs:absolute md:mx-auto md:left-0 md:right-0 z-20 backdrop-blur-lg;
   }
   .timeline-container {
     @apply relative pt-2 xs:pl-28 xs:pt-0 md:w-1/2 ml-auto md:pl-16;
@@ -13,7 +13,7 @@
     @apply md:ml-0 md:mr-auto md:pl-0 md:pr-16;
   }
   .timeline-pointer {
-    @apply absolute inset-0 left-10 h-4 w-4 transform rotate-45 bg-white xs:top-11 xs:left-26 md:left-14;
+    @apply absolute inset-0 left-10 h-4 w-4 transform rotate-45 bg-white dark:bg-black xs:top-11 xs:left-26 md:left-14;
     background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
   }
   .timeline-pointer-left {

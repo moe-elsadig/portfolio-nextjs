@@ -12,13 +12,13 @@ function SectionHeader({ title }) {
     console.log("section visible", inView);
   }, [inView]);
 
-  const fadeOut = "translate-y-4 opacity-0";
+  const fadeOut = "translate-y-4 opacity-50";
   const fadeIn = "translate-y-0 opacity-100";
 
   return (
     <div
       id={title + "-section"}
-      className={` transition-all ease-in-out bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 transform duration-500 h-24 shadow-inner`}
+      className={` transition-all ease-in-out bg-gradient-to-r from-yellow-400 dark:from-yellow-500 via-red-400 dark:via-red-500 to-pink-400 dark:to-pink-500 transform duration-200 h-24 shadow-inner`}
     >
       <div
         style={{
@@ -30,7 +30,7 @@ function SectionHeader({ title }) {
       >
         <h1
           ref={ref}
-          className={`capitalize font-extrabold text-white transition-all transform duration-500 text-5xl ${
+          className={`capitalize font-extrabold text-white dark:text-black transition-all transform duration-500 text-5xl ${
             inView ? fadeIn : fadeOut
           }`}
         >
