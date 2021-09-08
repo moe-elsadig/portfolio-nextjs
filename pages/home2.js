@@ -5,6 +5,8 @@ import ProfileCard from "../components/ProfileCard";
 import Timeline from "../components/Timeline";
 import Image from "next/image";
 import ProjectCard from "../components/ProjectCard";
+import SectionHeader from "../components/SectionHeader";
+import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 function Home2({ projectData, featuredProjectData }) {
   let placeholderMobile = "/projects/placeholder-mobile.png";
@@ -17,6 +19,17 @@ function Home2({ projectData, featuredProjectData }) {
   const [desktopImg, setDesktopImg] = useState(placeholderDesktop);
   const [visibleProject, setVisibleProject] = useState(null);
   const [showTop, setShowTop] = useState("mobile");
+  const [showMore, setShowMore] = useState(false);
+
+  const scrollToFirst = () => {
+    let elId = "project0";
+    const el = document.getElementById(elId);
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
 
   useEffect(() => {
     let mobileImages = [];
@@ -63,11 +76,14 @@ function Home2({ projectData, featuredProjectData }) {
       </Head>
       <Header />
       <ProfileCard />
+      <SectionHeader title="Education" />
       <Timeline timelineType="education" />
+      <SectionHeader title="Work" />
       <Timeline timelineType="work" />
+      <SectionHeader title="Projects" />
       <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 min-h-screen">
         <div className="bg-white w-full md:w-1/2 min-h-screen">
-          {projectData?.map((project, index) => (
+          {projectData?.slice(0, 1).map((project, index) => (
             <div
               key={project.title}
               className={`smin-h-[50vh] md:min-h-screen flex flex-row justify-items-stretch items-center`}
@@ -84,6 +100,42 @@ function Home2({ projectData, featuredProjectData }) {
               />
             </div>
           ))}
+
+          {showMore &&
+            projectData
+              ?.slice(1)
+              .map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  index={index + 1}
+                  accentColor={"red"}
+                  noImages={true}
+                  setVisibleProject={setVisibleProject}
+                  visibleProject={visibleProject}
+                  fullScreen={true}
+                />
+              ))}
+
+          <div className="pb-10 bg-white flex flex-col">
+            <SectionHeader title="Projects" />
+            {projectData.length > 1 && (
+              <button
+                onClick={() => {
+                  setShowMore(!showMore);
+                  scrollToFirst();
+                }}
+                className="flex flex-grow items-center self-start md:self-center py-2 z-10  shadow-md px-4 rounded-md backdrop-blur-lg"
+              >
+                Show {showMore ? "less" : "more"}{" "}
+                {showMore ? (
+                  <MdExpandLess className=" text-red-400" />
+                ) : (
+                  <MdExpandMore className=" text-red-400" />
+                )}
+              </button>
+            )}
+          </div>
         </div>
         <div className="bg-white shadow-md to-transparent backdrop-blur-lg sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
           {/* <div className="py-2 flex flex-row justify-end">
