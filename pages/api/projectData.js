@@ -971,11 +971,11 @@ export default function handler(req, res) {
   let projectData = [
     ...otherWebProjects,
     ...otherProjects,
-    // ...otherAndroidProjects,
-    // ...abndProjects,
-    // ...roboProjects,
     ...fnsdProjects,
-    // ...sdcndProjects,
+    ...sdcndProjects, // TODO
+    ...roboProjects, // TODO
+    ...otherAndroidProjects, // TODO
+    ...abndProjects, // TODO
   ];
   let featuredProjectData = [
     // ...abndProjects,
