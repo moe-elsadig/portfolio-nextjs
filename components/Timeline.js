@@ -3,7 +3,9 @@ import Image from "next/image";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
-const data = [
+import TimelineWork from "../components/TimelineWork";
+
+const workData = [
   {
     dateStart: "July 2019",
     dateEnd: "Present",
@@ -71,7 +73,7 @@ const data = [
   },
 ];
 
-function WorkTimeline() {
+function Timeline() {
   const [showMore, setShowMore] = useState(false);
 
   const scrollToWork = () => {
@@ -182,22 +184,20 @@ function WorkTimeline() {
       <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-yellow-400 to-purple-400 rounded-xl"></div>
       {/* container */}
 
-      {data.slice(0, 1).map((employment, index) => {
-        if ((index + 1) % 2) {
-          return rightMarkup(employment, index);
-        } else {
-          return leftMarkup(employment, index);
-        }
-      })}
+      {workData.slice(0, 1).map((employment, index) => (
+        <TimelineWork cardType="work" cardInfo={employment} index={index} />
+      ))}
 
       {showMore &&
-        data.slice(1).map((employment, index) => {
-          if ((index + 2) % 2) {
-            return rightMarkup(employment, index);
-          } else {
-            return leftMarkup(employment, index);
-          }
-        })}
+        workData
+          .slice(1)
+          .map((employment, index) => (
+            <TimelineWork
+              cardType="work"
+              cardInfo={employment}
+              index={index + 1}
+            />
+          ))}
       <button
         onClick={() => {
           setShowMore(!showMore);
@@ -216,4 +216,4 @@ function WorkTimeline() {
   );
 }
 
-export default WorkTimeline;
+export default Timeline;

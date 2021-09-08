@@ -3,7 +3,7 @@ import ProjectCard from "../components/ProjectCard";
 import Header from "../components/Header";
 import Head from "next/head";
 import ProfileCard from "../components/ProfileCard";
-import WorkTimeline from "../components/WorkTimeline";
+import Timeline from "../components/Timeline";
 import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { HiOutlineDownload } from "react-icons/hi";
 
@@ -19,7 +19,7 @@ export default function Home({ projectData, featuredProjectData }) {
       </Head>
       <Header setAccentColor={setAccentColor} />
       <ProfileCard />
-      <WorkTimeline />
+      <Timeline />
       <main className="relative bg-gray-100 antialiased">
         {/* {featuredProjectData?.map((project, index) => (
           <ProjectCard
