@@ -30,11 +30,7 @@ export default function Home({ projectData, featuredProjectData }) {
       </Head>
       <Header setAccentColor={setAccentColor} />
       <ProfileCard />
-      <SectionHeader title="Education" />
-      <Timeline timelineType="education" />
-      <SectionHeader title="Work" />
-      <Timeline timelineType="work" />
-      <SectionHeader title="Projects" />
+      <SectionHeader title="projects" />
       <main className="relative bg-gray-100 antialiased">
         {projectData?.slice(0, 1).map((project, index) => (
           <ProjectCard
@@ -58,7 +54,7 @@ export default function Home({ projectData, featuredProjectData }) {
             ))}
 
         <div className="pb-10 bg-white flex flex-col">
-          <SectionHeader title="Projects" />
+          {/* <SectionHeader title="Projects" /> */}
           {projectData.length > 1 && (
             <button
               onClick={() => {
@@ -77,6 +73,10 @@ export default function Home({ projectData, featuredProjectData }) {
           )}
         </div>
       </main>
+      <SectionHeader title="work" />
+      <Timeline timelineType="work" />
+      <SectionHeader title="education" />
+      <Timeline timelineType="education" />
 
       <footer className="border-t mx-10">
         <p className="text-sm text-gray-400">

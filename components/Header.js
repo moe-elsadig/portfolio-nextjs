@@ -24,7 +24,7 @@ function Header({ setAccentColor }) {
   };
 
   const scrollToWork = () => {
-    const el = document.getElementById("work-0");
+    const el = document.getElementById("work-section");
     el.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -34,7 +34,7 @@ function Header({ setAccentColor }) {
   };
 
   const scrollToProjects = () => {
-    const el = document.getElementById("project0");
+    const el = document.getElementById("projects-section");
     el.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -44,7 +44,7 @@ function Header({ setAccentColor }) {
   };
 
   const scrollToEducation = () => {
-    const el = document.getElementById("education-0");
+    const el = document.getElementById("education-section");
     el.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -83,22 +83,22 @@ function Header({ setAccentColor }) {
       <button className={`${buttonStyle}`} onClick={() => scrollToHome()}>
         Home
       </button>
-      <button className={`${buttonStyle}`} onClick={() => scrollToWork()}>
-        Work
-      </button>
-      <button className={`${buttonStyle}`}>Resume</button>
       <button className={`${buttonStyle}`} onClick={() => scrollToProjects()}>
         Projects
+      </button>
+      <button className={`${buttonStyle}`} onClick={() => scrollToWork()}>
+        Work
       </button>
       <button className={`${buttonStyle}`} onClick={() => scrollToEducation()}>
         Education
       </button>
+      <button className={`${buttonStyle}`}>Resume</button>
       <button className={`${buttonStyle}`}>Contact</button>
     </>
   );
   return (
     <Headroom className="z-50">
-      <div className="sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[40px] items-center backdrop-blur-lg ">
+      <div className="sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[60px] items-center backdrop-blur-lg ">
         <div className="pl-5 flex flex-row">
           <h1
             className=" text-2xl cursor-pointer"
@@ -111,8 +111,8 @@ function Header({ setAccentColor }) {
           <Image
             alt=""
             src="/logo_small_black.svg"
-            width="40"
-            height="40"
+            width="60"
+            height="60"
             // layout="fill"
             objectFit="contain"
             className=" text-2xl cursor-pointer"
