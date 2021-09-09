@@ -45,7 +45,7 @@ function ProfileCard() {
         </div>
         <div className="pt-6 text-center space-y-4">
           <blockquote>
-            <p className="text-lg font-semibold text-gray-400 dark:text-gray-500">
+            <p className="text-lg font-semibold text-black dark:text-white">
               {'"'}I love building well engineered solutions{'"'}
             </p>
           </blockquote>

@@ -88,9 +88,9 @@ export default function Home({
           )}
         </div>
       </main>
-      <SectionHeader title="work" />
+      <SectionHeader title="education" />
       <Timeline timelineType="education" cardData={educationData} />
-      <SectionHeader title="Work" />
+      <SectionHeader title="work" />
       <Timeline timelineType="work" cardData={workData} />
 
       <footer className="border-t bg-gray-100 dark:bg-gray-800">

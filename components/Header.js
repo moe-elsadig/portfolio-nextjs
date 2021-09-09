@@ -100,15 +100,19 @@ function Header({ toggleTheme }) {
   return (
     <Headroom className="z-50">
       <div className="sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[60px] items-center backdrop-blur-lg bg-white dark:bg-black">
-        <div className="pl-5 flex flex-row">
+        <div className="pl-5 flex flex-row justify-between">
           <h1
             className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
             onClick={() => scrollToTop()}
           >
             Moe.
-            <CgDarkMode onClick={() => toggleTheme()} />
           </h1>
         </div>
+
+        <CgDarkMode
+          className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
+          onClick={() => toggleTheme()}
+        />
         <div className="hidden md:inline-flex md:max-w-[100px]">
           <Image
             alt=""

@@ -108,32 +108,32 @@ export default function ProjectCard({
       id={"project" + index}
       className={`flex flex-col md:flex-row items-center justify-evenly space-x-4 ${
         fullScreen && "pb-[30vh]"
-      } min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
+      } min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black text-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon
-          className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
+          className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
         />
         <AiOutlineGithub
           onClick={() => {
             if (project.repo) window.open(`${project.repo}`);
           }}
           className={`h-6 cursor-pointer text-2xl ${
-            !project.repo ? "text-gray-100" : ""
-          } hover:text-red-400 hover:scale-105`}
+            !project.repo ? "text-gray-100 dark:text-gray-800" : ""
+          } hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
         />
         <ExternalLinkIcon
           onClick={() => {
             if (project.demo) window.open(`${project.demo}`);
           }}
           className={`h-6 cursor-pointer text-2xl ${
-            !project.demo ? "text-gray-100" : ""
+            !project.demo ? "text-gray-100 dark:text-gray-800" : ""
           } hover:text-red-400 hover:scale-105`}
         />
         {process.env.NODE_ENV !== "production" && (
           <VscJson
             onClick={() => setShowJson(!showJson)}
-            className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
+            className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
           />
         )}
         {media.mobile.videos.length > 0 && (
@@ -141,7 +141,7 @@ export default function ProjectCard({
             onClick={() => {
               window.open(`${media.mobile.videos[0]}`);
             }}
-            className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
+            className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
           />
         )}
         {media.desktop.videos.length > 0 && (
@@ -149,11 +149,11 @@ export default function ProjectCard({
             onClick={() => {
               window.open(`${media.desktop.videos[0]}`);
             }}
-            className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
+            className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
           />
         )}
         {/* <IoImagesOutline
-          className={`h-6 cursor-pointer hover:text-red-400 hover:scale-105`}
+          className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
         /> */}
       </div>
       <div
@@ -162,17 +162,21 @@ export default function ProjectCard({
           inView ? fadeIn : fadeOut
         }`}
       >
-        <h1 className={`text-lg text-red-400`}>{title}</h1>
-        <p className="pt-2 pl-2">{description}</p>
+        <h1
+          className={`text-lg font-semibold capitalize underline text-red-400 dark:text-red-500`}
+        >
+          {title}
+        </h1>
+        <p className="pt-2 px-2 text-justify">{description}</p>
         <div>
-          <p className={`text-gray-400 pt-4`}>Stack:</p>
+          <p className={`text-gray-400 dark:text-gray-500 pt-4`}>Stack:</p>
           <div className="flex flex-row flex-wrap justify-start pl-2 space-x-4 ">
             {stack?.map((tech, index) => (
               <p
                 key={tech}
-                className={`cursor-pointer hover:text-red-400 hover:scale-105`}
+                className={`cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
               >
-                <span className={`text-red-400`}>{tech}</span>
+                <span className={`text-red-400 dark:text-red-500`}>{tech}</span>
                 {index + 1 < stack.length ? "/" : ""}
               </p>
             ))}
@@ -180,12 +184,12 @@ export default function ProjectCard({
           {dependencies && (
             <div>
               <button
-                className="flex text-gray-400 pt-4"
+                className="flex text-gray-400 dark:text-gray-500 pt-4"
                 onClick={() => setShowDependencies(!showDependencies)}
               >
                 All Dependencies ({dependencies.length})
                 <IoIosArrowDropdown
-                  className={`h-6 cursor-pointer text-lg hover:text-red-400 hover:scale-105`}
+                  className={`h-6 cursor-pointer text-lg hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
                 />
               </button>
               <div
@@ -194,7 +198,7 @@ export default function ProjectCard({
                 {dependencies?.map((dependency, index) => (
                   <p
                     key={dependency}
-                    className={`cursor-pointer text-sm text-red-400 hover:pl-4 over:pl-4`}
+                    className={`cursor-pointer text-sm text-red-400 dark:text-red-500 hover:pl-4 over:pl-4`}
                   >
                     {dependency}
                   </p>
