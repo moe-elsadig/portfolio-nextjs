@@ -191,7 +191,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: ["/projects/robo1-desktop.svg"],
+          images: [],
           videos: [],
         },
       },
@@ -238,7 +238,7 @@ export default function handler(req, res) {
     },
     {
       title: `Robotic arm - Pick & Place project`,
-      description: `Robotic arm - Pick & Place project`,
+      description: `Robotic arm - Pick & Place project. In this project, I train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.`,
       stack: ["ROS"],
       media: {
         mobile: {
@@ -246,58 +246,12 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [
-            "https://github.com/moe-elsadig/RoboND-Kinematics-Project/blob/master/misc_images/misc1.png",
-            "https://github.com/moe-elsadig/RoboND-Kinematics-Project/blob/master/misc_images/misc2.png",
-          ],
+          images: ["/projects/robo1-desktop.svg"],
           videos: [],
         },
       },
       dependencies: ["ROS"],
       repo: "https://github.com/moe-elsadig/RoboND-Kinematics-Project",
-    },
-    {
-      title: `Robotic arm - Pick & Place project`,
-      description: `In this project, I train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.`,
-      stack: [
-        "Python 3.x",
-        "Tensorflow 1.2.1",
-        "NumPy 1.11",
-        "SciPy 0.17.0",
-        "eventlet",
-        "Flask",
-        "h5py",
-        "PIL",
-        "python-socketio",
-        "scikit-image",
-        "transforms3d",
-        "PyQt4/Pyqt5",
-      ],
-      media: {
-        mobile: {
-          images: [],
-          videos: [],
-        },
-        desktop: {
-          images: [],
-          videos: [],
-        },
-      },
-      dependencies: [
-        "Python 3.x",
-        "Tensorflow 1.2.1",
-        "NumPy 1.11",
-        "SciPy 0.17.0",
-        "eventlet",
-        "Flask",
-        "h5py",
-        "PIL",
-        "python-socketio",
-        "scikit-image",
-        "transforms3d",
-        "PyQt4/Pyqt5",
-      ],
-      repo: "",
     },
   ];
 

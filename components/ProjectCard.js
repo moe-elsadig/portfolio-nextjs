@@ -246,7 +246,7 @@ export default function ProjectCard({
               src={
                 media.mobile.videos[0]
                   ? media.mobile.videos[0]
-                  : media.desktop.videos[0]
+                  : media.desktop.videos[0] + "?loop=1&mute=1&controls=0"
               }
             ></iframe>
           </div>
