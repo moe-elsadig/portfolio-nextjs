@@ -8,13 +8,6 @@ function SectionHeader({ title }) {
     threshold: 1,
   });
 
-  useEffect(() => {
-    console.log("section visible", inView);
-  }, [inView]);
-
-  const fadeOut = "translate-y-4 opacity-50";
-  const fadeIn = "translate-y-0 opacity-100";
-
   return (
     <div
       id={title + "-section"}
@@ -30,9 +23,7 @@ function SectionHeader({ title }) {
       >
         <h1
           ref={ref}
-          className={`capitalize font-extrabold text-white dark:text-black transition-all transform duration-500 text-5xl ${
-            inView ? fadeIn : fadeOut
-          }`}
+          className={`capitalize font-extrabold text-white dark:text-black transition-all transform duration-500 text-5xl`}
         >
           {title}
         </h1>

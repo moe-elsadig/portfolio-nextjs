@@ -8,7 +8,7 @@ import ProjectCard from "../components/ProjectCard";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
-function Home2({ projectData, featuredProjectData }) {
+function Home2({ projectData, featuredProjectData, workData, educationData }) {
   let placeholderMobile = "/projects/placeholder-mobile.png";
   let placeholderMobileWC = "/projects/placeholder-mobile-wc.png";
   let placeholderDesktop = "/projects/placeholder-desktop.svg";
@@ -77,9 +77,9 @@ function Home2({ projectData, featuredProjectData }) {
       <Header />
       <ProfileCard />
       <SectionHeader title="Education" />
-      <Timeline timelineType="education" />
+      <Timeline timelineType="education" cardData={educationData} />
       <SectionHeader title="Work" />
-      <Timeline timelineType="work" />
+      <Timeline timelineType="work" cardData={workData} />
       <SectionHeader title="Projects" />
       <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 min-h-screen">
         <div className="bg-white w-full md:w-1/2 min-h-screen">
@@ -248,7 +248,14 @@ export async function getServerSideProps() {
       return null;
     });
 
-  console.log(projectData.length, featuredProjectData.length);
+  const workData = await fetch(projectDataURL + "/api/workData")
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log("unable to fetch project data");
+      return null;
+    });
 
-  return { props: { projectData, featuredProjectData } };
+  console.log(projectData.length, featuredProjectData.length, workData.length);
+
+  return { props: { projectData, featuredProjectData, workData } };
 }

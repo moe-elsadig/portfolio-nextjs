@@ -7,13 +7,18 @@ import Timeline from "../components/Timeline";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
-export default function Home({ projectData, featuredProjectData }) {
+export default function Home({
+  projectData,
+  featuredProjectData,
+  workData,
+  educationData,
+}) {
   const [accentColor, setAccentColor] = useState("red");
   const [theme, setTheme] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
   const toggleTheme = () => {
-    console.log("toggled");
+    // console.log("toggled");
     setTheme(!theme);
   };
 
@@ -84,9 +89,9 @@ export default function Home({ projectData, featuredProjectData }) {
         </div>
       </main>
       <SectionHeader title="work" />
-      <Timeline timelineType="work" />
-      <SectionHeader title="education" />
-      <Timeline timelineType="education" />
+      <Timeline timelineType="education" cardData={educationData} />
+      <SectionHeader title="Work" />
+      <Timeline timelineType="work" cardData={workData} />
 
       <footer className="border-t bg-gray-100 dark:bg-gray-800">
         <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto bg-white dark:bg-black">
@@ -119,7 +124,28 @@ export async function getServerSideProps() {
       return null;
     });
 
-  console.log(projectData.length, featuredProjectData.length);
+  const workData = await fetch(projectDataURL + "/api/workData")
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log("unable to fetch project data");
+      return null;
+    });
 
-  return { props: { projectData, featuredProjectData } };
+  const educationData = await fetch(projectDataURL + "/api/educationData")
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log("unable to fetch project data");
+      return null;
+    });
+
+  console.log(
+    projectData.length,
+    featuredProjectData.length,
+    workData.length,
+    educationData.length
+  );
+
+  return {
+    props: { projectData, featuredProjectData, workData, educationData },
+  };
 }

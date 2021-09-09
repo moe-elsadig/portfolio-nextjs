@@ -140,7 +140,7 @@ const educationData = [
   },
 ];
 
-function Timeline({ timelineType = "work" }) {
+function Timeline({ timelineType = "work", cardData }) {
   const [showMore, setShowMore] = useState(false);
 
   const scrollToFirst = () => {
@@ -153,7 +153,7 @@ function Timeline({ timelineType = "work" }) {
     });
   };
 
-  let itemData = timelineType === "work" ? workData : educationData;
+  // let cardData = timelineType === "work" ? workData : educationData;
 
   return (
     <div className="w-full h-full bg-gray-100 dark:bg-gray-800">
@@ -161,14 +161,14 @@ function Timeline({ timelineType = "work" }) {
         <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-yellow-400 to-purple-400 rounded-xl my-5"></div>
         {/* container */}
 
-        {itemData.slice(0, 1).map((item, index) => {
+        {cardData?.slice(0, 1).map((item, index) => {
           if (timelineType === "work") {
             return <TimelineWorkCard cardInfo={item} index={index} />;
           } else return <TimelineEducationCard cardInfo={item} index={index} />;
         })}
 
         {showMore &&
-          itemData.slice(1).map((item, index) => {
+          cardData?.slice(1).map((item, index) => {
             if (timelineType === "work") {
               return <TimelineWorkCard cardInfo={item} index={index + 1} />;
             } else
@@ -176,7 +176,7 @@ function Timeline({ timelineType = "work" }) {
                 <TimelineEducationCard cardInfo={item} index={index + 1} />
               );
           })}
-        {itemData.length > 1 && (
+        {cardData?.length > 1 && (
           <button
             onClick={() => {
               setShowMore(!showMore);
