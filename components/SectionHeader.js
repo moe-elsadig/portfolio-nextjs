@@ -14,11 +14,6 @@ function SectionHeader({ title }) {
       className={` transition-all ease-in-out bg-gradient-to-r from-yellow-400 dark:from-yellow-500 via-red-400 dark:via-red-500 to-pink-400 dark:to-pink-500 transform duration-200 h-24 shadow-inner`}
     >
       <div
-        style={{
-          backgroundImage: 'url("/bg-pattern.svg")',
-          backgroundRepeat: "repeat",
-          backgroundSize: "cover",
-        }}
         className={`w-full content-center flex flex-col items-center justify-center transition-all transform duration-500 h-24 shadow-inner`}
       >
         <h1

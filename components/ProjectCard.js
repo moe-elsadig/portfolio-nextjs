@@ -108,7 +108,7 @@ export default function ProjectCard({
       id={"project" + index}
       className={`flex flex-col md:flex-row items-center justify-evenly space-x-4 ${
         fullScreen && "pb-[30vh]"
-      } min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-black text-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
+      } min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-[#101010] text-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
         <FolderOpenIcon
@@ -119,7 +119,7 @@ export default function ProjectCard({
             if (project.repo) window.open(`${project.repo}`);
           }}
           className={`h-6 cursor-pointer text-2xl ${
-            !project.repo ? "text-gray-100 dark:text-gray-800" : ""
+            !project.repo ? "text-gray-100 dark:text-gray-700" : ""
           } hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
         />
         <ExternalLinkIcon
@@ -127,7 +127,7 @@ export default function ProjectCard({
             if (project.demo) window.open(`${project.demo}`);
           }}
           className={`h-6 cursor-pointer text-2xl ${
-            !project.demo ? "text-gray-100 dark:text-gray-800" : ""
+            !project.demo ? "text-gray-100 dark:text-gray-700" : ""
           } hover:text-red-400 hover:scale-105`}
         />
         {process.env.NODE_ENV !== "production" && (

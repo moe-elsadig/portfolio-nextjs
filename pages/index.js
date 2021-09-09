@@ -36,7 +36,7 @@ export default function Home({
     <div
       className={`${
         theme ? "dark" : ""
-      } min-h-screen flex flex-col font-mono relative text-black dark:text-white bg-gray-100 dark:bg-gray-800`}
+      } min-h-screen flex flex-col font-mono relative text-black dark:text-white bg-gray-100 dark:bg-gray-700`}
     >
       <Head>
         <title>Portfolio - NextJS - TW</title>
@@ -46,7 +46,7 @@ export default function Home({
       <Header toggleTheme={toggleTheme} />
       <ProfileCard />
       <SectionHeader title="projects" />
-      <main className="relative bg-gray-100 dark:bg-gray-800 antialiased">
+      <main className="relative bg-gray-100 dark:bg-gray-700 antialiased">
         {projectData?.slice(0, 1).map((project, index) => (
           <ProjectCard
             key={project.title}
@@ -68,7 +68,7 @@ export default function Home({
               />
             ))}
 
-        <div className="max-w-screen-2xl mx-auto pb-10 bg-white dark:bg-black flex flex-col">
+        <div className="max-w-screen-2xl mx-auto pb-10 bg-white dark:bg-[#101010] flex flex-col">
           {/* <SectionHeader title="Projects" /> */}
           {projectData.length > 1 && (
             <button
@@ -93,8 +93,8 @@ export default function Home({
       <SectionHeader title="work" />
       <Timeline timelineType="work" cardData={workData} />
 
-      <footer className="border-t bg-gray-100 dark:bg-gray-800">
-        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto bg-white dark:bg-black">
+      <footer className="border-t bg-gray-100 dark:bg-gray-700">
+        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto bg-white dark:bg-[#101010]">
           Designed & Developed by{" "}
           <span className="text-red-400 dark:text-red-500">M</span>
           <span className="text-red-400 dark:text-red-500">o</span>

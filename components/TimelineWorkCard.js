@@ -36,7 +36,7 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
       </div>
       <div className="timeline-container ">
         <div className="timeline-pointer" aria-hidden="true"></div>
-        <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-md shadow-md">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-md shadow-md">
           <span className="font-bold text-indigo-400 dark:text-indigo-500 text-sm tracking-wide">
             {cardInfo?.dateStart} - {cardInfo?.dateEnd}
           </span>
@@ -84,7 +84,7 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
           className="timeline-pointer timeline-pointer-left"
           aria-hidden="true"
         ></div>
-        <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-md shadow-md">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-md shadow-md">
           <span className="font-bold text-indigo-400 dark:text-indigo-500 text-sm tracking-wide">
             {cardInfo?.dateStart} - {cardInfo?.dateEnd}
           </span>

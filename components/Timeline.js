@@ -156,8 +156,8 @@ function Timeline({ timelineType = "work", cardData }) {
   // let cardData = timelineType === "work" ? workData : educationData;
 
   return (
-    <div className="w-full h-full bg-gray-100 dark:bg-gray-800">
-      <div className="w-full max-w-screen-2xl mx-auto py-10 relative flex flex-col space-y-8 bg-white dark:bg-black">
+    <div className="w-full h-full bg-gray-100 dark:bg-gray-700">
+      <div className="w-full max-w-screen-2xl mx-auto py-10 relative flex flex-col space-y-8 bg-white dark:bg-[#101010]">
         <div className="absolute w-2 max-h-full shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0 bg-gradient-to-b from-red-400 via-yellow-400 to-purple-400 rounded-xl my-5"></div>
         {/* container */}
 

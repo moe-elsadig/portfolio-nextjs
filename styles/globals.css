@@ -13,7 +13,7 @@
     @apply md:ml-0 md:mr-auto md:pl-0 md:pr-16;
   }
   .timeline-pointer {
-    @apply absolute inset-0 left-10 h-4 w-4 transform rotate-45 bg-white dark:bg-black xs:top-11 xs:left-26 md:left-14;
+    @apply absolute inset-0 left-10 h-4 w-4 transform rotate-45 bg-white dark:bg-[#101010] xs:top-11 xs:left-26 md:left-14;
     background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
   }
   .timeline-pointer-left {

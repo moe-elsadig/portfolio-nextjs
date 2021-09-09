@@ -99,7 +99,7 @@ function Header({ toggleTheme }) {
   );
   return (
     <Headroom className="z-50">
-      <div className="sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[60px] items-center backdrop-blur-lg bg-white dark:bg-black">
+      <div className="sticky top-0 z-50 shadow-md flex flex-row justify-between justify-items-center h-[60px] items-center backdrop-blur-lg bg-white dark:bg-[#101010]">
         <div className="pl-5 flex flex-row justify-between">
           <h1
             className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
