@@ -229,9 +229,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [
-            "https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png",
-          ],
+          images: ["/projects/robo3-desktop.svg"],
           videos: [],
         },
       },
@@ -389,8 +387,8 @@ export default function handler(req, res) {
   // ===========================================================================
   let sdcndProjects = [
     {
-      title: `CarND-P1 Lane Lines Detection`,
-      description: `CarND-P1 Lane Lines Detection`,
+      title: `SDC-ND-P1 Lane Lines Detection`,
+      description: `SDC-ND-P1 Lane Lines Detection`,
       stack: [],
       media: {
         mobile: {
@@ -398,9 +396,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [
-            "https://github.com/moe-elsadig/CarND-P1/raw/master/laneLines_thirdPass.jpg",
-          ],
+          images: ["/projects/sdc1-desktop.svg"],
           videos: [],
         },
       },
@@ -408,7 +404,7 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P1",
     },
     {
-      title: `CarND-P2 Traffic Sign Recognition Program`,
+      title: `SDC-ND-P2 Traffic Sign Recognition Program`,
       description: `Traffic Sign Recognition Program uses what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the German Traffic Sign Dataset.`,
       stack: [],
       media: {
@@ -417,9 +413,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [
-            "https://github.com/moe-elsadig/CarND-P2/blob/master/visualize_cnn.png?raw=true",
-          ],
+          images: ["/projects/sdc2-desktop.svg"],
           videos: [],
         },
       },
@@ -427,7 +421,7 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P2",
     },
     {
-      title: `CarND-P3 Behavioral Cloning`,
+      title: `SDC-ND-P3 Behavioral Cloning`,
       description: `Use a visual AI model to clone the way you drive around any track in a car`,
       stack: [],
       media: {
@@ -437,14 +431,14 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: ["https://youtu.be/rFSvEyR4iOU"],
+          videos: ["https://youtube.com/embed/rFSvEyR4iOU"],
         },
       },
       dependencies: [],
       repo: "https://github.com/moe-elsadig/CarND-P3",
     },
     {
-      title: `CarND-P4 Advanced Lane Line Finding`,
+      title: `SDC-ND-P4 Advanced Lane Line Finding`,
       description: `Use computer vision methods to detect lane lines, highlight the current lane, estimate the curvature of the road, and estimate your position within the lane.`,
       stack: [],
       media: {
@@ -455,8 +449,8 @@ export default function handler(req, res) {
         desktop: {
           images: [],
           videos: [
-            "https://youtu.be/9qt3eyzOiHA",
-            "https://youtu.be/7a-cL1uQD3M",
+            "https://youtube.com/embed/9qt3eyzOiHA",
+            "https://youtube.com/embed/7a-cL1uQD3M",
           ],
         },
       },
@@ -464,7 +458,7 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P4",
     },
     {
-      title: `CarND-P6 Extended Kalman Filter`,
+      title: `SDC-ND-P6 Extended Kalman Filter`,
       description: ``,
       stack: [],
       media: {
@@ -481,7 +475,7 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P6",
     },
     {
-      title: `CarND-P7 Unscented Kalman Filter`,
+      title: `SDC-ND-P7 Unscented Kalman Filter`,
       description: `Use an unscented Kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.`,
       stack: [],
       media: {
@@ -498,8 +492,8 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P7",
     },
     {
-      title: `CarND-P8 Kidnapped-Vehicle-Project`,
-      description: `CarND-P8 Kidnapped-Vehicle-Project`,
+      title: `SDC-ND-P8 Kidnapped-Vehicle-Project`,
+      description: `SDC-ND-P8 Kidnapped-Vehicle-Project`,
       stack: ["C++"],
       media: {
         mobile: {
@@ -515,8 +509,8 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P8",
     },
     {
-      title: `CarND-P9 PID Vehicle Controller`,
-      description: `CarND-P9 PID Vehicle Controller`,
+      title: `SDC-ND-P9 PID Vehicle Controller`,
+      description: `SDC-ND-P9 PID Vehicle Controller`,
       stack: [],
       media: {
         mobile: {
@@ -525,15 +519,15 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: ["https://youtu.be/izlENH4_QFw"],
+          videos: ["https://youtube.com/embed/izlENH4_QFw"],
         },
       },
       dependencies: [],
       repo: "https://github.com/moe-elsadig/CarND-P9",
     },
     {
-      title: `CarND-P10 Model Predictive Controller`,
-      description: `CarND-P10 Model Predictive Controller`,
+      title: `SDC-ND-P10 Model Predictive Controller`,
+      description: `SDC-ND-P10 Model Predictive Controller`,
       stack: [],
       media: {
         mobile: {
@@ -542,15 +536,15 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: ["https://youtu.be/oJA1XanzMYs"],
+          videos: ["https://youtube.com/embed/oJA1XanzMYs"],
         },
       },
       dependencies: [],
       repo: "https://github.com/moe-elsadig/CarND-P10",
     },
     {
-      title: `CarND-P11 Path-Planning Project`,
-      description: `CarND-P11 Path-Planning Project`,
+      title: `SDC-ND-P11 Path-Planning Project`,
+      description: `SDC-ND-P11 Path-Planning Project`,
       stack: ["C++"],
       media: {
         mobile: {
@@ -566,8 +560,8 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P11",
     },
     {
-      title: `CarND-P12-1 Semantic Segmentation for Road and Obstacles`,
-      description: `CarND-P12-1 Semantic Segmentation for Road and Obstacles`,
+      title: `SDC-ND-P12-1 Semantic Segmentation for Road and Obstacles`,
+      description: `SDC-ND-P12-1 Semantic Segmentation for Road and Obstacles`,
       stack: ["Python"],
       media: {
         mobile: {
@@ -592,9 +586,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [
-            "https://github.com/bdschrisk/CarND-Capstone-Project/raw/master/imgs/udacity-carla.jpg",
-          ],
+          images: ["/projects/sdc13-desktop.svg"],
           videos: [],
         },
       },
@@ -630,7 +622,7 @@ export default function handler(req, res) {
             "/projects/portfolio-desktop.svg",
             // "/projects/portfolio-desktop-1.svg",
           ],
-          videos: ["https://youtu.be/F5kTB3HaEDo"],
+          videos: ["https://youtube.com/embed/F5kTB3HaEDo"],
         },
       },
       repo: "https://github.com/moe-elsadig/portfolio-nextjs",
@@ -647,7 +639,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: ["https://youtu.be/0POCh7EJgh0"],
+          videos: ["https://youtube.com/embed/0POCh7EJgh0"],
         },
       },
       dependencies: [
@@ -702,7 +694,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: ["/projects/jawab-desktop.svg"],
-          videos: ["https://youtu.be/wGFK8GQTsrQ"],
+          videos: ["https://youtube.com/embed/wGFK8GQTsrQ"],
         },
       },
       repo: "https://github.com/moe-elsadig/jawab",
@@ -720,7 +712,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: ["/projects/jawab2-desktop.svg"],
-          videos: ["https://youtu.be/eLOjPGPgTK0"],
+          videos: ["https://youtube.com/embed/eLOjPGPgTK0"],
         },
       },
       dependencies: [
@@ -753,7 +745,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: ["/projects/earthbnb-desktop.svg"],
-          videos: ["https://youtu.be/rsE8X5kw0WI"],
+          videos: ["https://youtube.com/embed/rsE8X5kw0WI"],
         },
       },
       dependencies: [
@@ -781,7 +773,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: ["/projects/kitabat-desktop.svg"],
-          videos: ["https://youtu.be/4J9DLUdq4gA"],
+          videos: ["https://youtube.com/embed/4J9DLUdq4gA"],
         },
       },
       dependencies: [
@@ -806,7 +798,7 @@ export default function handler(req, res) {
       media: {
         mobile: {
           images: ["/projects/alsa3i-mobile.svg"],
-          videos: ["https://youtu.be/zRS3nDmJxf4"],
+          videos: ["https://youtube.com/embed/zRS3nDmJxf4"],
         },
         desktop: {
           images: [],
@@ -847,7 +839,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: ["/projects/mysite-desktop.svg"],
-          videos: ["https://youtu.be/eeucdAwVq9o"],
+          videos: ["https://youtube.com/embed/eeucdAwVq9o"],
         },
       },
       dependencies: ["HTML", "CSS", "Javascript"],
@@ -872,7 +864,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: ["/projects/esudani-desktop.svg"],
-          videos: ["https://youtu.be/cBnhvd7iJzk"],
+          videos: ["https://youtube.com/embed/cBnhvd7iJzk"],
         },
       },
       dependencies: [
@@ -897,7 +889,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: ["/projects/catclicker-desktop.svg"],
-          videos: ["https://youtu.be/royt3ySaE84"],
+          videos: ["https://youtube.com/embed/royt3ySaE84"],
         },
       },
       dependencies: ["HTML", "CSS", "Javascript"],

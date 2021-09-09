@@ -236,6 +236,21 @@ export default function ProjectCard({
           ))}
         </div>
       )}
+      {!noImages &&
+        media?.desktop.images.length === 0 &&
+        media?.mobile.images.length === 0 &&
+        (media.mobile.videos.length > 0 || media.desktop.videos.length > 0) && (
+          <div className={`relative h-[45vh] w-full flex-grow`}>
+            <iframe
+              style={{ width: "100%", height: "100%" }}
+              src={
+                media.mobile.videos[0]
+                  ? media.mobile.videos[0]
+                  : media.desktop.videos[0]
+              }
+            ></iframe>
+          </div>
+        )}
       {showJson && (
         <div className="overflow-x-scroll overflow-y-scroll">
           <pre>{JSON.stringify(project, null, 2)}</pre>
