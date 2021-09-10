@@ -35,7 +35,6 @@ export default function handler(req, res) {
       companyLogo: "/work/udacity-logo.png",
       description: [
         "I utilized my specialized knowledge in the fields of Android Development (Java) & Self-Driving (autonomous) Cars and my strong communication skills to provide project reviews, code reviews and other student support services",
-        ,
       ],
       relatedProjects: [],
     },
@@ -48,7 +47,6 @@ export default function handler(req, res) {
       companyLogo: "/work/meco-logo.jpeg",
       description: [
         "Designed full electrical schematics and assisted with mechanical schematics for residential buildings",
-        ,
       ],
       relatedProjects: [],
     },
@@ -61,7 +59,6 @@ export default function handler(req, res) {
       companyLogo: "/work/petronas-logo.jpg",
       description: [
         "Administered the full setup and initialization of a computerised maintenance management system",
-        ,
       ],
       relatedProjects: [],
     },

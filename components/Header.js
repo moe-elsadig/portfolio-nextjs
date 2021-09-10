@@ -95,6 +95,10 @@ function Header({ toggleTheme }) {
       </button>
       <button className={`${buttonStyle}`}>Resume</button>
       <button className={`${buttonStyle}`}>Contact</button>
+      <CgDarkMode
+        className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
+        onClick={() => toggleTheme()}
+      />
     </>
   );
   return (
@@ -108,25 +112,40 @@ function Header({ toggleTheme }) {
             Moe.
           </h1>
         </div>
+        <div className="hidden md:inline-flex md:max-w-[100px]">
+          <div className="inline-flex dark:hidden">
+            <Image
+              alt=""
+              src="/logo_small_black.svg"
+              width="60"
+              height="60"
+              // layout="fill"
+              objectFit="contain"
+              className="text-2xl cursor-pointer bg-white rounded-full"
+              onClick={() => scrollToTop()}
+            />
+          </div>
+
+          <div className="hidden dark:inline-flex">
+            <Image
+              alt=""
+              src="/logo_small_white.svg"
+              width="60"
+              height="60"
+              // layout="fill"
+              objectFit="contain"
+              className="text-2xl cursor-pointer bg-black rounded-full"
+              onClick={() => scrollToTop()}
+            />
+          </div>
+        </div>
 
         <CgDarkMode
-          className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
+          className=" md:hidden text-2xl cursor-pointer text-black dark:text-white flex items-center"
           onClick={() => toggleTheme()}
         />
-        <div className="hidden md:inline-flex md:max-w-[100px]">
-          <Image
-            alt=""
-            src="/logo_small_black.svg"
-            width="60"
-            height="60"
-            // layout="fill"
-            objectFit="contain"
-            className="text-2xl cursor-pointer bg-white rounded-full"
-            onClick={() => scrollToTop()}
-          />
-        </div>
         <div className="pr-5">
-          <div className="hidden space-x-4 justify-center md:inline-flex">
+          <div className="hidden space-x-4 justify-center md:inline-flex flex-row items-center">
             {buttonsMarkup}
           </div>
           <button

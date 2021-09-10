@@ -17,9 +17,17 @@ export default function Home({
   const [theme, setTheme] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
+  useEffect(() => {
+    // check if already set
+    if (localStorage.getItem("theme")) {
+      setTheme(localStorage.getItem("theme"));
+    }
+  }, []);
+
   const toggleTheme = () => {
     // console.log("toggled");
     setTheme(!theme);
+    localStorage.setItem("theme", !theme);
   };
 
   const scrollToFirst = () => {

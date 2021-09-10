@@ -523,7 +523,7 @@ export default function handler(req, res) {
           videos: [],
         },
         desktop: {
-          images: [],
+          images: ["/projects/sdc12-desktop.svg"],
           videos: [],
         },
       },
