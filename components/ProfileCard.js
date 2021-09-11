@@ -67,16 +67,15 @@ function ProfileCard() {
           </figcaption>
         </div>
         <div className="pt-20 pb-28 items-center flex flex-col mx-auto space-y-5 min-w-full text-lg text-black dark:text-white">
-          <button className="flex flex-row gap-5 items-center ">
-            <a
-              href="/M.Abdalla - 1 Page Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Resume
-            </a>{" "}
+          <a
+            href="/M.Abdalla - 1 Page Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-row gap-5 items-center cursors-pointer"
+          >
+            <h3>Resume</h3>
             <HiOutlineDownload className="h-5 w-5 text-red-400 dark:text-red-500" />
-          </button>
+          </a>
           <button
             className="flex flex-row gap-5 items-center"
             onClick={() => scrollToProjects()}

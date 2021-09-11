@@ -6,6 +6,7 @@ import ProfileCard from "../components/ProfileCard";
 import Timeline from "../components/Timeline";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
+import ContactCard from "../components/ContactCard";
 
 export default function Home({
   projectData,
@@ -47,7 +48,7 @@ export default function Home({
       } min-h-screen flex flex-col font-mono relative text-black dark:text-white bg-gray-100 dark:bg-gray-700`}
     >
       <Head>
-        <title>Moe's Portfolio</title>
+        <title>Moe&#39;s Portfolio</title>
         <meta
           name="description"
           content="Welcome, I'm Moe, and this is my portfolio"
@@ -103,7 +104,8 @@ export default function Home({
       <Timeline timelineType="education" cardData={educationData} />
       <SectionHeader title="work" />
       <Timeline timelineType="work" cardData={workData} />
-
+      <SectionHeader title="contact" />
+      <ContactCard />
       <footer className="border-t bg-gray-100 dark:bg-gray-700">
         <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto bg-white dark:bg-[#101010]">
           Designed & Developed by{" "}

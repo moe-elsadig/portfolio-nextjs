@@ -54,6 +54,16 @@ function Header({ toggleTheme }) {
     setMenu(false);
   };
 
+  const scrollToContact = () => {
+    const el = document.getElementById("contact-section");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    setMenu(false);
+  };
+
   let prevPos = 0;
 
   const handleScroll = () => {
@@ -93,16 +103,17 @@ function Header({ toggleTheme }) {
       <button className={`${buttonStyle}`} onClick={() => scrollToEducation()}>
         Education
       </button>
-      <button className={`${buttonStyle}`}>
-        <a
-          href="/M.Abdalla - 1 Page Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Resume
-        </a>
+      <a
+        className={`${buttonStyle}`}
+        href="/M.Abdalla - 1 Page Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Resume
+      </a>
+      <button className={`${buttonStyle}`} onClick={() => scrollToContact()}>
+        Contact
       </button>
-      <button className={`${buttonStyle}`}>Contact</button>
       <CgDarkMode
         className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
         onClick={() => toggleTheme()}

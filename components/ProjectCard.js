@@ -3,12 +3,10 @@ import React, { useEffect, Suspense, useState, useRef } from "react";
 import { throttle } from "lodash";
 
 // icons
-import { FolderOpenIcon } from "@heroicons/react/outline";
-import { ExternalLinkIcon } from "@heroicons/react/outline";
-import { AiOutlineGithub } from "react-icons/ai";
+// import { FiFolder } from "@heroicons/react/outline";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { VscJson } from "react-icons/vsc";
-import { FiYoutube } from "react-icons/fi";
+import { FiYoutube, FiGithub, FiExternalLink } from "react-icons/fi";
 import { IoImagesOutline } from "react-icons/io5";
 import { useInView } from "react-intersection-observer";
 
@@ -111,29 +109,34 @@ export default function ProjectCard({
       } min-h-[50vh] p-5 transition duration-300 ease-out bg-white dark:bg-[#101010] text-black dark:text-white hover:shadow-md hover:rounded-sm max-w-screen-2xl mx-auto border-b`}
     >
       <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
-        <FolderOpenIcon
-          className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
-        />
-        <AiOutlineGithub
+        <FiGithub
           onClick={() => {
             if (project.repo) window.open(`${project.repo}`);
           }}
-          className={`h-6 cursor-pointer text-2xl ${
+          className={`text-xl cursor-pointer ${
             !project.repo ? "text-gray-100 dark:text-gray-700" : ""
           } hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
         />
-        <ExternalLinkIcon
+        <FiExternalLink
           onClick={() => {
             if (project.demo) window.open(`${project.demo}`);
           }}
-          className={`h-6 cursor-pointer text-2xl ${
+          className={`text-xl cursor-pointer ${
             !project.demo ? "text-gray-100 dark:text-gray-700" : ""
           } hover:text-red-400 hover:scale-105`}
         />
         {process.env.NODE_ENV !== "production" && (
           <VscJson
             onClick={() => setShowJson(!showJson)}
-            className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
+            className={`text-xl cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
+          />
+        )}
+        {media.desktop.videos.length === 0 && media.mobile.videos.length === 0 && (
+          <FiYoutube
+            onClick={() => {
+              window.open(`${media.desktop.videos[0]}`);
+            }}
+            className={`text-xl cursor-pointer text-gray-100 dark:text-gray-700 hover:scale-105`}
           />
         )}
         {media.mobile.videos.length > 0 && (
@@ -141,7 +144,7 @@ export default function ProjectCard({
             onClick={() => {
               window.open(`${media.mobile.videos[0]}`);
             }}
-            className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
+            className={`text-xl cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
           />
         )}
         {media.desktop.videos.length > 0 && (
@@ -149,12 +152,9 @@ export default function ProjectCard({
             onClick={() => {
               window.open(`${media.desktop.videos[0]}`);
             }}
-            className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
+            className={`text-xl cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
           />
         )}
-        {/* <IoImagesOutline
-          className={`h-6 cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
-        /> */}
       </div>
       <div
         ref={ref}
