@@ -68,7 +68,13 @@ function ProfileCard() {
         </div>
         <div className="pt-20 pb-28 items-center flex flex-col mx-auto space-y-5 min-w-full text-lg text-black dark:text-white">
           <button className="flex flex-row gap-5 items-center ">
-            Resume{" "}
+            <a
+              href="/M.Abdalla - 1 Page Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>{" "}
             <HiOutlineDownload className="h-5 w-5 text-red-400 dark:text-red-500" />
           </button>
           <button

@@ -93,7 +93,15 @@ function Header({ toggleTheme }) {
       <button className={`${buttonStyle}`} onClick={() => scrollToEducation()}>
         Education
       </button>
-      <button className={`${buttonStyle}`}>Resume</button>
+      <button className={`${buttonStyle}`}>
+        <a
+          href="/M.Abdalla - 1 Page Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume
+        </a>
+      </button>
       <button className={`${buttonStyle}`}>Contact</button>
       <CgDarkMode
         className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
