@@ -47,8 +47,11 @@ export default function Home({
       } min-h-screen flex flex-col font-mono relative text-black dark:text-white bg-gray-100 dark:bg-gray-700`}
     >
       <Head>
-        <title>Portfolio - NextJS - TW</title>
-        <meta name="description" content="Welcome to me, Moe" />
+        <title>Moe's Portfolio</title>
+        <meta
+          name="description"
+          content="Welcome, I'm Moe, and this is my portfolio"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header toggleTheme={toggleTheme} />
