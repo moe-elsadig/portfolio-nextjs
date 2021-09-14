@@ -13,7 +13,7 @@ function ContactCard() {
     <div className="h-full w-full bg-gray-100 dark:bg-gray-700">
       <div
         id="profile-card"
-        className="px-10 max-w-screen-2xl my-0 pt-10 flex flex-row md:flex-wrap md:flex-row items-center justify-center mx-auto bg-white dark:bg-[#101010]"
+        className="px-10 max-w-screen-2xl my-0 pt-10 flex flex-col sm:flex-row md:flex-wrap md:flex-row items-center justify-center mx-auto bg-white dark:bg-[#101010]"
       >
         <div className="w-64 h-64 md:w-128 md:h-128 rounded-full mx-auto relative transition transform duration-200 ease-in-out hover:scale-110 hover:shadow-md">
           <Image
