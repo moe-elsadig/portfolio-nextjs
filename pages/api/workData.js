@@ -25,6 +25,9 @@ export default function handler(req, res) {
         "Admin for IT related matters of the program as an ICT Expert",
       ],
       relatedProjects: [],
+      technologies: ["Python", "GIS"],
+      otherKeywords: ["GIS", "Remote Sensing", "Project Management"],
+      achievements: [""], // quantifiable only
     },
     {
       dateStart: "Oct 2017",
