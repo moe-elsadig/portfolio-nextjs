@@ -7,6 +7,7 @@ import Image from "next/image";
 import ProjectCard from "../components/ProjectCard";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
+import ContactCard from "../components/ContactCard";
 
 function Home2({ projectData, featuredProjectData, workData, educationData }) {
   let placeholderMobile = "/projects/placeholder-mobile.png";
@@ -76,11 +77,11 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
       </Head>
       <Header />
       <ProfileCard />
-      <SectionHeader title="Education" />
+      <SectionHeader title="education" />
       <Timeline timelineType="education" cardData={educationData} />
-      <SectionHeader title="Work" />
+      <SectionHeader title="work" />
       <Timeline timelineType="work" cardData={workData} />
-      <SectionHeader title="Projects" />
+      <SectionHeader title="projects" />
       <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 min-h-screen">
         <div className="bg-white w-full md:w-1/2 min-h-screen">
           {projectData?.slice(0, 1).map((project, index) => (
@@ -223,7 +224,17 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
           </div>
         </div>
       </main>
-      <ProfileCard />
+      <SectionHeader title="contact" />
+      <ContactCard />
+      <footer className="border-t bg-gray-100 dark:bg-gray-700">
+        <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto bg-white dark:bg-[#101010]">
+          Designed & Developed by{" "}
+          <span className="text-red-400 dark:text-red-500">M</span>
+          <span className="text-red-400 dark:text-red-500">o</span>
+          <span className="text-red-400 dark:text-red-500">e</span>
+          <span className="text-red-400 dark:text-red-500">.</span>
+        </p>
+      </footer>
     </div>
   );
 }
@@ -255,7 +266,21 @@ export async function getServerSideProps() {
       return null;
     });
 
-  console.log(projectData.length, featuredProjectData.length, workData.length);
+  const educationData = await fetch(projectDataURL + "/api/educationData")
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log("unable to fetch project data");
+      return null;
+    });
 
-  return { props: { projectData, featuredProjectData, workData } };
+  console.log(
+    projectData.length,
+    featuredProjectData.length,
+    workData.length,
+    educationData.length
+  );
+
+  return {
+    props: { projectData, featuredProjectData, workData, educationData },
+  };
 }

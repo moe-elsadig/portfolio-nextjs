@@ -140,7 +140,7 @@ function Header({ toggleTheme }) {
               height="60"
               // layout="fill"
               objectFit="contain"
-              className="text-2xl cursor-pointer bg-white rounded-full"
+              className="text-2xl cursor-pointer"
               onClick={() => scrollToTop()}
             />
           </div>
@@ -153,7 +153,7 @@ function Header({ toggleTheme }) {
               height="60"
               // layout="fill"
               objectFit="contain"
-              className="text-2xl cursor-pointer bg-black rounded-full"
+              className="text-2xl cursor-pointer"
               onClick={() => scrollToTop()}
             />
           </div>

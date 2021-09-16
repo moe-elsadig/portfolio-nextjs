@@ -9,6 +9,15 @@ import {
 } from "react-icons/fi";
 
 function ContactCard() {
+  const scrollToProjects = () => {
+    const el = document.getElementById("projects-section");
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <div className="h-full w-full bg-gray-100 dark:bg-gray-700">
       <div

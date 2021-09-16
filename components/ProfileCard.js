@@ -12,7 +12,7 @@ import { HiOutlineDownload, HiChevronDown } from "react-icons/hi";
 
 function ProfileCard() {
   const scrollToProjects = () => {
-    const el = document.getElementById("project0");
+    const el = document.getElementById("projects-section");
     el.scrollIntoView({
       behavior: "smooth",
       block: "start",

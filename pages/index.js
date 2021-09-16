@@ -32,16 +32,6 @@ export default function Home({
     localStorage.setItem("theme", !theme);
   };
 
-  const scrollToFirst = () => {
-    let elId = "project0";
-    const el = document.getElementById(elId);
-    el.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
-  };
-
   return (
     <div
       className={`${
@@ -92,7 +82,6 @@ export default function Home({
             <button
               onClick={() => {
                 setShowMore(!showMore);
-                scrollToFirst();
               }}
               className="flex flex-grow items-center self-start md:self-center py-2 z-10 shadow-md px-4 rounded-md backdrop-blur-lg text-black dark:text-white"
             >
