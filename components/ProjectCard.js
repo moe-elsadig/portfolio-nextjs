@@ -11,7 +11,7 @@ import { IoImagesOutline } from "react-icons/io5";
 import { useInView } from "react-intersection-observer";
 
 export default function ProjectCard({
-  project: { title, description, stack, media, dependencies },
+  project: { title, description, stack, languages, media, dependencies },
   project,
   accentColor,
   index,
@@ -169,7 +169,9 @@ export default function ProjectCard({
         </h1>
         <p className="pt-2 px-2 text-justify">{description}</p>
         <div>
-          <p className={`text-gray-400 dark:text-gray-500 pt-4`}>Stack:</p>
+          {stack?.length > 0 && (
+            <p className={`text-gray-400 dark:text-gray-500 pt-4`}>Stack:</p>
+          )}
           <div className="flex flex-row flex-wrap justify-start pl-2 space-x-4 ">
             {stack?.map((tech, index) => (
               <p
@@ -177,7 +179,25 @@ export default function ProjectCard({
                 className={`cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
               >
                 <span className={`text-red-400 dark:text-red-500`}>{tech}</span>
-                {index + 1 < stack.length ? "/" : ""}
+                {index + 1 < stack.length ? "|" : ""}
+              </p>
+            ))}
+          </div>
+          {languages?.length > 0 && (
+            <p className={`text-gray-400 dark:text-gray-500 pt-4`}>
+              Languages:
+            </p>
+          )}
+          <div className="flex flex-row flex-wrap justify-start pl-2 space-x-4 ">
+            {languages?.map((language, index) => (
+              <p
+                key={language}
+                className={`cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
+              >
+                <span className={`text-red-400 dark:text-red-500`}>
+                  {language}
+                </span>
+                {index + 1 < languages.length ? "|" : ""}
               </p>
             ))}
           </div>

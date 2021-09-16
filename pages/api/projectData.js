@@ -8,7 +8,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P1 Single Screen App`,
       description: `ABND-P1 Single Screen App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -25,7 +26,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P2 Court Game Score Counter`,
       description: `ABND-P2 Court Game Score Counter`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -42,7 +44,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P3 Quiz App`,
       description: `ABND-P3 Quiz App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -59,7 +62,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P4 Music Player UI App`,
       description: `ABND-P4 Music Player UI App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -76,7 +80,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P5 Tour Guide App`,
       description: `ABND-P5 Tour Guide App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -93,7 +98,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P6 Tour Guide App`,
       description: `ABND-P6 Tour Guide App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -110,7 +116,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P7 Book Listing App`,
       description: `ABND-P7 Book Listing App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -127,7 +134,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P8 News App`,
       description: `ABND-P8 News App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -144,7 +152,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P9 Habit Tracker App`,
       description: `ABND-P9 Habit Tracker App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -161,7 +170,8 @@ export default function handler(req, res) {
     {
       title: `ABND-P10 Items Inventory App`,
       description: `ABND-P10 Items Inventory App`,
-      stack: [],
+      stack: ["Android"],
+      languages: ["Java", "XML"],
       media: {
         mobile: {
           images: [],
@@ -185,6 +195,7 @@ export default function handler(req, res) {
       title: `RoboND P1 Search and Sample Return Project`,
       description: `Search and Sample Return Project`,
       stack: ["ROS"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -201,7 +212,8 @@ export default function handler(req, res) {
     {
       title: `Deep Learning Project`,
       description: `In this project, you will train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.`,
-      stack: [],
+      stack: ["ROS"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -223,6 +235,7 @@ export default function handler(req, res) {
 
       Given the cluttered tabletop scenario, I have implement a perception pipeline to identify target objects from a so-called “Pick-List” in that particular order, pick up those objects and place them in corresponding dropboxes.`,
       stack: ["ROS"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -240,6 +253,7 @@ export default function handler(req, res) {
       title: `Robotic arm - Pick & Place project`,
       description: `Robotic arm - Pick & Place project. In this project, I train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.`,
       stack: ["ROS"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -263,6 +277,7 @@ export default function handler(req, res) {
       title: `Item Catalogue App`,
       description: `FSND-P2 Item Catalogue App. The following tool is a web application that catalogues items under different categories. Each item added is secured with authentication and authorisation measures.`,
       stack: ["Python", "PostgreSQL"],
+      languages: ["Python", "HTML", "CSS", "Javascript"],
       media: {
         mobile: {
           images: [],
@@ -296,6 +311,7 @@ export default function handler(req, res) {
       
       `,
       stack: ["Python", "PostgreSQL"],
+      languages: ["Python", "HTML", "CSS", "Javascript"],
       media: {
         mobile: {
           images: [],
@@ -320,7 +336,8 @@ export default function handler(req, res) {
     {
       title: `Restaurants and Menus Project`,
       description: `FSND Restaurants and Menus Project`,
-      stack: ["Python"],
+      stack: ["Python", "PostgreSQL"],
+      languages: ["Python", "HTML", "CSS", "Javascript"],
       media: {
         mobile: {
           images: [],
@@ -343,7 +360,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P1 Lane Lines Detection`,
       description: `SDC-ND-P1 Lane Lines Detection`,
-      stack: [],
+      stack: ["Jupyter Notebook"],
+      languages: ["Python"],
       media: {
         mobile: {
           images: [],
@@ -360,7 +378,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P2 Traffic Sign Recognition Program`,
       description: `Traffic Sign Recognition Program uses what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the German Traffic Sign Dataset.`,
-      stack: [],
+      stack: ["Jupyter Notebook", "Tensorflow"],
+      languages: ["Python"],
       media: {
         mobile: {
           images: [],
@@ -377,7 +396,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P3 Behavioral Cloning`,
       description: `Use a visual AI model to clone the way you drive around any track in a car`,
-      stack: [],
+      stack: ["Jupyter Notebook", "Tensorflow"],
+      languages: ["Python"],
       media: {
         mobile: {
           images: [],
@@ -394,7 +414,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P4 Advanced Lane Line Finding`,
       description: `Use computer vision methods to detect lane lines, highlight the current lane, estimate the curvature of the road, and estimate your position within the lane.`,
-      stack: [],
+      stack: ["Jupyter Notebook"],
+      languages: ["Python"],
       media: {
         mobile: {
           images: [],
@@ -414,7 +435,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P6 Extended Kalman Filter`,
       description: ``,
-      stack: [],
+      stack: ["Simulator"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -431,7 +453,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P7 Unscented Kalman Filter`,
       description: `Use an unscented Kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.`,
-      stack: [],
+      stack: ["Simulator"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -448,7 +471,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P8 Kidnapped-Vehicle-Project`,
       description: `SDC-ND-P8 Kidnapped-Vehicle-Project`,
-      stack: ["C++"],
+      stack: ["Simulator"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -465,7 +489,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P9 PID Vehicle Controller`,
       description: `SDC-ND-P9 PID Vehicle Controller`,
-      stack: [],
+      stack: ["Simulator"],
+      languages: ["Python", "C++"],
       media: {
         mobile: {
           images: [],
@@ -482,7 +507,8 @@ export default function handler(req, res) {
     {
       title: `SDC-ND-P10 Model Predictive Controller`,
       description: `SDC-ND-P10 Model Predictive Controller`,
-      stack: [],
+      stack: ["Jupyter Notebook", "Simulator", "Keras"],
+      languages: ["Python"],
       media: {
         mobile: {
           images: [],
