@@ -610,7 +610,7 @@ export default function handler(req, res) {
     {
       title: `Uber Clone`,
       description:
-        "An Uber UI Clone with working search and routing functionality powered by the Maps APIs from Google. Built using React Native for its cross-platform deployment and mobile first approach.",
+        "An Uber UI clone with working search and routing functionalities powered by the Maps APIs from Google. Built using React Native for its cross-platform deployment and mobile first approach.",
       stack: ["React Native", "Expo", "Redux"],
       media: {
         mobile: {
@@ -651,7 +651,7 @@ export default function handler(req, res) {
     {
       title: `Whatsapp Clone`,
       description:
-        "A Whatsapp Messenger UI Clone with working functionalty as Sign up, Google authentication, Messaging.",
+        "A Whatsapp messenger UI clone with working Google authentication and messaging functionalities.",
       stack: ["NextJS", "ReactJS", "Firebase", "Styled Components"],
       dependencies: [
         "@material-ui/core",
@@ -683,7 +683,7 @@ export default function handler(req, res) {
     {
       title: `Signal Clone`,
       description:
-        "A Signal Messenger UI Clone working across web and mobile. Available functionality includes email authentication, real-time messages and updates, group chat rooms.",
+        "A Signal messenger UI clone working across web and mobile. Available functionality includes email authentication, real-time message updates, and group chat rooms.",
       stack: ["React Native", "Expo", "Firebase", "react-navigation"],
       media: {
         mobile: {
@@ -716,7 +716,8 @@ export default function handler(req, res) {
     },
     {
       title: `Airbnb Clone`,
-      description: "An Airbnb site UI Clone with working functionalty...",
+      description:
+        "An Airbnb UI clone with working date range selection, navigation transitions, Map view with pinned results and fully responsive UI.",
       stack: ["NextJS", "MapBox", "TailwindCSS"],
       media: {
         mobile: {
@@ -744,7 +745,8 @@ export default function handler(req, res) {
     },
     {
       title: `Google Docs Clone`,
-      description: "A Google Docs site UI Clone with working functionalty...",
+      description:
+        "A fully responsive Google Docs clone built  with DraftJS, a WYSIWYG rich text editor tool. The deployment utilizes Firebase authorization options for user authentication.",
       stack: ["NextJS", "DraftJS", "TailwindCSS", "Firebase", "Next-Auth"],
       media: {
         mobile: {
@@ -792,8 +794,16 @@ export default function handler(req, res) {
     {
       title: `Altulumba Station Status App`,
       description:
-        "A crowd sourced gas station finding app. During a time of extreme fuel shortages, this app was deployed to source and spread the word on information regarding the location and availability of fuel across the country. This app was deployed as a PWA for speed of deployment and cross platform support",
-      stack: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
+        "A crowdsourced gas station finding app. During a time of extreme fuel shortages, this app was deployed to source and spread information regarding the location and availability of fuel across the country. This app was deployed as a PWA for speed of deployment and cross platform support to over 10,000 users.",
+      stack: [
+        "React",
+        "Material UI",
+        "NodeJS",
+        "Express",
+        "NGINX",
+        "PM2",
+        "MongoDB",
+      ],
       media: {
         mobile: {
           images: ["/projects/altulumba-mobile.svg"],
@@ -804,7 +814,37 @@ export default function handler(req, res) {
           videos: [],
         },
       },
-      dependencies: ["React", "NodeJS", "Express", "NGINX", "PM2", "MongoDB"],
+      dependencies: [
+        "@material-ui/core",
+        "@material-ui/icons",
+        "@testing-library/jest-dom",
+        "@testing-library/react",
+        "@testing-library/user-event",
+        "aws-sdk",
+        "axios",
+        "body-parser",
+        "chart.js",
+        "cors",
+        "dayjs",
+        "encoding",
+        "faunadb",
+        "jwt-decode",
+        "material-icons",
+        "mongoose",
+        "nodemon",
+        "react",
+        "react-dom",
+        "react-redux",
+        "react-router-dom",
+        "react-scripts",
+        "redux",
+        "redux-thunk",
+        "serve",
+        "serverless-http",
+        "socket.io",
+        "web-push",
+        "workbox-build",
+      ],
       repo: "https://github.com/moe-elsadig/altulumba-web-app",
     },
     {
