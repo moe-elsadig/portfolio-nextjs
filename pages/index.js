@@ -7,7 +7,6 @@ import Timeline from "../components/Timeline";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import ContactCard from "../components/ContactCard";
-import GitRepoGraphs from "../components/gitRepoGraphs";
 
 export default function Home({
   projectData,
@@ -47,11 +46,6 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header toggleTheme={toggleTheme} />
-      {/* <GitRepoGraphs
-        projectData={projectData ? projectData : {}}
-        workData={workData}
-        educationData={educationData}
-      /> */}
       <ProfileCard />
       <SectionHeader title="projects" />
       <main className="relative bg-gray-100 dark:bg-gray-700 antialiased">
