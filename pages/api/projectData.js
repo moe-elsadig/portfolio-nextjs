@@ -359,8 +359,8 @@ export default function handler(req, res) {
   let sdcndProjects = [
     {
       title: `SDC-ND-P1 Lane Lines Detection`,
-      description: `SDC-ND-P1 Lane Lines Detection`,
-      stack: ["Jupyter Notebook"],
+      description: `Utilized the OpenCV library within a Python Jupyter notebook to design a simple image-processing pipeline for detecting, recognizing, and identifying highway lane lines in an image or video.`,
+      stack: ["Jupyter Notebook", "OpenCV"],
       languages: ["Python"],
       media: {
         mobile: {
@@ -376,8 +376,8 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P1",
     },
     {
-      title: `SDC-ND-P2 Traffic Sign Recognition Program`,
-      description: `Traffic Sign Recognition Program uses what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the German Traffic Sign Dataset.`,
+      title: `SDC-ND-P2 Traffic Sign Classification Program`,
+      description: `The traffic sign classification program uses a deep learning model (DL) implemented on Tensorflow using Python to train a classifier on the German traffic sign dataset (GTSRB). This project also utilized image pre-processing strategy to augment the training dataset for more accureate classifications 95%+`,
       stack: ["Jupyter Notebook", "Tensorflow"],
       languages: ["Python"],
       media: {
@@ -390,13 +390,24 @@ export default function handler(req, res) {
           videos: [],
         },
       },
-      dependencies: [],
+      dependencies: [
+        "random",
+        "pickle",
+        "tensorflow",
+        "PIL",
+        "matplotlib",
+        "cv2",
+        "scipy",
+        "numpy",
+        "sklearn",
+        "pandas",
+      ],
       repo: "https://github.com/moe-elsadig/CarND-P2",
     },
     {
       title: `SDC-ND-P3 Behavioral Cloning`,
-      description: `Use a visual AI model to clone the way you drive around any track in a car`,
-      stack: ["Jupyter Notebook", "Tensorflow"],
+      description: `Clone the way you drive around any track in a car using a model built with the Keras deep learning framework and OpenCV computer vision framework in Python to train the model. Achieved full performance in the training environment/track, as well as a previously unseen environment/track, through intricate data selection/augmentation strategy and neural network tuning.`,
+      stack: ["Jupyter Notebook", "Keras", "OpenCV"],
       languages: ["Python"],
       media: {
         mobile: {
@@ -413,8 +424,8 @@ export default function handler(req, res) {
     },
     {
       title: `SDC-ND-P4 Advanced Lane Line Finding`,
-      description: `Use computer vision methods to detect lane lines, highlight the current lane, estimate the curvature of the road, and estimate your position within the lane.`,
-      stack: ["Jupyter Notebook"],
+      description: `Developed a computer vision pipeline for detecting lane lines, highlight the current lane, estimate lane curvature using coefficients of polynomial fit, and estimate vehicle position within the lane.`,
+      stack: ["Jupyter Notebook", "OpenCV"],
       languages: ["Python"],
       media: {
         mobile: {
@@ -433,8 +444,26 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P4",
     },
     {
+      title: `SDC-ND-P5 Vehicle Detection`,
+      description: `Created a vehicle detection and tracking pipeline with OpenCV, histogram of oriented gradients (HOG), and support vector machines (SVM). Optimized and evaluated the model on video data from a front mounter vehicle camera taken on a highway driving trip.`,
+      stack: ["Jupyter Notebook"],
+      languages: ["Python"],
+      media: {
+        mobile: {
+          images: [],
+          videos: [],
+        },
+        desktop: {
+          images: [],
+          videos: ["https://www.youtube.com/embed/QrMnXIpXMjc"],
+        },
+      },
+      dependencies: [],
+      repo: "https://github.com/moe-elsadig/CarND-P5",
+    },
+    {
       title: `SDC-ND-P6 Extended Kalman Filter`,
-      description: ``,
+      description: `Implemented extended Kalman filter sensor fusion algorithm in C++ based on LiDAR and radar data to localize a pedestrian given a constant velocity motion model.`,
       stack: ["Simulator"],
       languages: ["Python", "C++"],
       media: {
@@ -452,7 +481,7 @@ export default function handler(req, res) {
     },
     {
       title: `SDC-ND-P7 Unscented Kalman Filter`,
-      description: `Use an unscented Kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.`,
+      description: `Use an unscented Kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Implemented unscented Kalman filter sensor fusion algorithm in C++ based on LiDAR and radar data to localize a bicyclist given a constant turn rate and velocity (CTRV) motion model.`,
       stack: ["Simulator"],
       languages: ["Python", "C++"],
       media: {
@@ -469,8 +498,9 @@ export default function handler(req, res) {
       repo: "https://github.com/moe-elsadig/CarND-P7",
     },
     {
-      title: `SDC-ND-P8 Kidnapped-Vehicle-Project`,
-      description: `SDC-ND-P8 Kidnapped-Vehicle-Project`,
+      title: `SDC-ND-P8 Particle Filter 'Kidnapped Vehicle'`,
+      description: `mplemented a two-dimensional particle filter in C++ capable of localizing a vehicle within desired accuracy and time.
+      Combined known map waypoints with simulated LiDAR data and vehicle pose transformations to achieve accurate localization.`,
       stack: ["Simulator"],
       languages: ["Python", "C++"],
       media: {
@@ -488,7 +518,8 @@ export default function handler(req, res) {
     },
     {
       title: `SDC-ND-P9 PID Vehicle Controller`,
-      description: `SDC-ND-P9 PID Vehicle Controller`,
+      description: `Implemented a PID steering controller in C++ to maneuver a vehicle around a track in a simulator.
+      Also implemented an additional PID throttle controller to optimize performance.`,
       stack: ["Simulator"],
       languages: ["Python", "C++"],
       media: {
@@ -506,7 +537,7 @@ export default function handler(req, res) {
     },
     {
       title: `SDC-ND-P10 Model Predictive Controller`,
-      description: `SDC-ND-P10 Model Predictive Controller`,
+      description: `Implemented Model Predictive Control to drive a vehicle around a track using IPOPT and CPPAD packages to determine optimal trajectory. Achieved reliable performance even at high speeds and with additional latency between commands.`,
       stack: ["Jupyter Notebook", "Simulator", "Keras"],
       languages: ["Python"],
       media: {
@@ -524,7 +555,7 @@ export default function handler(req, res) {
     },
     {
       title: `SDC-ND-P11 Path-Planning Project`,
-      description: `SDC-ND-P11 Path-Planning Project`,
+      description: `Built a path planner in C++ that autonomously navigates a vehicle through traffic on a highway. Employed environmental prediction, behavioral planning, and trajectory generation to achieve over 20 miles of smooth, incident-free driving.`,
       stack: ["C++"],
       media: {
         mobile: {
@@ -541,7 +572,7 @@ export default function handler(req, res) {
     },
     {
       title: `SDC-ND-P12-1 Semantic Segmentation for Road and Obstacles`,
-      description: `SDC-ND-P12-1 Semantic Segmentation for Road and Obstacles`,
+      description: `Identified pixel-wise navigable road area in car dash cam images using TensorFlow and a Fully Convolutional Network (FCN) based on the VGG-16 image classifier architecture (trained and tested on the KITTI data set). Achieved near perfect identification of road area on holdout test dataset, as a qualitative measure.`,
       stack: ["Python"],
       media: {
         mobile: {
@@ -963,8 +994,11 @@ export default function handler(req, res) {
   let otherProjects = [
     {
       title: `Didi Challenge Helper Scripts`,
-      description: `CLI and IPYNB Scripts for the Didi Challenge (Team: Transformers!!) to extract obstacle features from a Lidar sensor for use in Autonomous driving. I wrote scripts to manipulate and extract information from the given datasets in the rosbag format. Scripts for extracting images in grayscale/RGB, video in grayscale/RGB, Lidar pointclouds to frames, pointclouds to visual hiRes plots, NPY plots to images, rosbag to CSV, rosbag topic extractor, Deep learning classification training images extractor and finally the obstacle feature detection pipeline from input.`,
-      stack: ["Python", "Jupyter Notebook"],
+      description: `CLI and IPYNB Scripts for the Didi Challenge (Team: Transformers!!) to extract obstacle features from a Lidar sensor for use in Autonomous driving. I wrote scripts to manipulate and extract information from the given datasets in the rosbag format. Scripts for extracting images in grayscale/RGB, video in grayscale/RGB, Lidar pointclouds to frames, pointclouds to visual hiRes plots, NPY plots to images, rosbag to CSV, rosbag topic extractor, Deep learning classification training images extractor and finally the obstacle feature detection pipeline from input.
+      Built a ROS node in C++ to consume and process real-world LiDAR point cloud data and publish top-view images of point clusters with pose information in a custom ROS message type.
+Built a Keras convolutional neural network classifier and another ROS node in Python to consume the cluster images and determine whether or not each is a vehicle.
+Achieved a top-50 (44th) score on the Udacity DiDi Challenge leaderboard, from among thousands of entrants.`,
+      stack: ["Python", "Jupyter Notebook", "Keras"],
       media: {
         mobile: {
           images: [],
