@@ -203,7 +203,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: [],
+          videos: ["https://www.youtube.com/embed/WJ2f8S_dswg"],
         },
       },
       dependencies: ["ROS"],
@@ -251,8 +251,8 @@ export default function handler(req, res) {
     },
     {
       title: `Robotic arm - Pick & Place project`,
-      description: `Robotic arm - Pick & Place project. In this project, I train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.`,
-      stack: ["ROS"],
+      description: `Robotic arm - Pick & Place project. I program the inverse kinematics pipeline as a python node for a robotic arm to pick and place cans between different shelves.`,
+      stack: ["ROS", "Gazebo"],
       languages: ["Python", "C++"],
       media: {
         mobile: {
@@ -264,7 +264,7 @@ export default function handler(req, res) {
           videos: [],
         },
       },
-      dependencies: ["ROS"],
+      dependencies: ["ROS", "gazebo", "sympy", "mpmath"],
       repo: "https://github.com/moe-elsadig/RoboND-Kinematics-Project",
     },
   ];
@@ -434,10 +434,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: [
-            "https://youtube.com/embed/9qt3eyzOiHA",
-            "https://youtube.com/embed/7a-cL1uQD3M",
-          ],
+          videos: ["https://www.youtube.com/embed/LSJiRFwC6XE"],
         },
       },
       dependencies: [],
@@ -564,7 +561,7 @@ export default function handler(req, res) {
         },
         desktop: {
           images: [],
-          videos: [],
+          videos: ["https://www.youtube.com/embed/eFdlfFKR01U"],
         },
       },
       dependencies: ["C++"],
@@ -1006,7 +1003,7 @@ Achieved a top-50 (44th) score on the Udacity DiDi Challenge leaderboard, from a
         },
         desktop: {
           images: ["/projects/didi-desktop.svg"],
-          videos: [],
+          videos: ["https://www.youtube.com/embed/I5KmNEkAm40"],
         },
       },
       dependencies: ["Python", "Jupyter Notebook", "Matlab"],
