@@ -11,6 +11,7 @@ This is a personal porfolio site built with NextJs on React and styled with the 
 - Github graphs - `TBD`
 - Autocad models - `TBD`
 - Color picker - `TBD`
+- 3D Three.js travel map - `TBD`
 
 ## Stack
 
