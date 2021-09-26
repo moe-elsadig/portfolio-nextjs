@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-function TimelineEducationCard({ cardInfo, index }) {
+function TimelineEducationCard({ cardInfo, index, key }) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     triggerOnce: true,
@@ -19,6 +19,7 @@ function TimelineEducationCard({ cardInfo, index }) {
   let rightMarkup = cardInfo ? (
     <div
       id={"education-" + index}
+      key={"education-" + index}
       ref={ref}
       className={`text-black dark:text-white relative z-10 transition-all transform duration-300 ${
         inView ? fadeIn : fadeOut
@@ -102,9 +103,17 @@ function TimelineEducationCard({ cardInfo, index }) {
   );
 
   if ((index + 1) % 2) {
-    return <div className="px-10">{rightMarkup}</div>;
+    return (
+      <div className="px-10" key={key}>
+        {rightMarkup}
+      </div>
+    );
   } else {
-    return <div className="px-10">{leftMarkup}</div>;
+    return (
+      <div className="px-10" key={key}>
+        {leftMarkup}
+      </div>
+    );
   }
 
   // return <div>boom</div>;

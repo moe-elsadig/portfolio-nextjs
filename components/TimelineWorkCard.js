@@ -3,7 +3,7 @@ import Image from "next/image";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { useInView } from "react-intersection-observer";
 
-function TimelineWorkCard({ cardInfo, index, cardType }) {
+function TimelineWorkCard({ cardInfo, index, cardType, key }) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     triggerOnce: true,
@@ -107,9 +107,17 @@ function TimelineWorkCard({ cardInfo, index, cardType }) {
   );
 
   if ((index + 1) % 2) {
-    return <div className="px-10">{rightMarkup}</div>;
+    return (
+      <div className="px-10" key={key}>
+        {rightMarkup}
+      </div>
+    );
   } else {
-    return <div className="px-10">{leftMarkup}</div>;
+    return (
+      <div className="px-10" key={key}>
+        {leftMarkup}
+      </div>
+    );
   }
 
   // return <div>boom</div>;

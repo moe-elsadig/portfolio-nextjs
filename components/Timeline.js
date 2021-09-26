@@ -44,17 +44,40 @@ function Timeline({ timelineType = "work", cardData }) {
         )}
         {cardData?.slice(0, 1).map((item, index) => {
           if (timelineType === "work") {
-            return <TimelineWorkCard cardInfo={item} index={index} />;
-          } else return <TimelineEducationCard cardInfo={item} index={index} />;
+            return (
+              <TimelineWorkCard
+                cardInfo={item}
+                index={index}
+                key={item.title}
+              />
+            );
+          } else
+            return (
+              <TimelineEducationCard
+                cardInfo={item}
+                index={index}
+                key={item.title}
+              />
+            );
         })}
 
         {showMore &&
           cardData?.slice(1).map((item, index) => {
             if (timelineType === "work") {
-              return <TimelineWorkCard cardInfo={item} index={index + 1} />;
+              return (
+                <TimelineWorkCard
+                  cardInfo={item}
+                  index={index + 1}
+                  key={item.title}
+                />
+              );
             } else
               return (
-                <TimelineEducationCard cardInfo={item} index={index + 1} />
+                <TimelineEducationCard
+                  cardInfo={item}
+                  index={index + 1}
+                  key={item.title}
+                />
               );
           })}
         {cardData?.length > 1 && (
