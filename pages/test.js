@@ -4,7 +4,7 @@ import TravelGlobe from "../components/TravelGlobe";
 
 function TestComponents() {
   return (
-    <div className="flex w-full h-full bg-green-100">
+    <div className="flex w-full h-full bg-black">
       <TravelGlobe />
     </div>
   );
