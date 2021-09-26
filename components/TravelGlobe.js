@@ -202,7 +202,7 @@ let cities = [
   },
 ];
 
-function TravelGlobe() {
+function TravelGlobe({ dimensions }) {
   useEffect(() => {
     example();
   }, []);
@@ -211,7 +211,7 @@ function TravelGlobe() {
     // === THREE.JS CODE START ===
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(50);
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = dimensions / dimensions;
     camera.position.z = 5;
     camera.updateProjectionMatrix();
 
@@ -224,13 +224,13 @@ function TravelGlobe() {
       alpha: true,
       antialias: true,
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(dimensions, dimensions);
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
     var geometry = new THREE.SphereBufferGeometry(1, 30, 30);
     var materialShader = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
+      map: new THREE.TextureLoader().load("/globe/earth-night.jpg"),
     });
 
     var globe = new THREE.Mesh(geometry, materialShader);
@@ -386,7 +386,7 @@ function TravelGlobe() {
         // const material = materialShader;      // const arc = new THREE.Mesh(geometry, material);
         const arc = new THREE.Mesh(
           geometry,
-          createGlowMaterial(1.2, randomColor, 1)
+          createGlowMaterial(1.2, "gold", 1)
         );
         arc.needsUpdate = true;
         arcs.add(arc);

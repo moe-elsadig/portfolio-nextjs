@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 // import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { HiOutlineDownload, HiChevronDown } from "react-icons/hi";
+import TravelGlobe from "./TravelGlobe";
 
 // import {
 //   AiFillGithub,
@@ -22,7 +23,10 @@ function ProfileCard() {
   };
 
   return (
-    <div className="h-full  bg-gray-100 dark:bg-gray-700">
+    <div className="h-full bg-gray-100 dark:bg-gray-700">
+      {/* <div className="absolute h-[300px]">
+        <TravelGlobe dimensions={300} />
+      </div> */}
       <div
         id="profile-card"
         className="px-10 max-w-screen-2xl my-0 pt-10 flex flex-col md:flex-wrap md:flex-row items-center justify-center mx-auto bg-white dark:bg-[#101010]"
