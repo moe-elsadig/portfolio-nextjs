@@ -2,6 +2,7 @@ import { get } from "lodash";
 import React, { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
 // import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 // import mapDark from "/globe/earth-dark.jpg";
@@ -32,13 +33,13 @@ function TravelGlobe() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     var geometry = new THREE.SphereBufferGeometry(1, 30, 30);
-    var material = new THREE.MeshBasicMaterial({
+    var materialShader = new THREE.MeshBasicMaterial({
       map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
     });
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
-    var globe = new THREE.Mesh(geometry, material);
+    var globe = new THREE.Mesh(geometry, materialShader);
     scene.add(globe);
 
     // add pins
@@ -55,6 +56,13 @@ function TravelGlobe() {
         city: "Cairo",
         lat: 30.0444,
         lon: 31.2357,
+        latHeading: "E",
+        longerHeading: "N",
+      },
+      {
+        city: "Doha",
+        lat: 25.286106,
+        lon: 51.534817,
         latHeading: "E",
         longerHeading: "N",
       },
@@ -285,7 +293,9 @@ function TravelGlobe() {
 
       const path = new THREE.CatmullRomCurve3(points);
       const geometry = new THREE.TubeGeometry(path, 20, 0.01, 8, false);
-      const material = new THREE.MeshBasicMaterial({ color: randomColor });
+      // const material = new THREE.MeshBasicMaterial({ color: randomColor });
+      const material = materialShader;
+
       const arc = new THREE.Mesh(geometry, material);
       scene.add(arc);
     }
@@ -309,7 +319,7 @@ function TravelGlobe() {
     var animate = function () {
       requestAnimationFrame(animate);
       scene.rotation.x = 0.26;
-      scene.rotation.y -= 0.03;
+      // scene.rotation.y -= 0.03;
 
       controls.update();
 
