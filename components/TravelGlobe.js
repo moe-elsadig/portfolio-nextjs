@@ -96,9 +96,16 @@ let cities = [
     longerHeading: "N",
   },
   {
-    city: "Riyadh",
-    lat: 24.7136,
-    lon: 46.6753,
+    city: "Port Sudan",
+    lat: 19.5903,
+    lon: 37.1902,
+    latHeading: "E",
+    longerHeading: "N",
+  },
+  {
+    city: "Medina",
+    lat: 24.470901,
+    lon: 39.612236,
     latHeading: "E",
     longerHeading: "N",
   },
@@ -203,13 +210,9 @@ function TravelGlobe() {
   const example = () => {
     // === THREE.JS CODE START ===
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(
-      50,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 3;
+    var camera = new THREE.PerspectiveCamera(50);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.position.z = 5;
     camera.updateProjectionMatrix();
 
     let pivot = new THREE.Group();
@@ -223,44 +226,23 @@ function TravelGlobe() {
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // renderer.outputEncoding = THREE.LinearEncoding;
-    // renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    // renderer.toneMappingExposure = 1.25;
-
     const controls = new OrbitControls(camera, renderer.domElement);
 
     var geometry = new THREE.SphereBufferGeometry(1, 30, 30);
-
-    let texture = new THREE.CanvasTexture(new FlakesTexture());
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.x = 10;
-    texture.repeat.y = 6;
-
-    const ballMaterial = {
-      clearCoat: 0.5,
-      clearCoatRoughness: 0.1,
-      metalness: 0.5,
-      roughness: 0.5,
-      normalMap: texture,
+    var materialShader = new THREE.MeshBasicMaterial({
       map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
-      normalScale: new THREE.Vector2(0, 0),
-    };
-
-    var materialShader = new THREE.MeshPhysicalMaterial(ballMaterial);
-    // var materialShader = new THREE.MeshBasicMaterial({
-    //   map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
-    // });
+    });
 
     var globe = new THREE.Mesh(geometry, materialShader);
     pivot.add(globe);
 
-    let pointLight = new THREE.PointLight(0xffffff, 0.8);
-    pointLight.position.set(1000, 400, 1000);
-    scene.add(pointLight);
-    // pointLight = new THREE.PointLight(0x5500ff, 1);
-    // pointLight.position.set(10, 10, 10);
+    // let pointLight = new THREE.PointLight(0xffffff, 0.8);
+    // pointLight.position.set(1000, 400, 1000);
     // scene.add(pointLight);
+
+    // second lighting option
+    pivot.add(new THREE.AmbientLight(0xbbbbbb));
+    pivot.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
     // add pins
     let cityCoordinates = [];
@@ -278,14 +260,65 @@ function TravelGlobe() {
       z = Math.sin(phi) * Math.sin(theta);
       y = Math.cos(phi);
 
-      console.log(x, y, z);
+      // console.log(x, y, z);
       cityCoordinates.push([x, y, z]);
 
       return [x, y, z];
     }
 
+    const fragmentShader = `
+    uniform vec3 color;
+    uniform float coefficient;
+    uniform float power;
+    varying vec3 vVertexNormal;
+    varying vec3 vVertexWorldPosition;
+    void main() {
+      vec3 worldCameraToVertex = vVertexWorldPosition - cameraPosition;
+      vec3 viewCameraToVertex	= (viewMatrix * vec4(worldCameraToVertex, 0.0)).xyz;
+      viewCameraToVertex = normalize(viewCameraToVertex);
+      float intensity	= pow(
+        coefficient + dot(vVertexNormal, viewCameraToVertex),
+        power
+      );
+      gl_FragColor = vec4(color, intensity);
+    }`;
+
+    const vertexShader = `
+    varying vec3 vVertexWorldPosition;
+    varying vec3 vVertexNormal;
+    void main() {
+      vVertexNormal	= normalize(normalMatrix * normal);
+      vVertexWorldPosition = (modelMatrix * vec4(position, 1.0)).xyz;
+      gl_Position	= projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+    `;
+
+    // Based off: http://stemkoski.blogspot.fr/2013/07/shaders-in-threejs-glow-and-halo.html
+    function createGlowMaterial(coefficient, color, power) {
+      return new THREE.ShaderMaterial({
+        depthWrite: false,
+        fragmentShader,
+        transparent: true,
+        uniforms: {
+          coefficient: {
+            value: coefficient,
+          },
+          color: {
+            value: new THREE.Color(color),
+          },
+          power: {
+            value: power,
+          },
+        },
+        vertexShader,
+      });
+    }
+
+    const arcMaterial = createGlowMaterial(1.2, "gold", 1);
+
+    console.log("cities:", cities.length);
     cities.forEach((city) => {
-      console.log("adding:", city.city);
+      // console.log("adding:", city.city);
 
       var randomColor = Number(
         "0x" + Math.floor(Math.random() * 16777215).toString(16)
@@ -293,87 +326,107 @@ function TravelGlobe() {
 
       let pin = new THREE.Mesh(
         new THREE.SphereBufferGeometry(0.01, 10, 10),
-        new THREE.MeshBasicMaterial({
-          color: randomColor,
-        })
+        // new THREE.MeshBasicMaterial({
+        //   color: randomColor,
+        // })
+        createGlowMaterial(2, "gold", 1)
       );
 
       let [x, y, z] = convertCoordinates(city);
 
-      console.log(x, y, z);
+      // console.log(x, y, z);
       pin.position.set(x, y, z);
       pivot.add(pin);
     });
 
-    let part = 0;
-
     let arcs = new THREE.Group();
     pivot.add(arcs);
-    function getCurve(p1, p2, animCoef = 0) {
+
+    const lineRes = 20;
+    const maxAnimCoef = lineRes * 2;
+    function getCurve(p1, p2, animCoef = 2) {
       var randomColor = Number(
         "0x" + Math.floor(Math.random() * 16777215).toString(16)
       );
 
       let [x1, y1, z1] = p1;
       let [x2, y2, z2] = p2;
-
       let v1 = new THREE.Vector3(x1, y1, z1);
       let v2 = new THREE.Vector3(x2, y2, z2);
-      const lineRes = 20;
+
       let points = [];
-      for (let i = 0; i <= lineRes; i++) {
+      for (let i = 0; i < lineRes; i++) {
         let p = new THREE.Vector3().lerpVectors(v1, v2, i / lineRes);
         p.normalize();
         p.multiplyScalar(1 + 0.1 * Math.sin((Math.PI * i) / lineRes));
         points.push(p);
       }
 
-      points = points.slice(0, lineRes - animCoef);
-      const path = new THREE.CatmullRomCurve3(points);
-      console.log("path:", path);
-      const geometry = new THREE.TubeGeometry(path, 20, 0.005, 8, false);
-      // const material = new THREE.MeshBasicMaterial({ color: 0xfc8181 });
-      const material = materialShader;
+      let start = 0;
+      let end = 0;
+      // console.log("points", points.length, "coef:", animCoef);
+      if (animCoef >= lineRes) {
+        start = -(lineRes - animCoef);
+        end = lineRes - 1;
+      } else {
+        start = 0;
+        end = animCoef % (lineRes - 1);
+      }
+      // console.log("line points", start, end);
+      points = points.slice(start, end);
+      // console.log("points", points.length);
 
-      const arc = new THREE.Mesh(geometry, material);
-      arcs.add(arc);
-    }
-
-    // all cities connected
-    // for (let i = 0; i < cities.length; i++) {
-    //   for (let j = 0; j < cities.length; j++) {
-    //     if (i !== j) {
-    //       getCurve(cityCoordinates[i], cityCoordinates[j]);
-    //     }
-    //   }
-    // }
-
-    // // connected based on sudan
-    // for (let i = 1; i < cities.length; i++) {
-    //   getCurve(cityCoordinates[0], cityCoordinates[i]);
-    // }
-
-    function animateCurves(animCoeef) {
-      // connected based on sudan
-      for (let i = 1; i < cities.length; i++) {
-        getCurve(cityCoordinates[0], cityCoordinates[i], animCoeef);
+      if (!end || Math.abs(end - start) < 2) {
+      } else {
+        // console.log("points", points);
+        const path = new THREE.CatmullRomCurve3(points);
+        // console.log("path:", path);
+        const geometry = new THREE.TubeGeometry(path, 20, 0.005, 8, false);
+        // const material = new THREE.MeshBasicMaterial({ color: 0xfc8181 });
+        // const material = materialShader;      // const arc = new THREE.Mesh(geometry, material);
+        const arc = new THREE.Mesh(
+          geometry,
+          createGlowMaterial(1.2, randomColor, 1)
+        );
+        arc.needsUpdate = true;
+        arcs.add(arc);
       }
     }
-    animateCurves();
+
+    function animateCurves(animCoef) {
+      // connected based on sudan
+      for (let i = 1; i < cities.length; i++) {
+        getCurve(cityCoordinates[0], cityCoordinates[i], animCoef);
+      }
+    }
+    // animateCurves();
 
     // getCurve(cityCoordinates[0], cityCoordinates[1]);
 
     pivot.rotation.x += 0.25;
-    let counter = 0;
+    let animCounter = 0;
+    animateCurves(animCounter % maxAnimCoef);
+    pivot.rotation.y -= 1.75;
     var animate = function () {
-      // requestAnimationFrame(animate);
-
       setTimeout(function () {
         requestAnimationFrame(animate);
+        animCounter += 1;
+        arcs.children.forEach((child, index) => {
+          // console.log("index", index);
+          arcs.remove(child);
+        });
+        animateCurves(animCounter % maxAnimCoef);
+        console.log(arcs);
       }, 1000 / 30);
 
+      // setTimeout(function () {
+      //   // requestAnimationFrame();
+      //   console.log(arcs);
+      //   arcs.remove();
+      //   // animateCurves(animate % 19);
+      // }, 1000 / 1);
+
       pivot.rotation.y -= 0.01;
-      counter += 1;
 
       // console.log(counter);
 
