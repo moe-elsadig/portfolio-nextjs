@@ -19,7 +19,7 @@ export default function handler(req, res) {
       relatedProjects: [],
     },
     {
-      dateStart: "TBA",
+      dateStart: "Sep 2017",
       dateEnd: "TBA",
       course: "MSc Renewable Energy",
       institution: "University of Jordan",

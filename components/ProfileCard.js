@@ -72,7 +72,7 @@ function ProfileCard() {
         </div>
         <div className="pt-20 pb-28 items-center flex flex-col mx-auto space-y-5 min-w-full text-lg text-black dark:text-white">
           <a
-            href="/M.Abdalla - 1 Page Resume.pdf"
+            href="/Moe Resume - General.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-row gap-5 items-center cursors-pointer"

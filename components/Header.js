@@ -105,7 +105,7 @@ function Header({ toggleTheme }) {
       </button>
       <a
         className={`${buttonStyle}`}
-        href="/M.Abdalla - 1 Page Resume.pdf"
+        href="/Moe Resume - General.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >

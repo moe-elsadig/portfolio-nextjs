@@ -72,7 +72,7 @@ function ContactCard() {
             <FiLinkedin className="h-5 w-5 text-red-400 dark:text-red-500" />
           </a>
           <a
-            href="/M.Abdalla - 1 Page Resume.pdf"
+            href="/Moe Resume - General.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-row gap-5 items-center cursors-pointer"
