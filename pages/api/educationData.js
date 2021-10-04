@@ -12,10 +12,10 @@ export default function handler(req, res) {
     {
       dateStart: "completion",
       dateEnd: "60%",
-      course: "Algorithms Expert & System Design Expert",
+      course: "Algorithms Expert & Systems Design Expert",
       institution: "AlgoExpert.io",
       location: "Remote",
-      institutionLogo: "/education/algoeexpert-logo.png",
+      institutionLogo: "/education/algoexpert-logo.png",
       relatedProjects: [],
     },
     {
@@ -31,15 +31,6 @@ export default function handler(req, res) {
       dateStart: "completion",
       dateEnd: "25%",
       course: "MongoDB Complete - Academind",
-      institution: "Udemy",
-      location: "Remote",
-      institutionLogo: "/education/udemy-logo.png",
-      relatedProjects: [],
-    },
-    {
-      dateStart: "completion",
-      dateEnd: "75%",
-      course: "Progressive Web Apps - Academind",
       institution: "Udemy",
       location: "Remote",
       institutionLogo: "/education/udemy-logo.png",
