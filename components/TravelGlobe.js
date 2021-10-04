@@ -395,9 +395,11 @@ function TravelGlobe({ dimensions }) {
 
     function animateCurves(animCoef) {
       // connected based on sudan
-      for (let i = 1; i < cities.length; i++) {
-        getCurve(cityCoordinates[0], cityCoordinates[i], animCoef);
-      }
+      // debug with 1 curve
+      getCurve(cityCoordinates[0], cityCoordinates[1], animCoef);
+      // for (let i = 1; i < cities.length; i++) {
+      //   getCurve(cityCoordinates[0], cityCoordinates[i], animCoef);
+      // }
     }
     // animateCurves();
 
