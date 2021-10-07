@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React, { useEffect, Suspense, useState, useRef } from "react";
 import { throttle } from "lodash";
+import { css } from "@emotion/react";
+import CircleLoader from "react-spinners/CircleLoader";
 
 // icons
 // import { FiFolder } from "@heroicons/react/outline";
@@ -232,6 +234,15 @@ export default function ProjectCard({
         <div className={`relative h-[45vh] w-full flex-grow `}>
           {media?.mobile.images.map((image, index) => (
             <Image
+              placeholder="blur"
+              blurDataURL={
+                <CircleLoader
+                  color={"#0095ff"}
+                  loading={true}
+                  // css={override}
+                  size={150}
+                />
+              }
               alt="mobile screenshot"
               key={image}
               src={image}
@@ -246,6 +257,15 @@ export default function ProjectCard({
         <div className={`relative h-[45vh] w-full flex-grow`}>
           {media?.desktop.images.map((image, index) => (
             <Image
+              placeholder="blur"
+              blurDataURL={
+                <CircleLoader
+                  color={"#0095ff"}
+                  loading={true}
+                  // css={override}
+                  size={150}
+                />
+              }
               alt="desktop screenshot"
               key={image}
               src={image}
@@ -271,6 +291,15 @@ export default function ProjectCard({
             ></iframe>
           </div>
         )}
+      {!noImages &&
+      media?.desktop.images.length === 0 &&
+      media?.mobile.images.length === 0 &&
+      media.mobile.videos.length === 0 &&
+      media.desktop.videos.length === 0 ? (
+        <div className="flex flex-grow text-gray-400 dark:text-gray-500">
+          <p>No media to display</p>
+        </div>
+      ) : null}
       {showJson && (
         <div className="overflow-x-scroll overflow-y-scroll">
           <pre>{JSON.stringify(project, null, 2)}</pre>
