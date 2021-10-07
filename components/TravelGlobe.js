@@ -1,14 +1,15 @@
 import { get } from "lodash";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { FlakesTexture } from "three/examples/jsm/textures/FlakesTexture";
-import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
+// import { FlakesTexture } from "three/examples/jsm/textures/FlakesTexture";
+// import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 // import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 // import mapDark from "/globe/earth-dark.jpg";
 // import mapTopology from "/globe/earth-topology.jpg";
 
+// city information to be mapped
 let cities = [
   {
     city: "Khartoum",
@@ -204,19 +205,24 @@ let cities = [
 
 function TravelGlobe({ dimensions }) {
   useEffect(() => {
-    example();
+    // run the three.js functions
+    renderContent();
   }, []);
 
-  const example = () => {
+  const renderContent = () => {
     // === THREE.JS CODE START ===
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(50);
+    var camera = new THREE.PerspectiveCamera(30);
     camera.aspect = dimensions / dimensions;
     camera.position.z = 5;
     camera.updateProjectionMatrix();
 
     let pivot = new THREE.Group();
     scene.add(pivot);
+
+    // second lighting option
+    pivot.add(new THREE.AmbientLight(0xbbbbbb));
+    pivot.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
     const canvas = document.getElementById("travel-globe-canvas");
     const renderer = new THREE.WebGLRenderer({
@@ -226,23 +232,36 @@ function TravelGlobe({ dimensions }) {
     });
     renderer.setSize(dimensions, dimensions);
 
-    const controls = new OrbitControls(camera, renderer.domElement);
+    // const controls = new OrbitControls(camera, renderer.domElement);
 
     var geometry = new THREE.SphereBufferGeometry(1, 30, 30);
     var materialShader = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load("/globe/earth-night.jpg"),
+      map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
     });
+    // var darkMaterialShader = new THREE.MeshBasicMaterial({
+    //   map: new THREE.TextureLoader().load("/globe/earth-night.jpg"),
+    // });
+    // let shaderToggle = false;
 
     var globe = new THREE.Mesh(geometry, materialShader);
     pivot.add(globe);
-
-    // let pointLight = new THREE.PointLight(0xffffff, 0.8);
-    // pointLight.position.set(1000, 400, 1000);
-    // scene.add(pointLight);
-
-    // second lighting option
-    pivot.add(new THREE.AmbientLight(0xbbbbbb));
-    pivot.add(new THREE.DirectionalLight(0xffffff, 0.6));
+    // setTimeout(function () {
+    //   console.log("switch map");
+    //   globe = shaderToggle
+    //     ? new THREE.Mesh(
+    //         geometry,
+    //         new THREE.MeshBasicMaterial({
+    //           map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
+    //         })
+    //       )
+    //     : new THREE.Mesh(
+    //         geometry,
+    //         new THREE.MeshBasicMaterial({
+    //           map: new THREE.TextureLoader().load("/globe/earth-night.jpg"),
+    //         })
+    //       );
+    //   shaderToggle = !shaderToggle;
+    // }, 10000);
 
     // add pins
     let cityCoordinates = [];
@@ -316,10 +335,9 @@ function TravelGlobe({ dimensions }) {
 
     const arcMaterial = createGlowMaterial(1.2, "gold", 1);
 
-    console.log("cities:", cities.length);
+    // tooltip starting point https://stackoverflow.com/questions/39177205/threejs-tooltip/54438811
+    // create a fixede sphere marker at each location
     cities.forEach((city) => {
-      // console.log("adding:", city.city);
-
       var randomColor = Number(
         "0x" + Math.floor(Math.random() * 16777215).toString(16)
       );
@@ -336,6 +354,7 @@ function TravelGlobe({ dimensions }) {
 
       // console.log(x, y, z);
       pin.position.set(x, y, z);
+
       pivot.add(pin);
     });
 
@@ -343,8 +362,8 @@ function TravelGlobe({ dimensions }) {
     pivot.add(arcs);
 
     const lineRes = 20;
-    const maxAnimCoef = lineRes * 2;
-    function getCurve(p1, p2, animCoef = 2) {
+
+    function getCurve(p1, p2) {
       var randomColor = Number(
         "0x" + Math.floor(Math.random() * 16777215).toString(16)
       );
@@ -362,85 +381,80 @@ function TravelGlobe({ dimensions }) {
         points.push(p);
       }
 
-      let start = 0;
-      let end = 0;
-      // console.log("points", points.length, "coef:", animCoef);
-      if (animCoef >= lineRes) {
-        start = -(lineRes - animCoef);
-        end = lineRes - 1;
-      } else {
-        start = 0;
-        end = animCoef % (lineRes - 1);
-      }
-      // console.log("line points", start, end);
-      points = points.slice(start, end);
       // console.log("points", points.length);
+      // console.log("points", points);
+      const path = new THREE.CatmullRomCurve3(points);
+      // console.log("path:", path);
+      const geometry = new THREE.TubeGeometry(path, 20, 0.005, 8, false);
+      // geometry.setDrawRange(0, end);
+      // const material = new THREE.MeshBasicMaterial({ color: 0xfc8181 });
+      // const material = materialShader;      // const arc = new THREE.Mesh(geometry, material);
+      const arc = new THREE.Mesh(
+        geometry,
+        createGlowMaterial(1.2, randomColor, 1)
+      );
+      arc.needsUpdate = true;
 
-      if (!end || Math.abs(end - start) < 2) {
-      } else {
-        // console.log("points", points);
-        const path = new THREE.CatmullRomCurve3(points);
-        // console.log("path:", path);
-        const geometry = new THREE.TubeGeometry(path, 20, 0.005, 8, false);
-        // const material = new THREE.MeshBasicMaterial({ color: 0xfc8181 });
-        // const material = materialShader;      // const arc = new THREE.Mesh(geometry, material);
-        const arc = new THREE.Mesh(
-          geometry,
-          createGlowMaterial(1.2, "gold", 1)
-        );
-        arc.needsUpdate = true;
-        arcs.add(arc);
+      let time = 0;
+      let rangeEnd = 0;
+      let toggle = false;
+      function animateArc() {
+        setTimeout(() => {
+          // console.log("attempting dimension change");
+          // console.log(arc);
+
+          time = (time + 1) % 30;
+          let t = time / 30; // normalise
+          let maxL = 1100;
+
+          function easeInOutCubic(x) {
+            return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+          }
+          // console.log("easing:", easeInOutCubic(t));
+          // rangeStart = maxL * easeInOutCubic(1 - t);
+          rangeEnd = maxL * easeInOutCubic(t);
+
+          // console.log(rangeEnd);
+          arc.geometry.setDrawRange(0, rangeEnd);
+          animateArc();
+        }, 1000 / 15);
       }
+
+      let randomDelay = Math.floor(Math.random() * 10);
+      setTimeout(() => {
+        // console.log("randomDelay", randomDelay);
+        animateArc();
+      }, randomDelay * 1000);
+
+      arcs.add(arc);
     }
 
-    function animateCurves(animCoef) {
-      // connected based on sudan
-      // debug with 1 curve
-      getCurve(cityCoordinates[0], cityCoordinates[1], animCoef);
-      // for (let i = 1; i < cities.length; i++) {
-      //   getCurve(cityCoordinates[0], cityCoordinates[i], animCoef);
-      // }
+    getCurve(cityCoordinates[0], cityCoordinates[1]);
+
+    // generate arcs
+    for (let i = 1; i < cityCoordinates.length; i++) {
+      // for (let i = 1; i < 2; i++) {
+      getCurve(cityCoordinates[0], cityCoordinates[i]);
     }
-    // animateCurves();
 
-    // getCurve(cityCoordinates[0], cityCoordinates[1]);
-
-    pivot.rotation.x += 0.25;
-    let animCounter = 0;
-    animateCurves(animCounter % maxAnimCoef);
-    pivot.rotation.y -= 1.75;
+    // pivot.rotation.y -= 2.1;
+    pivot.rotation.x += 0.2;
     var animate = function () {
       setTimeout(function () {
         requestAnimationFrame(animate);
-        animCounter += 1;
-        arcs.children.forEach((child, index) => {
-          // console.log("index", index);
-          arcs.remove(child);
-        });
-        animateCurves(animCounter % maxAnimCoef);
-        console.log(arcs);
-      }, 1000 / 30);
-
-      // setTimeout(function () {
-      //   // requestAnimationFrame();
-      //   console.log(arcs);
-      //   arcs.remove();
-      //   // animateCurves(animate % 19);
-      // }, 1000 / 1);
-
-      pivot.rotation.y -= 0.01;
-
-      // console.log(counter);
+      }, 1000 / 60);
+      pivot.rotation.y -= 0.005;
 
       renderer.render(scene, camera);
     };
+
     animate();
   };
 
   return (
     <div>
-      {/* <div id="globeViz"></div> */}
-      <canvas id="travel-globe-canvas"></canvas>
+      {/* <button className="absolute z-10">go dark</button> */}
+      <canvas className="relative" id="travel-globe-canvas"></canvas>
     </div>
   );
 }

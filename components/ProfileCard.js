@@ -24,32 +24,32 @@ function ProfileCard() {
 
   return (
     <div className="h-full bg-gray-100 dark:bg-gray-700">
-      {/* <div className="absolute h-[300px]">
-        <TravelGlobe dimensions={300} />
-      </div> */}
       <div
         id="profile-card"
         className="px-10 max-w-screen-2xl my-0 pt-10 flex flex-col md:flex-wrap md:flex-row items-center justify-center mx-auto bg-white dark:bg-[#101010]"
       >
-        <div>
+        {/* <div className="absolute z-0 right-[-150px]">
+          <TravelGlobe dimensions={400} />
+        </div> */}
+        <div className="z-10">
           <div className="w-64 h-64 md:w-128 md:h-128 rounded-full mx-auto relative transition transform duration-200 ease-in-out hover:scale-110 hover:shadow-md">
             <Image
               alt=""
               src="/blob.svg"
               layout="fill"
               objectFit="cover"
-              className="rounded-full m-5 p-5"
+              className="rounded-full m-5 p-5 z-10"
             />
             <Image
               alt=""
               src="/profile_photo-removebg.png"
               layout="fill"
               objectFit="cover"
-              className="rounded-full m-5 p-5"
+              className="rounded-full m-5 p-5 z-10"
             />
           </div>
         </div>
-        <div className="pt-6 text-center space-y-4">
+        <div className="pt-6 text-center space-y-4 z-10">
           <blockquote>
             <p className="text-lg font-semibold text-black dark:text-white">
               {'"'}I love building well engineered solutions{'"'}
