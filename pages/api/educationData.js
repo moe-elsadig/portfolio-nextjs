@@ -12,7 +12,16 @@ export default function handler(req, res) {
     {
       dateStart: "completion",
       dateEnd: "60%",
-      course: "Algorithms Expert & Systems Design Expert",
+      course: "Algorithms Expert",
+      institution: "AlgoExpert.io",
+      location: "Remote",
+      institutionLogo: "/education/algoexpert-logo.png",
+      relatedProjects: [],
+    },
+    {
+      dateStart: "completion",
+      dateEnd: "Complete",
+      course: "Systems Design Expert",
       institution: "AlgoExpert.io",
       location: "Remote",
       institutionLogo: "/education/algoexpert-logo.png",
