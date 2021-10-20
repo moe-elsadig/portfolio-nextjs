@@ -19,8 +19,8 @@ export default function handler(req, res) {
       relatedProjects: [],
     },
     {
-      dateStart: "completion",
-      dateEnd: "Complete",
+      dateStart: "Oct 2021",
+      dateEnd: "Completed",
       course: "Systems Design Expert",
       institution: "AlgoExpert.io",
       location: "Remote",

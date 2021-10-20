@@ -608,6 +608,31 @@ export default function handler(req, res) {
   // ===========================================================================
   let otherWebProjects = [
     {
+      title: `Rick & Morty Encyclopedia`,
+      description:
+        "A Rick & Morty Encyclopedia that consumes the rickandmortyapi.com API. Server-side generated pages, dark mode, search and filter features all included.",
+      stack: ["NextJs", "ReactJS", "TailwindCSS", "React-Icons"],
+      dependencies: [
+        "@heroicons/react",
+        "next",
+        "react",
+        "react-dom",
+        "react-icons",
+        "@badrap/bar-of-progress",
+      ],
+      media: {
+        mobile: {
+          images: ["/projects/r&m-mobile.svg"],
+          videos: [],
+        },
+        desktop: {
+          images: ["/projects/r&m-desktop.svg"],
+          videos: ["https://youtube.com/embed/n3T5pPkKq5I"],
+        },
+      },
+      repo: "https://github.com/moe-elsadig/rick-and-morty-profiles",
+    },
+    {
       title: `Portfolio Site - NextJs`,
       description:
         "This is a personal porfolio site built with NextJs on React and styled with the Tailwind CSS.",

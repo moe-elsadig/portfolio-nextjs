@@ -50,7 +50,7 @@ export default function Home({
       <ProfileCard />
       <SectionHeader title="projects" />
       <main className="relative bg-gray-100 dark:bg-gray-700 antialiased">
-        {projectData?.slice(0, 1).map((project, index) => (
+        {projectData?.slice(0, 3).map((project, index) => (
           <ProjectCard
             key={project.title}
             project={project}
@@ -61,12 +61,12 @@ export default function Home({
 
         {showMore &&
           projectData
-            ?.slice(1)
+            ?.slice(3)
             .map((project, index) => (
               <ProjectCard
                 key={project.title}
                 project={project}
-                index={index + 1}
+                index={index + 3}
                 accentColor={accentColor}
               />
             ))}
