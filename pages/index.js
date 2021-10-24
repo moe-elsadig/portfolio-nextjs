@@ -16,27 +16,11 @@ export default function Home({
   educationData,
 }) {
   const [accentColor, setAccentColor] = useState("red");
-  const [theme, setTheme] = useState(false);
   const [showMore, setShowMore] = useState(false);
-
-  useEffect(() => {
-    // check if already set
-    if (localStorage.getItem("theme")) {
-      setTheme(localStorage.getItem("theme"));
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    // console.log("toggled");
-    setTheme(!theme);
-    localStorage.setItem("theme", !theme);
-  };
 
   return (
     <div
-      className={`${
-        theme ? "dark" : ""
-      } min-h-screen flex flex-col font-mono relative text-black dark:text-white bg-gray-100 dark:bg-gray-700`}
+      className={`min-h-screen flex flex-col font-mono relative text-black dark:text-white bg-gray-100 dark:bg-gray-700`}
     >
       <Head>
         <title>Moe&#39;s Portfolio</title>
@@ -56,7 +40,7 @@ export default function Home({
           media="(prefers-color-scheme: dark)"
         />
       </Head>
-      <Header toggleTheme={toggleTheme} />
+      <Header />
       <ProfileCard />
       <SectionHeader title="projects" />
       <main className="relative bg-gray-100 dark:bg-gray-700 antialiased">

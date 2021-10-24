@@ -5,10 +5,28 @@ import React, { useEffect, useState } from "react";
 import Headroom from "react-headroom";
 import { CgDarkMode } from "react-icons/cg";
 
-function Header({ toggleTheme }) {
+function Header({}) {
   const [menu, setMenu] = useState(false);
-  const [prevScrollpos, setPrevScrollpos] = useState(0);
   const [showBar, setShowBar] = useState(true);
+  const [theme, setTheme] = useState(false);
+
+  useEffect(() => {
+    let localTheme = localStorage.getItem("theme");
+    if (localTheme && localTheme === "true") {
+      setTheme(true);
+      document.body.classList.add("dark");
+    }
+  }, []);
+
+  const changeTheme = () => {
+    localStorage.setItem("theme", !theme);
+    setTheme(!theme);
+    if (!theme) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -116,7 +134,10 @@ function Header({ toggleTheme }) {
       </button>
       <CgDarkMode
         className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
-        onClick={() => toggleTheme()}
+        onClick={() => {
+          setTheme(!theme);
+          changeTheme();
+        }}
       />
     </>
   );
