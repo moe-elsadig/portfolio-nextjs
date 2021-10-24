@@ -82,8 +82,8 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
       <SectionHeader title="work" />
       <Timeline timelineType="work" cardData={workData} />
       <SectionHeader title="projects" />
-      <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 min-h-screen">
-        <div className="bg-white w-full md:w-1/2 min-h-screen">
+      <main className="flex flex-col-reverse md:flex-row relative bg-gray-100 dark:bg-gray-700 min-h-screen">
+        <div className="bg-white dark:bg-[#101010] w-full md:w-1/2 min-h-screen">
           {projectData?.slice(0, 1).map((project, index) => (
             <div
               key={project.title}
@@ -118,7 +118,7 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
                 />
               ))}
 
-          <div className="pb-10 bg-white flex flex-col">
+          <div className="pb-10 bg-white dark:bg-[#101010] flex flex-col">
             <SectionHeader title="Projects" />
             {projectData.length > 1 && (
               <button
@@ -138,11 +138,11 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
             )}
           </div>
         </div>
-        <div className="bg-white shadow-md to-transparent backdrop-blur-lg sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
+        <div className="bg-white dark:bg-[#101010] shadow-md to-transparent backdrop-blur-lg sticky top-0 w-full md:w-1/2 h-[50vh] md:h-screen flex flex-col">
           {/* <div className="py-2 flex flex-row justify-end">
           </div> */}
 
-          <video
+          {/* <video
             src="/projects/orange-blob.mp4"
             allow="autoPlay"
             autoPlay
@@ -154,8 +154,8 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
               visibleProject !== null
                 ? "scale-100 opacity-100"
                 : "scale-50 opacity-0"
-            } transform ease-in-out transition-all duration-100`}
-          />
+            } transform ease-in-out transition-all duration-100 bg-black`}
+          /> */}
           {/* media container */}
           <div className="flex-grow z-10">
             {/* images container */}
@@ -229,10 +229,7 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
       <footer className="border-t bg-gray-100 dark:bg-gray-700">
         <p className="max-w-screen-2xl text-sm text-gray-400 dark:text-gray-500 px-10 pt-10 mx-auto bg-white dark:bg-[#101010]">
           Designed & Developed by{" "}
-          <span className="text-red-400 dark:text-red-500">M</span>
-          <span className="text-red-400 dark:text-red-500">o</span>
-          <span className="text-red-400 dark:text-red-500">e</span>
-          <span className="text-red-400 dark:text-red-500">.</span>
+          <span className="text-red-400 dark:text-red-500">Moe.</span>
         </p>
       </footer>
     </div>
