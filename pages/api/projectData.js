@@ -631,6 +631,7 @@ export default function handler(req, res) {
         },
       },
       repo: "https://github.com/moe-elsadig/rick-and-morty-profiles",
+      demo: "https://rick-and-morty-profiles.vercel.app",
     },
     {
       title: `Portfolio Site - NextJs`,
@@ -659,6 +660,7 @@ export default function handler(req, res) {
         },
       },
       repo: "https://github.com/moe-elsadig/portfolio-nextjs",
+      demo: "https://moeabdalla.com",
     },
     {
       title: `Uber Clone`,
