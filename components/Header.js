@@ -182,7 +182,10 @@ function Header({}) {
 
         <CgDarkMode
           className=" md:hidden text-2xl cursor-pointer text-black dark:text-white flex items-center"
-          onClick={() => toggleTheme()}
+          onClick={() => {
+            setTheme(!theme);
+            changeTheme();
+          }}
         />
         <div className="pr-5">
           <div className="hidden space-x-4 justify-center md:inline-flex flex-row items-center">

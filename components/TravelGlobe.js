@@ -452,9 +452,12 @@ function TravelGlobe({ dimensions }) {
   };
 
   return (
-    <div>
+    <div className="w-full h-full">
       {/* <button className="absolute z-10">go dark</button> */}
-      <canvas className="relative" id="travel-globe-canvas"></canvas>
+      <canvas
+        className="relative h-[300px] w-[300px]"
+        id="travel-globe-canvas"
+      ></canvas>
     </div>
   );
 }
