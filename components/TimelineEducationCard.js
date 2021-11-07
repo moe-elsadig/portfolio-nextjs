@@ -64,7 +64,7 @@ function TimelineEducationCard({ cardInfo, index, key }) {
       className={`text-black dark:text-white relative z-10 transition-all transform duration-300 ${
         inView ? fadeIn : fadeOut
       }`}
-      key={cardInfo?.course}
+      key={"education-" + index}
     >
       <div className="timeline-img">
         <Image
