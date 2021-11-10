@@ -41,6 +41,9 @@ export default function Home({
         />
       </Head>
       <Header />
+      {/* <div className="h-[500px] w-full flex items-center justify-center">
+        <TravelGlobe dimensions={1000} />
+      </div> */}
       <ProfileCard />
       <SectionHeader title="projects" />
       <main className="relative bg-gray-100 dark:bg-gray-700 antialiased">

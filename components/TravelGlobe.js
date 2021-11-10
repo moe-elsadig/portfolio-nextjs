@@ -83,6 +83,13 @@ let cities = [
     longerHeading: "N",
   },
   {
+    city: "Adapazarı",
+    lat: 40.7889,
+    lon: 30.406,
+    latHeading: "E",
+    longerHeading: "N",
+  },
+  {
     city: "Pietermaritzburg",
     lat: -29.6006,
     lon: 30.3794,
@@ -211,12 +218,14 @@ function TravelGlobe({ dimensions }) {
 
   const renderContent = () => {
     // === THREE.JS CODE START ===
+    // initialise scene & camera
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(30);
-    camera.aspect = dimensions / dimensions;
+    camera.aspect = 1;
     camera.position.z = 5;
     camera.updateProjectionMatrix();
 
+    // the grouping of the elements that will rotate along the y axis
     let pivot = new THREE.Group();
     scene.add(pivot);
 
@@ -224,67 +233,32 @@ function TravelGlobe({ dimensions }) {
     pivot.add(new THREE.AmbientLight(0xbbbbbb));
     pivot.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
+    // append and render the scene to the canvas element in DOM
     const canvas = document.getElementById("travel-globe-canvas");
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       alpha: true,
       antialias: true,
     });
-    renderer.setSize(dimensions, dimensions);
+    let renderSize = Math.min(window.innerWidth, window.innerHeight);
+    renderer.setSize(renderSize, renderSize);
 
-    // const controls = new OrbitControls(camera, renderer.domElement);
+    // allow user to interact with the globe by initialising orbit controls
+    // comment out to stop it
+    const controls = new OrbitControls(camera, renderer.domElement);
 
-    var geometry = new THREE.SphereBufferGeometry(1, 30, 30);
+    // setup the sphere where the globe image will be projected onto
+    var geometry = new THREE.SphereBufferGeometry(1, 32, 32);
+    // load the image as a color map and use it as a mesh material
     var materialShader = new THREE.MeshBasicMaterial({
       map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
     });
-    // var darkMaterialShader = new THREE.MeshBasicMaterial({
-    //   map: new THREE.TextureLoader().load("/globe/earth-night.jpg"),
-    // });
-    // let shaderToggle = false;
-
+    // add the globe element (the sphere and map material) to the pivot group
     var globe = new THREE.Mesh(geometry, materialShader);
     pivot.add(globe);
-    // setTimeout(function () {
-    //   console.log("switch map");
-    //   globe = shaderToggle
-    //     ? new THREE.Mesh(
-    //         geometry,
-    //         new THREE.MeshBasicMaterial({
-    //           map: new THREE.TextureLoader().load("/globe/earth-map.jpg"),
-    //         })
-    //       )
-    //     : new THREE.Mesh(
-    //         geometry,
-    //         new THREE.MeshBasicMaterial({
-    //           map: new THREE.TextureLoader().load("/globe/earth-night.jpg"),
-    //         })
-    //       );
-    //   shaderToggle = !shaderToggle;
-    // }, 10000);
 
-    // add pins
-    let cityCoordinates = [];
-
-    function convertCoordinates(city) {
-      let x = 0;
-      let y = 0;
-      let z = 1;
-
-      let lat = city.lat;
-      let lon = city.lon;
-      let phi = ((90 - lat) * Math.PI) / 180;
-      let theta = ((lon + 180) * Math.PI) / 180;
-      x = -(Math.sin(phi) * Math.cos(theta));
-      z = Math.sin(phi) * Math.sin(theta);
-      y = Math.cos(phi);
-
-      // console.log(x, y, z);
-      cityCoordinates.push([x, y, z]);
-
-      return [x, y, z];
-    }
-
+    // material shader with a unique look for the points and arcs
+    // Based off: http://stemkoski.blogspot.fr/2013/07/shaders-in-threejs-glow-and-halo.html
     const fragmentShader = `
     uniform vec3 color;
     uniform float coefficient;
@@ -301,7 +275,6 @@ function TravelGlobe({ dimensions }) {
       );
       gl_FragColor = vec4(color, intensity);
     }`;
-
     const vertexShader = `
     varying vec3 vVertexWorldPosition;
     varying vec3 vVertexNormal;
@@ -311,8 +284,6 @@ function TravelGlobe({ dimensions }) {
       gl_Position	= projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
     `;
-
-    // Based off: http://stemkoski.blogspot.fr/2013/07/shaders-in-threejs-glow-and-halo.html
     function createGlowMaterial(coefficient, color, power) {
       return new THREE.ShaderMaterial({
         depthWrite: false,
@@ -333,46 +304,68 @@ function TravelGlobe({ dimensions }) {
       });
     }
 
-    const arcMaterial = createGlowMaterial(1.2, "gold", 1);
-
-    // tooltip starting point https://stackoverflow.com/questions/39177205/threejs-tooltip/54438811
-    // create a fixede sphere marker at each location
+    // create a fixed city marker at each location and add to pivot group
+    let cityCoordinates = [];
     cities.forEach((city) => {
+      // tooltip starting point https://stackoverflow.com/questions/39177205/threejs-tooltip/54438811
+
       var randomColor = Number(
         "0x" + Math.floor(Math.random() * 16777215).toString(16)
       );
 
       let pin = new THREE.Mesh(
         new THREE.SphereBufferGeometry(0.01, 10, 10),
-        // new THREE.MeshBasicMaterial({
-        //   color: randomColor,
-        // })
-        createGlowMaterial(2, "gold", 1)
+        new THREE.MeshBasicMaterial({
+          color: randomColor,
+        })
+        // createGlowMaterial(2, "gold", 1)
       );
 
+      function convertCoordinates(city) {
+        let x = 0;
+        let y = 0;
+        let z = 1;
+
+        let lat = city.lat;
+        let lon = city.lon;
+        let phi = ((90 - lat) * Math.PI) / 180;
+        let theta = ((lon + 180) * Math.PI) / 180;
+        x = -(Math.sin(phi) * Math.cos(theta));
+        z = Math.sin(phi) * Math.sin(theta);
+        y = Math.cos(phi);
+
+        // console.log(x, y, z);
+        cityCoordinates.push([x, y, z]);
+
+        return [x, y, z];
+      }
+
       let [x, y, z] = convertCoordinates(city);
-
-      // console.log(x, y, z);
       pin.position.set(x, y, z);
-
       pivot.add(pin);
     });
 
+    // a group for arcs because of independant animations
     let arcs = new THREE.Group();
     pivot.add(arcs);
 
-    const lineRes = 20;
-
+    // create flight arcs connecting the different cities
     function getCurve(p1, p2) {
+      // segments in each arc
+      const lineRes = 200;
+
+      // random arc colour
       var randomColor = Number(
         "0x" + Math.floor(Math.random() * 16777215).toString(16)
       );
 
+      // spherical cartesian position to three.js vectors
       let [x1, y1, z1] = p1;
       let [x2, y2, z2] = p2;
       let v1 = new THREE.Vector3(x1, y1, z1);
       let v2 = new THREE.Vector3(x2, y2, z2);
 
+      // extract the vector points between the two city positions
       let points = [];
       for (let i = 0; i < lineRes; i++) {
         let p = new THREE.Vector3().lerpVectors(v1, v2, i / lineRes);
@@ -381,14 +374,9 @@ function TravelGlobe({ dimensions }) {
         points.push(p);
       }
 
-      // console.log("points", points.length);
-      // console.log("points", points);
+      // create the arc geometry using the calculated points
       const path = new THREE.CatmullRomCurve3(points);
-      // console.log("path:", path);
-      const geometry = new THREE.TubeGeometry(path, 20, 0.005, 8, false);
-      // geometry.setDrawRange(0, end);
-      // const material = new THREE.MeshBasicMaterial({ color: 0xfc8181 });
-      // const material = materialShader;      // const arc = new THREE.Mesh(geometry, material);
+      const geometry = new THREE.TubeGeometry(path, 64, 0.005, 8, false);
       const arc = new THREE.Mesh(
         geometry,
         createGlowMaterial(1.2, randomColor, 1)
@@ -397,54 +385,59 @@ function TravelGlobe({ dimensions }) {
 
       let time = 0;
       let rangeEnd = 0;
-      let toggle = false;
+      let fpsInterval = 3000;
+      let start = Date.now();
       function animateArc() {
-        setTimeout(() => {
-          // console.log("attempting dimension change");
-          // console.log(arc);
-
-          time = (time + 1) % 30;
-          let t = time / 30; // normalise
-          let maxL = 1100;
+        requestAnimationFrame(() => {
+          time = (Date.now() - start) % fpsInterval;
+          time = time / fpsInterval; // normalise
+          let maxL = 4000;
 
           function easeInOutCubic(x) {
             return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
           }
-          // console.log("easing:", easeInOutCubic(t));
-          // rangeStart = maxL * easeInOutCubic(1 - t);
-          rangeEnd = maxL * easeInOutCubic(t);
 
-          // console.log(rangeEnd);
-          arc.geometry.setDrawRange(0, rangeEnd);
+          rangeEnd = maxL * easeInOutCubic(time);
+
+          let flightTrail =
+            rangeEnd < maxL / 2
+              ? 0
+              : rangeEnd < maxL
+              ? rangeEnd - maxL * easeInOutCubic(time)
+              : 0;
+          arc.geometry.setDrawRange(flightTrail, rangeEnd);
           animateArc();
-        }, 1000 / 15);
+        });
       }
 
-      let randomDelay = Math.floor(Math.random() * 10);
+      let randomDelay = Math.floor(Math.random() * 20);
       setTimeout(() => {
         // console.log("randomDelay", randomDelay);
-        animateArc();
+        // animateArc();
       }, randomDelay * 1000);
 
       arcs.add(arc);
     }
 
-    getCurve(cityCoordinates[0], cityCoordinates[1]);
-
     // generate arcs
     for (let i = 1; i < cityCoordinates.length; i++) {
-      // for (let i = 1; i < 2; i++) {
-      getCurve(cityCoordinates[0], cityCoordinates[i]);
+      // for (let j = 1; j < cityCoordinates.length; j++) {
+      //   if (i !== j) {
+      let randomDirection = Math.floor(Math.random() * 2);
+      if (randomDirection === 1) {
+        getCurve(cityCoordinates[i], cityCoordinates[0]);
+      } else {
+        getCurve(cityCoordinates[0], cityCoordinates[i]);
+      }
+      //   }
+      // }
     }
 
     // pivot.rotation.y -= 2.1;
     pivot.rotation.x += 0.2;
     var animate = function () {
-      setTimeout(function () {
-        requestAnimationFrame(animate);
-      }, 1000 / 60);
-      pivot.rotation.y -= 0.005;
-
+      requestAnimationFrame(animate);
+      pivot.rotation.y -= 0.0005;
       renderer.render(scene, camera);
     };
 
@@ -452,13 +445,10 @@ function TravelGlobe({ dimensions }) {
   };
 
   return (
-    <div className="w-full h-full">
-      {/* <button className="absolute z-10">go dark</button> */}
-      <canvas
-        className="relative h-[300px] w-[300px]"
-        id="travel-globe-canvas"
-      ></canvas>
-    </div>
+    <canvas
+      className="relative w-full h-full"
+      id="travel-globe-canvas"
+    ></canvas>
   );
 }
 
