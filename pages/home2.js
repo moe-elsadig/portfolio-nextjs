@@ -8,6 +8,7 @@ import ProjectCard from "../components/ProjectCard";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import ContactCard from "../components/ContactCard";
+import TravelGlobe from "../components/TravelGlobe";
 
 function Home2({ projectData, featuredProjectData, workData, educationData }) {
   let placeholderMobile = "/projects/placeholder-mobile.png";
@@ -77,6 +78,9 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
       </Head>
       <Header />
       <ProfileCard />
+      <div className="h-[500px] w-full flex items-center justify-center">
+        <TravelGlobe dimensions={1000} />
+      </div>
       <SectionHeader title="education" />
       <Timeline timelineType="education" cardData={educationData} />
       <SectionHeader title="work" />

@@ -1,6 +1,15 @@
 export default function handler(req, res) {
   const educationData = [
     {
+      dateStart: "completion",
+      dateEnd: "20%",
+      course: "React Native - Academind",
+      institution: "Udemy",
+      location: "Remote",
+      institutionLogo: "/education/udemy-logo.png",
+      relatedProjects: [],
+    },
+    {
       dateStart: "Oct 2021",
       dateEnd: "Completed",
       course: "Systems Design Expert",
@@ -94,15 +103,6 @@ export default function handler(req, res) {
       dateStart: "completion",
       dateEnd: "25%",
       course: "MongoDB Complete - Academind",
-      institution: "Udemy",
-      location: "Remote",
-      institutionLogo: "/education/udemy-logo.png",
-      relatedProjects: [],
-    },
-    {
-      dateStart: "completion",
-      dateEnd: "15%",
-      course: "React Native - Academind",
       institution: "Udemy",
       location: "Remote",
       institutionLogo: "/education/udemy-logo.png",

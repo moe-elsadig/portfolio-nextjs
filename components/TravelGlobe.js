@@ -208,6 +208,13 @@ let cities = [
     latHeading: "E",
     longerHeading: "N",
   },
+  {
+    city: "Abidjan",
+    lat: 5.36,
+    lon: -4.0083,
+    latHeading: "W",
+    longerHeading: "N",
+  },
 ];
 
 function TravelGlobe({ dimensions }) {
