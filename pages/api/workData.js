@@ -1,6 +1,16 @@
 export default function handler(req, res) {
   const workData = [
     {
+      dateStart: "Jan 2022",
+      dateEnd: "Present",
+      position: "Full-stack Javascript Developer",
+      company: "Upland Software",
+      location: "Remote, US",
+      companyLogo: "/work/uplandsoftware-logo.png",
+      description: [],
+      relatedProjects: [],
+    },
+    {
       dateStart: "July 2019",
       dateEnd: "Present",
       position: "Founder/Developer",
