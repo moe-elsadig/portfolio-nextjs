@@ -3,7 +3,13 @@ import Image from "next/image";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { useInView } from "react-intersection-observer";
 
-function TimelineWorkCard({ cardInfo, index, cardType, key }) {
+function TimelineWorkCard({
+  cardInfo,
+  index,
+  cardType,
+  key,
+  priorityImages = false,
+}) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     triggerOnce: true,
@@ -24,6 +30,7 @@ function TimelineWorkCard({ cardInfo, index, cardType, key }) {
     >
       <div className="timeline-img ">
         <Image
+          priority={priorityImages}
           src={cardInfo ? cardInfo.companyLogo : "/"}
           alt={cardInfo?.company + " logo"}
           // layout="fill"
@@ -69,6 +76,7 @@ function TimelineWorkCard({ cardInfo, index, cardType, key }) {
     >
       <div className="timeline-img">
         <Image
+          priority={priorityImages}
           src={cardInfo ? cardInfo.companyLogo : "/"}
           alt={cardInfo?.company + " logo"}
           // layout="fill"

@@ -49,6 +49,7 @@ function Timeline({ timelineType = "work", cardData }) {
                 cardInfo={item}
                 index={index}
                 key={item.title}
+                priorityImages={true}
               />
             );
           } else
@@ -57,6 +58,7 @@ function Timeline({ timelineType = "work", cardData }) {
                 cardInfo={item}
                 index={index}
                 key={item.title}
+                priorityImages={true}
               />
             );
         })}

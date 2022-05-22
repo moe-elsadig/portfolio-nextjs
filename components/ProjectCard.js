@@ -14,6 +14,7 @@ import { useInView } from "react-intersection-observer";
 
 export default function ProjectCard({
   project: { title, description, stack, languages, media, dependencies },
+  priorityImages = false,
   project,
   accentColor,
   index,
@@ -234,6 +235,7 @@ export default function ProjectCard({
         <div className={`relative h-[45vh] w-full flex-grow `}>
           {media?.mobile.images.map((image, index) => (
             <Image
+              priority={priorityImages}
               placeholder="blur"
               blurDataURL={
                 <CircleLoader
@@ -257,6 +259,7 @@ export default function ProjectCard({
         <div className={`relative h-[45vh] w-full flex-grow`}>
           {media?.desktop.images.map((image, index) => (
             <Image
+              priority={priorityImages}
               placeholder="blur"
               blurDataURL={
                 <CircleLoader

@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-function TimelineEducationCard({ cardInfo, index, key }) {
+function TimelineEducationCard({
+  cardInfo,
+  index,
+  key,
+  priorityImages = false,
+}) {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     triggerOnce: true,
@@ -27,6 +32,7 @@ function TimelineEducationCard({ cardInfo, index, key }) {
     >
       <div className="timeline-img">
         <Image
+          priority={priorityImages}
           src={cardInfo ? cardInfo.institutionLogo : "/"}
           alt={cardInfo?.company + " logo"}
           // layout="fill"
@@ -68,6 +74,7 @@ function TimelineEducationCard({ cardInfo, index, key }) {
     >
       <div className="timeline-img">
         <Image
+          priority={priorityImages}
           src={cardInfo ? cardInfo.institutionLogo : "/"}
           alt={cardInfo?.company + " logo"}
           // layout="fill"

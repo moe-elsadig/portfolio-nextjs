@@ -48,6 +48,7 @@ export default function Home({
       <main className="relative bg-gray-100 dark:bg-gray-700 antialiased">
         {projectData?.slice(0, 3).map((project, index) => (
           <ProjectCard
+            priorityImages={true}
             key={project.title}
             project={project}
             index={index}
