@@ -155,6 +155,7 @@ function Header({}) {
         <div className="hidden md:inline-flex md:max-w-[100px]">
           <div className="inline-flex dark:hidden">
             <Image
+              priority
               alt=""
               src="/logo_small_black.svg"
               width="60"
@@ -168,6 +169,7 @@ function Header({}) {
 
           <div className="hidden dark:inline-flex">
             <Image
+              priority
               alt=""
               src="/logo_small_white.svg"
               width="60"

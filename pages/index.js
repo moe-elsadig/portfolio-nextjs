@@ -7,7 +7,6 @@ import Timeline from "../components/Timeline";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import ContactCard from "../components/ContactCard";
-import TravelGlobe from "../components/TravelGlobe";
 
 export default function Home({
   projectData,
