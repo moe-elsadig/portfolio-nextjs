@@ -13,7 +13,7 @@ export default function handler(req, res) {
         {
             dateStart: "Jan 2022",
             dateEnd: "May 2022",
-            position: "Full-stack Javascript Developer",
+            position: "Javascript Developer",
             company: "Upland Software - Panviva",
             location: "Remote, AU|US",
             companyLogo: "/work/uplandsoftware-logo.png",

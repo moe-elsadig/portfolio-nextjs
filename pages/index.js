@@ -40,9 +40,6 @@ export default function Home({
                 />
             </Head>
             <Header />
-            {/* <div className="h-[500px] w-full flex items-center justify-center">
-        <TravelGlobe dimensions={1000} />
-      </div> */}
             <ProfileCard />
             <SectionHeader title="work" />
             <Timeline timelineType="work" cardData={workData} />
@@ -138,12 +135,12 @@ export async function getServerSideProps() {
             return null;
         });
 
-    console.log(
-        projectData.length,
-        featuredProjectData.length,
-        workData.length,
-        educationData.length
-    );
+    // console.log(
+    //     projectData.length,
+    //     featuredProjectData.length,
+    //     workData.length,
+    //     educationData.length
+    // );
 
     return {
         props: { projectData, featuredProjectData, workData, educationData },
