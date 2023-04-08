@@ -128,14 +128,14 @@ function Header({}) {
             >
                 Projects
             </button>
-            <a
+            {/* <a
                 className={`${buttonStyle}`}
                 href="/Moe Resume - General.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 Resume
-            </a>
+            </a> */}
             <button
                 className={`${buttonStyle}`}
                 onClick={() => scrollToContact()}
