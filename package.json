@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.17",
+    "@emotion/react": "^11.10.6",
+    "@heroicons/react": "^1.0.6",
     "lodash": "^4.17.21",
     "next": "^13.3.0",
     "react": "18.2.0",
