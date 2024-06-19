@@ -41,8 +41,9 @@ function ProfileCard() {
                             fill
                             sizes="100vw"
                             style={{
-                                objectFit: "cover"
-                            }} />
+                                objectFit: "cover",
+                            }}
+                        />
                         <Image
                             priority
                             alt=""
@@ -51,8 +52,9 @@ function ProfileCard() {
                             fill
                             sizes="100vw"
                             style={{
-                                objectFit: "cover"
-                            }} />
+                                objectFit: "cover",
+                            }}
+                        />
                     </div>
                 </div>
                 <div className="pt-6 text-center space-y-4 z-10">
