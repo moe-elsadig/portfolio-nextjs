@@ -168,15 +168,16 @@ function Header({}) {
                             priority
                             alt=""
                             src="/logo_small_black.svg"
-                            width="60"
-                            height="60"
+                            width="30"
+                            height="30"
                             className="text-2xl cursor-pointer"
                             onClick={() => scrollToTop()}
                             style={{
-                                maxWidth: "100%",
+                                maxWidth: "30px",
                                 height: "auto",
-                                objectFit: "contain"
-                            }} />
+                                objectFit: "contain",
+                            }}
+                        />
                     </div>
 
                     <div className="hidden dark:inline-flex">
@@ -184,15 +185,16 @@ function Header({}) {
                             priority
                             alt=""
                             src="/logo_small_white.svg"
-                            width="60"
-                            height="60"
+                            width="30"
+                            height="30"
                             className="text-2xl cursor-pointer"
                             onClick={() => scrollToTop()}
                             style={{
-                                maxWidth: "100%",
+                                maxWidth: "30px",
                                 height: "auto",
-                                objectFit: "contain"
-                            }} />
+                                objectFit: "contain",
+                            }}
+                        />
                     </div>
                 </div>
 
