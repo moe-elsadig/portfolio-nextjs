@@ -362,7 +362,7 @@ function TravelGlobe({ dimensions }) {
 
             let randomDelay = Math.floor(Math.random() * 20);
             setTimeout(() => {
-                // animateArc();
+                animateArc();
             }, randomDelay * 1000);
 
             arcs.add(arc);
@@ -370,16 +370,16 @@ function TravelGlobe({ dimensions }) {
 
         // generate arcs
         for (let i = 1; i < cityCoordinates.length; i++) {
-            // for (let j = 1; j < cityCoordinates.length; j++) {
-            //   if (i !== j) {
-            let randomDirection = Math.floor(Math.random() * 2);
-            if (randomDirection === 1) {
-                getCurve(cityCoordinates[i], cityCoordinates[0]);
-            } else {
-                getCurve(cityCoordinates[0], cityCoordinates[i]);
+            for (let j = 1; j < cityCoordinates.length; j++) {
+                if (i !== j) {
+                    let randomDirection = Math.floor(Math.random() * 2);
+                    if (randomDirection === 1) {
+                        getCurve(cityCoordinates[i], cityCoordinates[0]);
+                    } else {
+                        getCurve(cityCoordinates[0], cityCoordinates[i]);
+                    }
+                }
             }
-            //   }
-            // }
         }
 
         // pivot.rotation.y -= 2.1;
