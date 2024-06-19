@@ -262,10 +262,12 @@ export default function ProjectCard({
                             alt="mobile screenshot"
                             key={image}
                             src={image}
-                            layout="fill"
-                            objectFit="contain"
                             className={``}
-                        />
+                            fill
+                            sizes="100vw"
+                            style={{
+                                objectFit: "contain"
+                            }} />
                     ))}
                 </div>
             )}
@@ -286,10 +288,12 @@ export default function ProjectCard({
                             alt="desktop screenshot"
                             key={image}
                             src={image}
-                            layout="fill"
-                            objectFit="contain"
                             className={``}
-                        />
+                            fill
+                            sizes="100vw"
+                            style={{
+                                objectFit: "contain"
+                            }} />
                     ))}
                 </div>
             )}

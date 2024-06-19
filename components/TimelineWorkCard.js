@@ -33,13 +33,15 @@ function TimelineWorkCard({
           priority={priorityImages}
           src={cardInfo ? cardInfo.companyLogo : "/"}
           alt={cardInfo?.company + " logo"}
-          // layout="fill"
-          layout="responsive"
           height={24}
           width={24}
-          objectFit="cover"
           className="rounded-full"
-        />
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "cover"
+          }} />
       </div>
       <div className="timeline-container ">
         <div className="timeline-pointer" aria-hidden="true"></div>
@@ -79,13 +81,15 @@ function TimelineWorkCard({
           priority={priorityImages}
           src={cardInfo ? cardInfo.companyLogo : "/"}
           alt={cardInfo?.company + " logo"}
-          // layout="fill"
-          layout="responsive"
           height={24}
           width={24}
-          objectFit="cover"
           className="rounded-full"
-        />
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "cover"
+          }} />
       </div>
       <div className="timeline-container timeline-container-left">
         <div

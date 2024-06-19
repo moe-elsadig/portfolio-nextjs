@@ -37,18 +37,22 @@ function ProfileCard() {
                             priority
                             alt=""
                             src="/blob.svg"
-                            layout="fill"
-                            objectFit="cover"
                             className="rounded-full m-5 p-5 z-10"
-                        />
+                            fill
+                            sizes="100vw"
+                            style={{
+                                objectFit: "cover"
+                            }} />
                         <Image
                             priority
                             alt=""
                             src="/profile_photo-removebg.png"
-                            layout="fill"
-                            objectFit="cover"
                             className="rounded-full m-5 p-5 z-10"
-                        />
+                            fill
+                            sizes="100vw"
+                            style={{
+                                objectFit: "cover"
+                            }} />
                     </div>
                 </div>
                 <div className="pt-6 text-center space-y-4 z-10">

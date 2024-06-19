@@ -28,17 +28,21 @@ function ContactCard() {
                     <Image
                         alt=""
                         src="/blob.svg"
-                        layout="fill"
-                        objectFit="cover"
                         className="rounded-full m-5 p-5"
-                    />
+                        fill
+                        sizes="100vw"
+                        style={{
+                            objectFit: "cover"
+                        }} />
                     <Image
                         alt=""
                         src="/profile_photo-removebg.png"
-                        layout="fill"
-                        objectFit="cover"
                         className="rounded-full m-5 p-5"
-                    />
+                        fill
+                        sizes="100vw"
+                        style={{
+                            objectFit: "cover"
+                        }} />
                 </div>
                 <div className="pt-20 pb-28 items-center flex flex-col mx-auto space-y-5 text-lg text-black dark:text-white">
                     <div className="flex flex-row items-center space-x-4">

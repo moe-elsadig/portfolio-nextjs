@@ -175,19 +175,23 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
                 <div>
                   <Image
                     src={"/projects/placeholder-mobile.svg"}
-                    layout="fill"
-                    objectFit="contain"
                     alt="mobile placeholder"
                     className=""
-                  />
+                    fill
+                    sizes="100vw"
+                    style={{
+                      objectFit: "contain"
+                    }} />
                   {mobileImg && (
                     <Image
                       src={mobileImg}
-                      layout="fill"
-                      objectFit="contain"
                       alt="mobile screenshot"
                       className=""
-                    />
+                      fill
+                      sizes="100vw"
+                      style={{
+                        objectFit: "contain"
+                      }} />
                   )}
                 </div>
               </div>
@@ -208,19 +212,23 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
                 <div>
                   <Image
                     src={"/projects/placeholder-desktop.svg"}
-                    layout="fill"
-                    objectFit="contain"
                     alt="desktop placeholder"
                     className=""
-                  />
+                    fill
+                    sizes="100vw"
+                    style={{
+                      objectFit: "contain"
+                    }} />
                   {desktopImg && (
                     <Image
                       src={desktopImg}
-                      layout="fill"
-                      objectFit="contain"
                       alt="desktop screenshot"
                       className=""
-                    />
+                      fill
+                      sizes="100vw"
+                      style={{
+                        objectFit: "contain"
+                      }} />
                   )}
                 </div>
               </div>

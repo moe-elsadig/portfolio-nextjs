@@ -170,11 +170,13 @@ function Header({}) {
                             src="/logo_small_black.svg"
                             width="60"
                             height="60"
-                            // layout="fill"
-                            objectFit="contain"
                             className="text-2xl cursor-pointer"
                             onClick={() => scrollToTop()}
-                        />
+                            style={{
+                                maxWidth: "100%",
+                                height: "auto",
+                                objectFit: "contain"
+                            }} />
                     </div>
 
                     <div className="hidden dark:inline-flex">
@@ -184,11 +186,13 @@ function Header({}) {
                             src="/logo_small_white.svg"
                             width="60"
                             height="60"
-                            // layout="fill"
-                            objectFit="contain"
                             className="text-2xl cursor-pointer"
                             onClick={() => scrollToTop()}
-                        />
+                            style={{
+                                maxWidth: "100%",
+                                height: "auto",
+                                objectFit: "contain"
+                            }} />
                     </div>
                 </div>
 
