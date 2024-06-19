@@ -43,14 +43,6 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
             desktopImages = desktopImages.concat(
                 media?.desktop.images.length > 0 ? media?.desktop.images : [""]
             );
-            // console.log(
-            //   "m/d/t:",
-            //   mobileImages.length,
-            //   "/",
-            //   desktopImages.length,
-            //   "/",
-            //   projectData.length
-            // );
             if (index + 1 === projectData.length) {
                 setMobileImgs(mobileImages);
                 setDesktopImgs(desktopImages);
@@ -62,9 +54,6 @@ function Home2({ projectData, featuredProjectData, workData, educationData }) {
     }, [projectData]);
 
     useEffect(() => {
-        // console.log(mobileImg);
-        // console.log(desktopImg);
-        // console.log("visible project: ", visibleProject);
         setMobileImg(mobileImgs[visibleProject]);
         setDesktopImg(desktopImgs[visibleProject]);
     }, [setMobileImg, setDesktopImg, visibleProject, mobileImgs, desktopImgs]);
@@ -270,31 +259,23 @@ export async function getServerSideProps() {
     )
         .then((res) => res.json())
         .catch((err) => {
-            console.log("unable to fetch project data");
+            console.error("unable to fetch project data");
             return null;
         });
 
     const workData = await fetch(projectDataURL + "/api/workData")
         .then((res) => res.json())
         .catch((err) => {
-            console.log("unable to fetch project data");
+            console.error("unable to fetch project data");
             return null;
         });
 
     const educationData = await fetch(projectDataURL + "/api/educationData")
         .then((res) => res.json())
         .catch((err) => {
-            console.log("unable to fetch project data");
+            console.error("unable to fetch project data");
             return null;
         });
-
-    console.log(
-        "education:",
-        projectData.length,
-        featuredProjectData.length,
-        workData.length,
-        educationData.length
-    );
 
     return {
         props: { projectData, featuredProjectData, workData, educationData },

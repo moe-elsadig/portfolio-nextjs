@@ -117,30 +117,23 @@ export async function getServerSideProps() {
     )
         .then((res) => res.json())
         .catch((err) => {
-            console.log("unable to fetch project data");
+            console.error("unable to fetch project data");
             return null;
         });
 
     const workData = await fetch(projectDataURL + "/api/workData")
         .then((res) => res.json())
         .catch((err) => {
-            console.log("unable to fetch project data");
+            console.error("unable to fetch project data");
             return null;
         });
 
     const educationData = await fetch(projectDataURL + "/api/educationData")
         .then((res) => res.json())
         .catch((err) => {
-            console.log("unable to fetch project data");
+            console.error("unable to fetch project data");
             return null;
         });
-
-    // console.log(
-    //     projectData.length,
-    //     featuredProjectData.length,
-    //     workData.length,
-    //     educationData.length
-    // );
 
     return {
         props: { projectData, featuredProjectData, workData, educationData },
