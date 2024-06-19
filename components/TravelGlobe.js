@@ -390,12 +390,25 @@ function TravelGlobe({ dimensions }) {
             renderer.render(scene, camera);
         };
 
+        // TODO: add a space background image to the scene
+        // add a space background image to the scene
+        const spaceTexture = new THREE.TextureLoader().load(
+            "/globe/space-bg.jpg"
+        );
+        scene.background = spaceTexture;
+
+        // start the animation
         animate();
     };
 
     return (
         <canvas
-            className="relative w-full h-full"
+            style={{
+                width: "100%",
+                height: "100vh",
+                position: "relative",
+                display: "block",
+            }}
             id="travel-globe-canvas"
         ></canvas>
     );
