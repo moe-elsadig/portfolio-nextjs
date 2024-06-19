@@ -35,9 +35,7 @@ export default function ProjectCard({
         threshold: 0.5,
     });
 
-    useEffect(() => {
-        // console.log("education visible", inView);
-    }, [inView]);
+    useEffect(() => {}, [inView]);
 
     const fadeOut = "translate-y-10 opacity-0";
     const fadeIn = "translate-y-0 opacity-100";
@@ -73,7 +71,6 @@ export default function ProjectCard({
     };
 
     const handleScroll = () => {
-        // console.log("scrolling", cardRef.current.id);
         // a functions to check if the banner is in view with an offset and banner height to correct for animation bugs
         function isVisible(el, offset) {
             if (el) {
@@ -89,10 +86,6 @@ export default function ProjectCard({
         if (isVisible(cardRef.current, window.innerHeight / 3)) {
             if (setVisibleProject && visibleProject !== index) {
                 setVisibleProject(index);
-                // console.log(
-                //   cardRef.current.id,
-                //   isVisible(cardRef.current, window.innerHeight / 3)
-                // );
             }
         }
     };
@@ -266,8 +259,9 @@ export default function ProjectCard({
                             fill
                             sizes="100vw"
                             style={{
-                                objectFit: "contain"
-                            }} />
+                                objectFit: "contain",
+                            }}
+                        />
                     ))}
                 </div>
             )}
@@ -292,8 +286,9 @@ export default function ProjectCard({
                             fill
                             sizes="100vw"
                             style={{
-                                objectFit: "contain"
-                            }} />
+                                objectFit: "contain",
+                            }}
+                        />
                     ))}
                 </div>
             )}

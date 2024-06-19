@@ -87,17 +87,14 @@ function Header({}) {
     const handleScroll = () => {
         var currentScrollPos = window.pageYOffset;
 
-        // console.log(prevPos, currentScrollPos);
         if (prevPos > currentScrollPos) {
             // hide
             prevPos = currentScrollPos;
             setShowBar(false);
-            // console.log("bar", showBar);
         } else {
             // show
             prevPos = currentScrollPos;
             setShowBar(true);
-            // console.log("bar", showBar);
         }
     };
 

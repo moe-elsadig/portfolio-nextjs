@@ -13,214 +13,149 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 let cities = [
     {
         city: "Khartoum",
-        lat: 15.5007,
-        lon: 32.5599,
-        latHeading: "E",
-        lonHeading: "N",
-    },
-    {
-        city: "Abidjan",
-        lat: 5.36,
-        lon: 4.0083,
-        latHeading: "W",
-        lonHeading: "N",
+        lat: 15.5881,
+        lon: 32.5341,
     },
     {
         city: "Cairo",
-        lat: 30.0444,
-        lon: 31.2357,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 30.033,
+        lon: 31.2336,
     },
     {
         city: "Doha",
-        lat: 25.286106,
-        lon: 51.534817,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 25.2854,
+        lon: 51.531,
     },
     {
         city: "Kuala Lumpur",
         lat: 3.139,
         lon: 101.6869,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
         city: "London",
         lat: 51.5074,
-        lon: 0.1278,
-        latHeading: "W",
-        lonHeading: "N",
+        lon: -0.1278,
     },
     {
         city: "Paris",
         lat: 48.8566,
         lon: 2.3522,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
         city: "Nairobi",
-        lat: 1.2921,
+        lat: -1.2921,
         lon: 36.8219,
-        latHeading: "E",
-        lonHeading: "S",
     },
     {
         city: "Orlando",
-        lat: 28.5384,
-        lon: 81.3789,
-        latHeading: "W",
-        lonHeading: "N",
+        lat: 28.5383,
+        lon: -81.3792,
     },
     {
         city: "DC",
-        lat: 38.9072,
-        lon: 77.0369,
-        latHeading: "W",
-        lonHeading: "N",
+        lat: 38.8951,
+        lon: -77.0364,
         color: 0xff0000,
     },
     {
         city: "Istanbul",
         lat: 41.0082,
         lon: 28.9784,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
-        city: "Adapazarı",
-        lat: 40.7889,
-        lon: 30.406,
-        latHeading: "E",
-        lonHeading: "N",
+        city: "Sakarya",
+        lat: 40.8141,
+        lon: 30.392,
     },
     {
         city: "Pietermaritzburg",
-        lat: 29.6006,
+        lat: -29.6006,
         lon: 30.3794,
-        latHeading: "E",
-        lonHeading: "S",
     },
     {
         city: "Addis Ababa",
-        lat: 8.9806,
-        lon: 38.7578,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 9.02497,
+        lon: 38.74689,
     },
     {
         city: "Port Sudan",
         lat: 19.5903,
         lon: 37.1902,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
         city: "Medina",
-        lat: 24.470901,
-        lon: 39.612236,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 24.4714,
+        lon: 39.6102,
     },
     {
         city: "Jeddah",
         lat: 21.4858,
         lon: 39.1925,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
         city: "Mecca",
-        lat: 21.3891,
-        lon: 39.8579,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 21.4225,
+        lon: 39.8262,
     },
     {
         city: "Amman",
-        lat: 31.9539,
-        lon: 31.9539,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 31.9497,
+        lon: 35.932,
     },
     {
         city: "Accra",
         lat: 5.6037,
-        lon: 0.187,
-        latHeading: "W",
-        lonHeading: "N",
+        lon: -0.187,
     },
     {
         city: "Yaounde",
         lat: 3.848,
         lon: 11.5021,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
         city: "Brazzaville",
-        lat: 4.2634,
+        lat: -4.2634,
         lon: 15.2429,
-        latHeading: "E",
-        lonHeading: "S",
     },
     {
         city: "Libreville",
-        lat: 0.4162,
-        lon: 9.4673,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 0.3909,
+        lon: 9.4549,
     },
     {
         city: "Dakar",
-        lat: 14.7167,
-        lon: 17.4677,
-        latHeading: "W",
-        lonHeading: "N",
+        lat: 14.6867,
+        lon: -17.446,
     },
     {
         city: "Ispra, Varese",
-        lat: 45.814,
-        lon: 8.6121,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 45.8082,
+        lon: 8.6342,
     },
     {
         city: "Milan",
         lat: 45.4642,
         lon: 9.19,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
         city: "Tehran",
         lat: 35.6892,
         lon: 51.389,
-        latHeading: "E",
-        lonHeading: "N",
     },
     {
         city: "Isfahan",
-        lat: 32.6539,
-        lon: 51.666,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 32.6546,
+        lon: 51.667,
     },
     {
         city: "Mashhad",
-        lat: 36.2605,
-        lon: 59.6168,
-        latHeading: "E",
-        lonHeading: "N",
+        lat: 36.2958,
+        lon: 59.6116,
     },
     {
         city: "Abidjan",
-        lat: 5.36,
-        lon: 4.0083,
-        latHeading: "W",
-        lonHeading: "N",
+        lat: 5.35995,
+        lon: -4.0083,
     },
 ];
 
@@ -340,15 +275,14 @@ function TravelGlobe({ dimensions }) {
                 let y = 0;
                 let z = 1;
 
-                let lat = city.latHeading !== "E" ? -city.lat : city.lat;
-                let lon = city.lonHeading !== "N" ? -city.lon : city.lon;
+                let lat = city.lat;
+                let lon = city.lon;
                 let phi = ((90 - lat) * Math.PI) / 180;
                 let theta = ((lon + 180) * Math.PI) / 180;
                 x = -(Math.sin(phi) * Math.cos(theta));
                 z = Math.sin(phi) * Math.sin(theta);
                 y = Math.cos(phi);
 
-                // console.log(x, y, z);
                 cityCoordinates.push([x, y, z]);
 
                 return [x, y, z];
@@ -428,7 +362,6 @@ function TravelGlobe({ dimensions }) {
 
             let randomDelay = Math.floor(Math.random() * 20);
             setTimeout(() => {
-                // console.log("randomDelay", randomDelay);
                 // animateArc();
             }, randomDelay * 1000);
 
