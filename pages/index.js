@@ -7,12 +7,14 @@ import Timeline from "../components/Timeline";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import ContactCard from "../components/ContactCard";
+import BooksCarousel from "../components/BooksCarousel";
 
 export default function Home({
     projectData,
     featuredProjectData,
     workData,
     educationData,
+    booksData,
 }) {
     const [accentColor, setAccentColor] = useState("red");
     const [showMore, setShowMore] = useState(false);
@@ -41,6 +43,7 @@ export default function Home({
             </Head>
             <Header />
             <ProfileCard />
+            <BooksCarousel booksData={booksData} />
             <SectionHeader title="work" />
             <Timeline timelineType="work" cardData={workData} />
             <SectionHeader title="education" />
@@ -135,7 +138,20 @@ export async function getServerSideProps() {
             return null;
         });
 
+    const booksData = await fetch(projectDataURL + "/api/booksData")
+        .then((res) => res.json())
+        .catch((err) => {
+            console.error("unable to fetch project data");
+            return null;
+        });
+
     return {
-        props: { projectData, featuredProjectData, workData, educationData },
+        props: {
+            projectData,
+            featuredProjectData,
+            workData,
+            educationData,
+            booksData,
+        },
     };
 }
