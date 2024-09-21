@@ -623,7 +623,7 @@ export default function handler(req, res) {
                 },
             },
             repo: "https://github.com/moe-elsadig/azkar-io",
-            demo: "https://azkar.io",
+            demo: "https://azkar.moeabdalla.com",
         },
         {
             title: `Rick & Morty Encyclopedia`,
