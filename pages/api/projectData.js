@@ -608,7 +608,7 @@ export default function handler(req, res) {
     // ===========================================================================
     let otherWebProjects = [
         {
-            title: `Azkar.io`,
+            title: `Azkar App (previously azkar.io)`,
             description: "Coming soon...",
             stack: ["NextJs", "ReactJS", "TailwindCSS", "React-Icons"],
             dependencies: ["react"],
@@ -623,7 +623,7 @@ export default function handler(req, res) {
                 },
             },
             repo: "https://github.com/moe-elsadig/azkar-io",
-            demo: "https://azkar.io",
+            demo: "https://azkar.moeabdalla.com",
         },
         {
             title: `Rick & Morty Encyclopedia`,
