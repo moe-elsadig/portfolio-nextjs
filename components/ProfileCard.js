@@ -35,7 +35,7 @@ function ProfileCard() {
                     <div className="w-64 h-64 md:w-128 md:h-128 rounded-full mx-auto relative transition transform duration-200 ease-in-out hover:scale-110 hover:shadow-md">
                         <Image
                             priority
-                            alt=""
+                            alt="Portrait of Mohammed E. B. Abdalla also known as Moe Abdalla"
                             src="/blob.svg"
                             className="rounded-full m-5 p-5 z-10"
                             fill

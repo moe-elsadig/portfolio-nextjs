@@ -22,11 +22,15 @@ export default function Home({
             className={`min-h-screen flex flex-col font-mono relative text-black dark:text-white bg-gray-100 dark:bg-gray-700`}
         >
             <Head>
-                <title>Moe&#39;s Portfolio</title>
+                <title>
+                    Moe Abdalla | Mohammed E. B. Abdalla | Full-Stack Developer,
+                    Renewable Energy & Mechatronics Engineer
+                </title>
                 <meta
                     name="description"
-                    content="Welcome, I'm Moe, and this is my portfolio"
+                    content="Welcome to the portfolio of Mohammed E. B. Abdalla, also known as Moe Abdalla. Explore projects in renewable energy, software development, and more."
                 />
+
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="theme-color"
