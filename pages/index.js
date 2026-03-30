@@ -1,3 +1,7 @@
+import { getProjectData } from "./api/projectData";
+import { getWorkData } from "./api/workData";
+import { getEducationData } from "./api/educationData";
+
 import { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import Header from "../components/Header";
@@ -107,37 +111,12 @@ export default function Home({
     );
 }
 
+
+
 export async function getServerSideProps() {
-    const NODE_ENV = process.env.NODE_ENV;
-    // production url
-    let projectDataURL = "https://portfolio-nextjs-psi.vercel.app";
-
-    if (NODE_ENV === "development") {
-        projectDataURL = "http://localhost:3000";
-    }
-
-    const [projectData, featuredProjectData] = await fetch(
-        projectDataURL + "/api/projectData"
-    )
-        .then((res) => res.json())
-        .catch((err) => {
-            console.error("unable to fetch project data");
-            return null;
-        });
-
-    const workData = await fetch(projectDataURL + "/api/workData")
-        .then((res) => res.json())
-        .catch((err) => {
-            console.error("unable to fetch project data");
-            return null;
-        });
-
-    const educationData = await fetch(projectDataURL + "/api/educationData")
-        .then((res) => res.json())
-        .catch((err) => {
-            console.error("unable to fetch project data");
-            return null;
-        });
+    const [projectData, featuredProjectData] = getProjectData();
+    const workData = getWorkData();
+    const educationData = getEducationData();
 
     return {
         props: { projectData, featuredProjectData, workData, educationData },

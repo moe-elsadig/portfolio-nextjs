@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+export function getEducationData() {
     const educationData = [
         {
             dateStart: "",
@@ -119,5 +119,9 @@ export default function handler(req, res) {
         },
     ];
 
-    res.status(200).json(educationData);
+    return educationData;
+}
+
+export default function handler(req, res) {
+    res.status(200).json(getEducationData());
 }

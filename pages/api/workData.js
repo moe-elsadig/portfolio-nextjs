@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+export function getWorkData() {
     const workData = [
         {
             dateStart: "May 2022",
@@ -87,5 +87,9 @@ export default function handler(req, res) {
         },
     ];
 
-    res.status(200).json(workData);
+    return workData;
+}
+
+export default function handler(req, res) {
+    res.status(200).json(getWorkData());
 }
