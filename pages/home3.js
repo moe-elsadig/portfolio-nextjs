@@ -1,22 +1,28 @@
 import { useState, useEffect, useRef } from "react";
-import {
-    MapContainer,
-    TileLayer,
-    useMapEvents,
-    ImageOverlay,
-} from "react-leaflet";
+import dynamic from "next/dynamic";
 import * as GeoTIFF from "geotiff";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 
-// Component to handle map click events
-function MapClickHandler({ onMapClick }) {
-    useMapEvents({
-        click: (e) => {
-            onMapClick(e.latlng);
-        },
-    });
-    return null;
+// Dynamically import react-leaflet components
+const MapContainer = dynamic(
+    () => import("react-leaflet").then((mod) => mod.MapContainer),
+    { ssr: false }
+);
+const TileLayer = dynamic(
+    () => import("react-leaflet").then((mod) => mod.TileLayer),
+    { ssr: false }
+);
+const ImageOverlay = dynamic(
+    () => import("react-leaflet").then((mod) => mod.ImageOverlay),
+    { ssr: false }
+);
+const MapEventsWrapper = dynamic(
+    () => import("../components/MapEventsWrapper"),
+    { ssr: false }
+);
+
+// Dynamic import of Leaflet CSS
+if (typeof window !== "undefined") {
+    require("leaflet/dist/leaflet.css");
 }
 
 export default function MapTIFOverlay() {
@@ -225,7 +231,7 @@ export default function MapTIFOverlay() {
                             renderGeoTIFF(overlay, index)
                         )}
 
-                        <MapClickHandler onMapClick={handleMapClick} />
+                        <MapEventsWrapper onMapClick={handleMapClick} />
 
                         {clickedPoint && (
                             <div
@@ -256,7 +262,7 @@ export default function MapTIFOverlay() {
                         </h2>
                         {overlays.length === 0 ? (
                             <p className="text-gray-500">
-                                No overlays loaded. Click "Load TIF File" to add
+                                No overlays loaded. Click &quot;Load TIF File&quot; to add
                                 one.
                             </p>
                         ) : (
