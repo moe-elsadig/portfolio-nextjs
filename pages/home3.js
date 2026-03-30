@@ -1,13 +1,24 @@
 import { useState, useEffect, useRef } from "react";
-import {
-    MapContainer,
-    TileLayer,
-    useMapEvents,
-    ImageOverlay,
-} from "react-leaflet";
+import dynamic from "next/dynamic";
 import * as GeoTIFF from "geotiff";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+
+const MapContainer = dynamic(
+    () => import("react-leaflet").then((mod) => mod.MapContainer),
+    { ssr: false }
+);
+const TileLayer = dynamic(
+    () => import("react-leaflet").then((mod) => mod.TileLayer),
+    { ssr: false }
+);
+const useMapEvents = dynamic(
+    () => import("react-leaflet").then((mod) => mod.useMapEvents),
+    { ssr: false }
+);
+const ImageOverlay = dynamic(
+    () => import("react-leaflet").then((mod) => mod.ImageOverlay),
+    { ssr: false }
+);
 
 // Component to handle map click events
 function MapClickHandler({ onMapClick }) {
@@ -256,7 +267,7 @@ export default function MapTIFOverlay() {
                         </h2>
                         {overlays.length === 0 ? (
                             <p className="text-gray-500">
-                                No overlays loaded. Click "Load TIF File" to add
+                                No overlays loaded. Click &quot;Load TIF File&quot; to add
                                 one.
                             </p>
                         ) : (
