@@ -5,6 +5,7 @@ import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 import TimelineWorkCard from "./TimelineWorkCard";
 import TimelineEducationCard from "./TimelineEducationCard";
+import TimelineResearchCard from "./TimelineResearchCard";
 
 function Timeline({ timelineType = "work", cardData }) {
     const [showMore, setShowMore] = useState(false);
@@ -53,6 +54,16 @@ function Timeline({ timelineType = "work", cardData }) {
                                 priorityImages={true}
                             />
                         );
+                    } else if (timelineType === "research") {
+                        return (
+                            <TimelineResearchCard
+                                cardInfo={item}
+                                index={index}
+                                key={item.title + index + ""}
+                                uniquekey={item.title + index + ""}
+                                priorityImages={true}
+                            />
+                        );
                     } else
                         return (
                             <TimelineEducationCard
@@ -70,6 +81,15 @@ function Timeline({ timelineType = "work", cardData }) {
                         if (timelineType === "work") {
                             return (
                                 <TimelineWorkCard
+                                    cardInfo={item}
+                                    index={index + 1}
+                                    key={item.title + index + 1 + ""}
+                                    uniquekey={item.title + index + 1 + ""}
+                                />
+                            );
+                        } else if (timelineType === "research") {
+                            return (
+                                <TimelineResearchCard
                                     cardInfo={item}
                                     index={index + 1}
                                     key={item.title + index + 1 + ""}

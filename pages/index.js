@@ -1,6 +1,7 @@
 import { getProjectData } from "./api/projectData";
 import { getWorkData } from "./api/workData";
 import { getEducationData } from "./api/educationData";
+import { getResearchData } from "./api/researchData";
 
 import { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
@@ -17,6 +18,7 @@ export default function Home({
     featuredProjectData,
     workData,
     educationData,
+    researchData,
 }) {
     const [accentColor, setAccentColor] = useState("red");
     const [showMore, setShowMore] = useState(false);
@@ -51,6 +53,8 @@ export default function Home({
             <ProfileCard />
             <SectionHeader title="work" />
             <Timeline timelineType="work" cardData={workData} />
+            <SectionHeader title="published research" />
+            <Timeline timelineType="research" cardData={researchData} />
             <SectionHeader title="education" />
             <Timeline timelineType="education" cardData={educationData} />
             <SectionHeader title="projects" />
@@ -117,8 +121,9 @@ export async function getServerSideProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
+    const researchData = getResearchData();
 
     return {
-        props: { projectData, featuredProjectData, workData, educationData },
+        props: { projectData, featuredProjectData, workData, educationData, researchData },
     };
 }
