@@ -9,7 +9,7 @@ module.exports = {
     ],
   },
   env: {
-    mapbox_key: "pk.eyJ1IjoibW9lNyIsI",
+    mapbox_key: process.env.MAPBOX_KEY || "",
   },
   crossOrigin: "anonymous",
 };

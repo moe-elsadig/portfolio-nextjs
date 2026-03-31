@@ -38,7 +38,7 @@ function BookComponent({}) {
                             Netherlands
                         </p>
                         <p>
-                            Anne calls her diary "Kitty", so almost all of the
+                            Anne calls her diary &quot;Kitty&quot;, so almost all of the
                             letters are written to Kitty.
                         </p>
                     </div>
