@@ -62,6 +62,16 @@ function Header({}) {
         setMenu(false);
     };
 
+    const scrollToBooks = () => {
+        const el = document.getElementById("books-section");
+        el.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+        });
+        setMenu(false);
+    };
+
     const scrollToEducation = () => {
         const el = document.getElementById("education-section");
         el.scrollIntoView({
@@ -124,6 +134,12 @@ function Header({}) {
                 onClick={() => scrollToProjects()}
             >
                 Projects
+            </button>
+            <button
+                className={`${buttonStyle}`}
+                onClick={() => scrollToBooks()}
+            >
+                Books
             </button>
             {/* <a
                 className={`${buttonStyle}`}

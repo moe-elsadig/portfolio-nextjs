@@ -1,6 +1,7 @@
 import { getProjectData } from "./api/projectData";
 import { getWorkData } from "./api/workData";
 import { getEducationData } from "./api/educationData";
+import { getBookData } from "./api/bookData";
 
 import { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
@@ -11,12 +12,14 @@ import Timeline from "../components/Timeline";
 import SectionHeader from "../components/SectionHeader";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import ContactCard from "../components/ContactCard";
+import BooksSection from "../components/BooksSection";
 
 export default function Home({
     projectData,
     featuredProjectData,
     workData,
     educationData,
+    bookData,
 }) {
     const [accentColor, setAccentColor] = useState("red");
     const [showMore, setShowMore] = useState(false);
@@ -96,6 +99,8 @@ export default function Home({
                     )}
                 </div>
             </section>
+            <SectionHeader title="books" />
+            <BooksSection bookData={bookData} />
             <SectionHeader title="contact" />
             <ContactCard />
             <footer className="border-t bg-gray-100 dark:bg-gray-700">
@@ -117,8 +122,9 @@ export async function getServerSideProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
+    const bookData = getBookData();
 
     return {
-        props: { projectData, featuredProjectData, workData, educationData },
+        props: { projectData, featuredProjectData, workData, educationData, bookData },
     };
 }
