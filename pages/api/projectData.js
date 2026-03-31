@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-export default function handler(req, res) {
+export function getProjectData() {
     // ===========================================================================
     // ABND
     // ===========================================================================
@@ -1095,5 +1095,9 @@ Achieved a top-50 (44th) score on the Udacity DiDi Challenge leaderboard, from a
         // ...otherProjects,
     ];
 
-    res.status(200).json([projectData, featuredProjectData]);
+    return [projectData, featuredProjectData];
+}
+
+export default function handler(req, res) {
+    res.status(200).json(getProjectData());
 }
