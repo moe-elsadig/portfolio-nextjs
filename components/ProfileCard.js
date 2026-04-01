@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 // import { DownloadIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { HiOutlineDownload, HiChevronDown } from "react-icons/hi";
-import TravelGlobe from "./TravelGlobe";
 
 // import {
 //   AiFillGithub,

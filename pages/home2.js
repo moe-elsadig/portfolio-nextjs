@@ -251,7 +251,7 @@ export default Home2;
 
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
