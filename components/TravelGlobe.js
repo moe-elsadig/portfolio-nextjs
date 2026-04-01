@@ -209,21 +209,23 @@ function TravelGlobe({ dimensions }) {
         // material shader with a unique look for the points and arcs
         // Based off: http://stemkoski.blogspot.fr/2013/07/shaders-in-threejs-glow-and-halo.html
         const fragmentShader = `
-    uniform vec3 color;
-    uniform float coefficient;
-    uniform float power;
-    varying vec3 vVertexNormal;
-    varying vec3 vVertexWorldPosition;
-    void main() {
-      vec3 worldCameraToVertex = vVertexWorldPosition - cameraPosition;
-      vec3 viewCameraToVertex	= (viewMatrix * vec4(worldCameraToVertex, 0.0)).xyz;
-      viewCameraToVertex = normalize(viewCameraToVertex);
-      float intensity	= pow(
-        coefficient + dot(vVertexNormal, viewCameraToVertex),
-        power
-      );
-      gl_FragColor = vec4(color, intensity);
-    }`;
+        uniform vec3 color;
+        uniform float coefficient;
+        uniform float power;
+        uniform float opacity; // controls overall alpha for fade-out
+        varying vec3 vVertexNormal;
+        varying vec3 vVertexWorldPosition;
+        void main() {
+            vec3 worldCameraToVertex = vVertexWorldPosition - cameraPosition;
+            vec3 viewCameraToVertex	= (viewMatrix * vec4(worldCameraToVertex, 0.0)).xyz;
+            viewCameraToVertex = normalize(viewCameraToVertex);
+            float intensity	= pow(
+                coefficient + dot(vVertexNormal, viewCameraToVertex),
+                power
+            );
+            // Use intensity as base alpha and modulate with opacity
+            gl_FragColor = vec4(color, clamp(intensity * opacity, 0.0, 1.0));
+        }`;
         const vertexShader = `
     varying vec3 vVertexWorldPosition;
     varying vec3 vVertexNormal;
@@ -248,6 +250,9 @@ function TravelGlobe({ dimensions }) {
                     power: {
                         value: power,
                     },
+                    opacity: {
+                        value: 1.0,
+                    },
                 },
                 vertexShader,
             });
@@ -259,14 +264,14 @@ function TravelGlobe({ dimensions }) {
             // tooltip starting point https://stackoverflow.com/questions/39177205/threejs-tooltip/54438811
 
             var randomColor = Number(
-                "0x" + Math.floor(Math.random() * 16777215).toString(16)
+                "0x" + Math.floor(Math.random() * 16777215).toString(16),
             );
 
             let pin = new THREE.Mesh(
                 new THREE.SphereBufferGeometry(0.01, 10, 10),
                 new THREE.MeshBasicMaterial({
                     color: randomColor,
-                })
+                }),
                 // createGlowMaterial(2, "gold", 1)
             );
 
@@ -304,7 +309,7 @@ function TravelGlobe({ dimensions }) {
 
             // random arc colour
             var randomColor = Number(
-                "0x" + Math.floor(Math.random() * 16777215).toString(16)
+                "0x" + Math.floor(Math.random() * 16777215).toString(16),
             );
 
             // spherical cartesian position to three.js vectors
@@ -325,45 +330,89 @@ function TravelGlobe({ dimensions }) {
             // create the arc geometry using the calculated points
             const path = new THREE.CatmullRomCurve3(points);
             const geometry = new THREE.TubeGeometry(path, 64, 0.005, 8, false);
-            const arc = new THREE.Mesh(
-                geometry,
-                createGlowMaterial(1.2, randomColor, 1)
-            );
+            const material = createGlowMaterial(1.2, randomColor, 1);
+            const arc = new THREE.Mesh(geometry, material);
             arc.needsUpdate = true;
 
-            let time = 0;
-            let rangeEnd = 0;
-            let fpsInterval = 3000;
-            let start = Date.now();
-            function animateArc() {
-                requestAnimationFrame(() => {
-                    time = (Date.now() - start) % fpsInterval;
-                    time = time / fpsInterval; // normalise
-                    let maxL = 4000;
+            // Prepare fill-then-clear animation: A->B full build, clear, B->A full build, clear
+            const total = geometry.index
+                ? geometry.index.count
+                : geometry.attributes.position.count;
+            geometry.setDrawRange(0, 0);
 
-                    function easeInOutCubic(x) {
-                        return x < 0.5
-                            ? 4 * x * x * x
-                            : 1 - Math.pow(-2 * x + 2, 3) / 2;
+            // Easing for nicer progress
+            const easeInOutCubic = (x) =>
+                x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+
+            // Timings
+            const fillDuration = 1800 + Math.random() * 1400; // 1.8s - 3.2s
+            const clearPause = 400 + Math.random() * 600; // 0.4s - 1.0s invisible between legs
+            const startDelay = Math.random() * 2000; // initial delay per arc
+
+            let direction = 1; // 1: A->B, -1: B->A
+            let phase = "delay"; // delay -> fill -> clear
+            let phaseStart = performance.now();
+            let legsCompleted = 0; // number of completed fill phases
+            let finished = false; // stop after one round trip
+
+            function step() {
+                const now = performance.now();
+
+                if (phase === "delay") {
+                    if (now - phaseStart >= startDelay) {
+                        phase = "fill";
+                        phaseStart = now;
+                        material.uniforms.opacity.value = 1.0;
+                        arc.visible = true;
                     }
+                } else if (phase === "fill") {
+                    const t = Math.min(1, (now - phaseStart) / fillDuration);
+                    const p = easeInOutCubic(t);
+                    const count = Math.max(1, Math.floor(total * p));
+                    if (direction === 1) {
+                        // A -> B: grow from start
+                        geometry.setDrawRange(0, count);
+                    } else {
+                        // B -> A: grow from end
+                        const start = Math.max(0, total - count);
+                        geometry.setDrawRange(start, count);
+                    }
+                    material.uniforms.opacity.value = 1.0;
+                    arc.visible = true;
 
-                    rangeEnd = maxL * easeInOutCubic(time);
+                    if (t >= 1) {
+                        // completed a leg; clear and pause
+                        geometry.setDrawRange(0, 0);
+                        material.uniforms.opacity.value = 0.0;
+                        arc.visible = false;
+                        phase = "clear";
+                        phaseStart = now;
+                        legsCompleted += 1;
+                    }
+                } else if (phase === "clear") {
+                    if (now - phaseStart >= clearPause) {
+                        if (legsCompleted >= 2) {
+                            // A->B and B->A done. Stop animation and stay invisible.
+                            geometry.setDrawRange(0, 0);
+                            material.uniforms.opacity.value = 0.0;
+                            arc.visible = false;
+                            finished = true;
+                        } else {
+                            // flip direction and start next fill
+                            direction = -direction;
+                            phase = "fill";
+                            phaseStart = now;
+                            material.uniforms.opacity.value = 1.0;
+                            arc.visible = true;
+                        }
+                    }
+                }
 
-                    let flightTrail =
-                        rangeEnd < maxL / 2
-                            ? 0
-                            : rangeEnd < maxL
-                            ? rangeEnd - maxL * easeInOutCubic(time)
-                            : 0;
-                    arc.geometry.setDrawRange(flightTrail, rangeEnd);
-                    animateArc();
-                });
+                if (!finished) requestAnimationFrame(step);
             }
 
-            let randomDelay = Math.floor(Math.random() * 20);
-            setTimeout(() => {
-                animateArc();
-            }, randomDelay * 1000);
+            // kick off the loop
+            requestAnimationFrame(step);
 
             arcs.add(arc);
         }
@@ -393,7 +442,7 @@ function TravelGlobe({ dimensions }) {
         // TODO: add a space background image to the scene
         // add a space background image to the scene
         const spaceTexture = new THREE.TextureLoader().load(
-            "/globe/space-bg.jpg"
+            "/globe/space-bg.jpg",
         );
         scene.background = spaceTexture;
 
