@@ -1,0 +1,3 @@
+## 2025-04-02 - Missing semantics on bare SVG icons
+**Learning:** Attaching `onClick` handlers directly to bare SVG components (like those from `react-icons`) creates an accessibility anti-pattern. Screen readers won't announce the icon as a button, and keyboard users cannot focus or interact with it.
+**Action:** Always wrap interactive icons in a semantic `<button>` tag with an appropriate `aria-label` and `focus-visible` styles to ensure full keyboard and screen reader accessibility.
