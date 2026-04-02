@@ -251,7 +251,11 @@ export default Home2;
 
 
 
-export async function getServerSideProps() {
+// ⚡ Bolt: Using getStaticProps instead of getServerSideProps for static data
+// This allows Next.js to pre-render the page at build time (SSG),
+// eliminating server-side rendering overhead on every request and significantly
+// improving Time to First Byte (TTFB) and overall performance.
+export async function getStaticProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
