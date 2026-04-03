@@ -19,17 +19,23 @@ function TimelineResearchCard({
     const content = (
         <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-md shadow-md">
             <span className="font-bold text-indigo-400 dark:text-indigo-600 text-sm tracking-wide">
-                {cardInfo?.dateStart} {cardInfo?.dateStart !== cardInfo?.dateEnd ? `- ${cardInfo?.dateEnd}` : ''}
+                {cardInfo?.dateStart}{" "}
+                {cardInfo?.dateStart !== cardInfo?.dateEnd
+                    ? `- ${cardInfo?.dateEnd}`
+                    : ""}
             </span>
             <h1 className="text-xl font-bold pt-1 text-red-500 dark:text-red-400">
                 {cardInfo?.title}
             </h1>
-            <h2 className="text-lg font-semibold pt-1 text-gray-700 dark:text-gray-300 italic">
-                {cardInfo?.journal}
-            </h2>
             <h3 className="text-md font-medium text-gray-500 dark:text-gray-400 mt-1">
                 {cardInfo?.authors}
             </h3>
+            <h2 className="text-md font-semibold pt-1 text-purple-400 dark:text-purple-600">
+                <span className="text-gray-300 dark:text-gray-300 ">
+                    Journal:
+                </span>{" "}
+                {cardInfo?.journal}
+            </h2>
             <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 text-justify">
                 {cardInfo?.abstract}
             </p>
