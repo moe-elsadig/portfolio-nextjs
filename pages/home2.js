@@ -251,7 +251,8 @@ export default Home2;
 
 
 
-export async function getServerSideProps() {
+// ⚡ Bolt: Using getStaticProps instead of getServerSideProps for static data to enable SSG and improve TTFB
+export async function getStaticProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
