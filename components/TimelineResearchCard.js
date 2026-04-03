@@ -25,7 +25,18 @@ function TimelineResearchCard({
                     : ""}
             </span>
             <h1 className="text-xl font-bold pt-1 text-red-500 dark:text-red-400">
-                {cardInfo?.title}
+                {cardInfo?.link ? (
+                    <a
+                        href={cardInfo.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-transparent hover:decoration-current transition-colors"
+                    >
+                        {cardInfo?.title}
+                    </a>
+                ) : (
+                    cardInfo?.title
+                )}
             </h1>
             <h3 className="text-md font-medium text-gray-500 dark:text-gray-400 mt-1">
                 {cardInfo?.authors}
