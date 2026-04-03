@@ -1,0 +1,3 @@
+## 2025-01-20 - Bare SVGs with onClick Handlers
+**Learning:** Attaching `onClick` handlers directly to bare SVG components (like `CgDarkMode` from react-icons) is an accessibility anti-pattern. These elements are not semantically interactive, cannot receive keyboard focus natively, and are not correctly announced by screen readers as actionable items.
+**Action:** Always wrap interactive icons in a semantic `<button>` tag. Include an appropriate `aria-label` for screen reader support and add `focus-visible` styles to ensure the element is clearly highlighted during keyboard navigation.
