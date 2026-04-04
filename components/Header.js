@@ -139,13 +139,16 @@ function Header({}) {
             >
                 Contact
             </button>
-            <CgDarkMode
-                className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
+            <button
+                aria-label="Toggle dark mode"
+                className="focus-visible:outline-none focus-visible:ring-2 rounded-full"
                 onClick={() => {
                     setTheme(!theme);
                     changeTheme();
                 }}
-            />
+            >
+                <CgDarkMode className="text-2xl cursor-pointer text-black dark:text-white flex items-center" />
+            </button>
         </>
     );
     return (
@@ -195,13 +198,16 @@ function Header({}) {
                     </div>
                 </div>
 
-                <CgDarkMode
-                    className=" md:hidden text-2xl cursor-pointer text-black dark:text-white flex items-center"
+                <button
+                    aria-label="Toggle dark mode"
+                    className="md:hidden focus-visible:outline-none focus-visible:ring-2 rounded-full"
                     onClick={() => {
                         setTheme(!theme);
                         changeTheme();
                     }}
-                />
+                >
+                    <CgDarkMode className="text-2xl cursor-pointer text-black dark:text-white flex items-center" />
+                </button>
                 <div className="pr-5">
                     <div className="hidden space-x-4 justify-center md:inline-flex flex-row items-center">
                         {buttonsMarkup}
