@@ -251,7 +251,10 @@ export default Home2;
 
 
 
-export async function getServerSideProps() {
+// ⚡ Bolt Performance Optimization: Changed from getServerSideProps to getStaticProps
+// This enables Static Site Generation (SSG) for this page, significantly improving TTFB
+// since the data is static and doesn't need to be fetched on every request.
+export async function getStaticProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();

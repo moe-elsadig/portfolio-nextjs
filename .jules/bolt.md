@@ -1,3 +1,6 @@
 ## 2024-03-30 - Avoid internal fetch() in Next.js getServerSideProps
 **Learning:** This Next.js codebase uses internal API routes (like `/api/projectData`) and then uses `fetch()` inside `getServerSideProps` to load them. This causes an unnecessary HTTP request from the Next.js server to itself, significantly slowing down the time-to-first-byte (TTFB) during server-side rendering.
 **Action:** When adding or fetching static data inside Next.js `getServerSideProps` or `getStaticProps`, do not fetch internal API routes. Instead, extract the data logic into common files/modules and import the functions directly.
+## 2026-04-04 - Use getStaticProps instead of getServerSideProps for static data
+**Learning:** The Next.js `pages/index.js` and `pages/home2.js` were using `getServerSideProps` to fetch static data, causing unnecessary server-side rendering on every request. By switching to `getStaticProps`, Next.js can use Static Site Generation (SSG), pre-rendering the page at build time and significantly improving Time to First Byte (TTFB).
+**Action:** Always prefer `getStaticProps` over `getServerSideProps` for pages that only rely on static data (e.g., local JS arrays) to leverage Next.js SSG capabilities for better performance.
