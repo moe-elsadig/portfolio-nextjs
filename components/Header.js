@@ -139,13 +139,18 @@ function Header({}) {
             >
                 Contact
             </button>
-            <CgDarkMode
-                className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
+            <button
+                aria-label="Toggle dark mode"
+                className="focus-visible:outline-none focus-visible:ring-2 rounded-lg flex items-center"
                 onClick={() => {
                     setTheme(!theme);
                     changeTheme();
                 }}
-            />
+            >
+                <CgDarkMode
+                    className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
+                />
+            </button>
         </>
     );
     return (
@@ -195,19 +200,25 @@ function Header({}) {
                     </div>
                 </div>
 
-                <CgDarkMode
-                    className=" md:hidden text-2xl cursor-pointer text-black dark:text-white flex items-center"
+                <button
+                    aria-label="Toggle dark mode"
+                    className="md:hidden focus-visible:outline-none focus-visible:ring-2 rounded-lg flex items-center"
                     onClick={() => {
                         setTheme(!theme);
                         changeTheme();
                     }}
-                />
+                >
+                    <CgDarkMode
+                        className="text-2xl cursor-pointer text-black dark:text-white flex items-center"
+                    />
+                </button>
                 <div className="pr-5">
                     <div className="hidden space-x-4 justify-center md:inline-flex flex-row items-center">
                         {buttonsMarkup}
                     </div>
                     <button
-                        className="md:hidden text-black dark:text-white"
+                        aria-expanded={menu}
+                        className="md:hidden text-black dark:text-white focus-visible:outline-none focus-visible:ring-2 rounded-lg p-1"
                         onClick={() => setMenu(!menu)}
                     >
                         Menu
@@ -227,8 +238,9 @@ function Header({}) {
                         className="md:hidden flex flex-col space-y-4 justify-start z-52 fixed top-0 right-0 bg-gradient-to-r from-transparent via-pink-400 dark:via-pink-500 to-indigo-400 dark:to-indigo-500 p-10 text-white dark:text-black text-lg transition transform ease-in-out duration-200 min-h-screen items-end"
                     >
                         <button
-                            className={`${buttonStyle}`}
-                            onClick={() => setMenu()}
+                            aria-label="Close menu"
+                            className={`${buttonStyle} focus-visible:outline-none focus-visible:ring-2 rounded-lg`}
+                            onClick={() => setMenu(false)}
                         >
                             <XIcon className={`h-10 mx-auto animate-pulse`} />
                         </button>
