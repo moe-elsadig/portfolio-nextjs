@@ -251,7 +251,9 @@ export default Home2;
 
 
 
-export async function getServerSideProps() {
+// ⚡ Bolt Optimization: Switched from getServerSideProps to getStaticProps to leverage Next.js Static Site Generation (SSG).
+// This eliminates server-side rendering overhead since the data logic is purely static (local JS arrays), significantly improving Time to First Byte (TTFB).
+export async function getStaticProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
