@@ -251,7 +251,10 @@ export default Home2;
 
 
 
-export async function getServerSideProps() {
+// ⚡ Bolt Optimization: Use getStaticProps instead of getServerSideProps
+// for pages serving purely static data (local arrays) to enable Static Site Generation (SSG)
+// and drastically improve Time to First Byte (TTFB).
+export async function getStaticProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
