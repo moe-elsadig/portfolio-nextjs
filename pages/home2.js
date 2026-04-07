@@ -251,7 +251,10 @@ export default Home2;
 
 
 
-export async function getServerSideProps() {
+// ⚡ Bolt Optimization: Switched from getServerSideProps to getStaticProps
+// This enables Static Site Generation (SSG) instead of Server Side Rendering (SSR),
+// which significantly improves Time to First Byte (TTFB) since the data is purely static arrays.
+export async function getStaticProps() {
     const [projectData, featuredProjectData] = getProjectData();
     const workData = getWorkData();
     const educationData = getEducationData();
