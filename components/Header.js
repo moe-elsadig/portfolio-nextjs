@@ -103,6 +103,7 @@ function Header({}) {
         window.addEventListener("scroll", handleScrollThrottled);
         return () =>
             window.removeEventListener("scroll", handleScrollThrottled);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     let buttonsMarkup = (
@@ -147,7 +148,7 @@ function Header({}) {
                     changeTheme();
                 }}
             >
-                <CgDarkMode />
+                <CgDarkMode className="text-2xl cursor-pointer text-black dark:text-white flex items-center" />
             </button>
         </>
     );
@@ -206,7 +207,7 @@ function Header({}) {
                         changeTheme();
                     }}
                 >
-                    <CgDarkMode />
+                    <CgDarkMode className="text-2xl cursor-pointer text-black dark:text-white flex items-center" />
                 </button>
                 <div className="pr-5">
                     <div className="hidden space-x-4 justify-center md:inline-flex flex-row items-center">
@@ -250,4 +251,5 @@ function Header({}) {
 export default Header;
 
 // const buttonStyle = "rounded-lg p-4 ring-4 ring-pink-300 ring-inset";
-const buttonStyle = "rounded-xl p-2 text-black dark:text-white focus-visible:ring-2 focus-visible:ring-pink-400 focus:outline-none";
+const buttonStyle =
+    "rounded-xl p-2 text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400";
