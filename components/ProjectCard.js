@@ -108,7 +108,12 @@ export default function ProjectCard({
             <div className="flex flex-row justify-between pb-5 w-full md:flex-col md:w-auto md:space-y-5 md:items-center md:pr-4 md:border-r">
                 <FiGithub
                     onClick={() => {
-                        if (project.repo) window.open(`${project.repo}`, "_blank", "noopener,noreferrer");
+                        if (project.repo)
+                            window.open(
+                                `${project.repo}`,
+                                "_blank",
+                                "noopener,noreferrer",
+                            );
                     }}
                     className={`text-xl cursor-pointer ${
                         !project.repo ? "text-gray-100 dark:text-gray-700" : ""
@@ -116,7 +121,12 @@ export default function ProjectCard({
                 />
                 <FiExternalLink
                     onClick={() => {
-                        if (project.demo) window.open(`${project.demo}`, "_blank", "noopener,noreferrer");
+                        if (project.demo)
+                            window.open(
+                                `${project.demo}`,
+                                "_blank",
+                                "noopener,noreferrer",
+                            );
                     }}
                     className={`text-xl cursor-pointer ${
                         !project.demo ? "text-gray-100 dark:text-gray-700" : ""
@@ -132,7 +142,11 @@ export default function ProjectCard({
                     media.mobile.videos.length === 0 && (
                         <FiYoutube
                             onClick={() => {
-                                window.open(`${media.desktop.videos[0]}`, "_blank", "noopener,noreferrer");
+                                window.open(
+                                    `${media.desktop.videos[0]}`,
+                                    "_blank",
+                                    "noopener,noreferrer",
+                                );
                             }}
                             className={`text-xl cursor-pointer text-gray-100 dark:text-gray-700 hover:scale-105`}
                         />
@@ -140,7 +154,11 @@ export default function ProjectCard({
                 {media.mobile.videos.length > 0 && (
                     <FiYoutube
                         onClick={() => {
-                            window.open(`${media.mobile.videos[0]}`, "_blank", "noopener,noreferrer");
+                            window.open(
+                                `${media.mobile.videos[0]}`,
+                                "_blank",
+                                "noopener,noreferrer",
+                            );
                         }}
                         className={`text-xl cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
                     />
@@ -148,7 +166,11 @@ export default function ProjectCard({
                 {media.desktop.videos.length > 0 && (
                     <FiYoutube
                         onClick={() => {
-                            window.open(`${media.desktop.videos[0]}`, "_blank", "noopener,noreferrer");
+                            window.open(
+                                `${media.desktop.videos[0]}`,
+                                "_blank",
+                                "noopener,noreferrer",
+                            );
                         }}
                         className={`text-xl cursor-pointer hover:text-red-400 dark:hover:text-red-500 hover:scale-105`}
                     />
